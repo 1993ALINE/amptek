@@ -495,7 +495,7 @@ function bootCheck() {
   if (typeof PRODUCTS !== 'undefined' && PRODUCTS.length) return true;
   const banner = document.createElement('div');
   banner.className = 'setup-warn';
-  banner.innerHTML = '<strong>⚠️ Page scripts did not load.</strong> Double-click <strong>START-HERE.bat</strong> in this folder (install <a href="https://nodejs.org">Node.js</a> if needed), then open <strong>http://localhost:8080</strong>';
+  banner.innerHTML = '<strong>⚠️ Page scripts did not load.</strong> In PowerShell run <code>.\\START-HERE.bat</code> in this folder (or double-click it). Install <a href="https://nodejs.org">Node.js</a> if needed, then open <strong>http://localhost:8080</strong>';
   document.body.prepend(banner);
   return false;
 }

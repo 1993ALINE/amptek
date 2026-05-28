@@ -10,11 +10,19 @@ Open the site from the services folder (inside your amptek project).
 2. Go into the services folder:
    cd shop
 
-3. Double-click:  START-HERE.bat
+3. Start the local server — pick ONE:
+
+   PowerShell (you must use .\ before the file name):
+     .\START-HERE.bat
+
+   Command Prompt (cmd):
+     START-HERE.bat
+
+   Or double-click START-HERE.bat in File Explorer.
 
 4. Your browser will open:  http://localhost:8080/index.html
 
-   (If Node.js is not installed, install from https://nodejs.org then run START-HERE.bat again)
+   (If Node.js is not installed, install from https://nodejs.org then run again)
 
 Pages:
   index.html    — Home / services
