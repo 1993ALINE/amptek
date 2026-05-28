@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amptek Engineering — Clients</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.sector-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:48px}
+.sector-card{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:28px;transition:all .25s;position:relative;overflow:hidden}
+.sector-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber));transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.sector-card:hover{border-color:rgba(249,115,22,0.35);background:var(--navy3);transform:translateY(-2px)}
+.sector-card:hover::after{transform:scaleX(1)}
+.sc-icon{font-size:36px;margin-bottom:14px;display:block}
+.sc-title{font-family:var(--eng);font-size:20px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:8px;letter-spacing:.3px}
+.sc-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px}
+.sc-services{display:flex;gap:6px;flex-wrap:wrap}
+.sc-tag{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);color:var(--orange);padding:3px 8px;border-radius:3px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.test-card{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:24px;position:relative}
+.test-card::before{content:'"';position:absolute;top:16px;right:20px;font-size:60px;color:rgba(249,115,22,0.1);font-family:Georgia,serif;line-height:1}
+.test-text{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:16px;font-style:italic}
+.test-author{display:flex;align-items:center;gap:10px}
+.test-avatar{width:36px;height:36px;background:linear-gradient(135deg,var(--orange),var(--amber));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--eng);font-size:16px;font-weight:900;color:#fff;flex-shrink:0}
+.test-name{font-size:13px;font-weight:700;color:#fff}
+.test-co{font-size:11px;color:var(--text3)}
+</style>
+</head>
+<body>
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+  <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+  <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+  <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+  <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+  <a href="tel:01671113616" style="color:var(--orange);padding:14px 16px;font-weight:700;font-size:16px;border-top:1px solid var(--border);margin-top:8px">📞 01671-113616</a>
+</div>
+<div class="nav-container">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><div class="nav-logo-main">Amp<span>tek</span></div><div class="nav-logo-sub">Engineering</div></a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+      <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+      <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+      <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+      <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" id="lbEn" onclick="setLang('en')">EN</button><button class="lang-btn" id="lbBn" onclick="setLang('bn')">বাং</button></div>
+      <a class="nav-cta" href="tel:01671113616"><span data-en="Call Now" data-bn="কল করুন">Call Now</span></a>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="page-banner">
+  <div class="page-banner-inner">
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a> › <span data-en="Clients" data-bn="ক্লায়েন্ট">Clients</span></div>
+    <div class="page-eyebrow" data-en="Trusted By Industry" data-bn="শিল্পে বিশ্বস্ত">Trusted By Industry</div>
+    <h1 class="page-title" data-en="Our <span>Clients</span>" data-bn="আমাদের <span>ক্লায়েন্ট</span>">Our <span>Clients</span></h1>
+    <p class="page-desc" data-en="Serving Bangladesh's leading industries, factories and institutions across 10+ sectors." data-bn="১০+ সেক্টর জুড়ে বাংলাদেশের শীর্ষস্থানীয় শিল্প, কারখানা এবং প্রতিষ্ঠানে সেবা প্রদান।">Serving Bangladesh's leading industries, factories and institutions across 10+ sectors.</p>
+  </div>
+</div>
+<div class="marquee-section"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<!-- SECTORS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-header reveal">
+      <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-en="Industries We Serve" data-bn="আমরা যে শিল্প পরিষেবা দিই">Industries We Serve</span></div>
+      <h2 class="sec-title" data-en="Sectors & <span>Projects</span>" data-bn="সেক্টর ও <span>প্রজেক্ট</span>">Sectors & <span>Projects</span></h2>
+    </div>
+    <div class="sector-grid">
+      <div class="sector-card reveal reveal-delay-1">
+        <span class="sc-icon">👕</span>
+        <div class="sc-title" data-en="RMG & Textile" data-bn="আরএমজি ও টেক্সটাইল">RMG & Textile</div>
+        <p class="sc-desc" data-en="HT/LT power systems, fire detection, HVAC and boiler solutions for garment factories and textile mills." data-bn="পোশাক কারখানা ও টেক্সটাইল মিলের জন্য HT/LT পাওয়ার সিস্টেম, ফায়ার ডিটেকশন, এইচভিএসি ও বয়লার সমাধান।">HT/LT power systems, fire detection, HVAC and boiler solutions for garment factories and mills.</p>
+        <div class="sc-services"><span class="sc-tag">Power</span><span class="sc-tag">Fire</span><span class="sc-tag">HVAC</span><span class="sc-tag">Boiler</span></div>
+      </div>
+      <div class="sector-card reveal reveal-delay-2">
+        <span class="sc-icon">💊</span>
+        <div class="sc-title" data-en="Pharmaceutical" data-bn="ফার্মাসিউটিক্যাল">Pharmaceutical</div>
+        <p class="sc-desc" data-en="Clean-room HVAC, FM-200 suppression, precision power systems and compliance documentation." data-bn="ক্লিনরুম এইচভিএসি, FM-200 সাপ্রেশন, প্রিসিশন পাওয়ার সিস্টেম এবং কমপ্লায়েন্স ডকুমেন্টেশন।">Clean-room HVAC, FM-200 suppression, precision power and compliance documentation.</p>
+        <div class="sc-services"><span class="sc-tag">HVAC</span><span class="sc-tag">FM-200</span><span class="sc-tag">Compliance</span></div>
+      </div>
+      <div class="sector-card reveal reveal-delay-3">
+        <span class="sc-icon">🍽️</span>
+        <div class="sc-title" data-en="Food Processing" data-bn="খাদ্য প্রক্রিয়াকরণ">Food Processing</div>
+        <p class="sc-desc" data-en="Boilers, process tanks, HVAC, fire safety and electrical systems for food and beverage factories." data-bn="খাদ্য ও পানীয় কারখানার জন্য বয়লার, প্রক্রিয়া ট্যাংক, এইচভিএসি, ফায়ার সেফটি এবং বৈদ্যুতিক সিস্টেম।">Boilers, process tanks, HVAC, fire safety and electrical systems.</p>
+        <div class="sc-services"><span class="sc-tag">Boiler</span><span class="sc-tag">Tank Fab</span><span class="sc-tag">Fire</span></div>
+      </div>
+      <div class="sector-card reveal reveal-delay-1">
+        <span class="sc-icon">🏥</span>
+        <div class="sc-title" data-en="Hospitals" data-bn="হাসপাতাল">Hospitals</div>
+        <p class="sc-desc" data-en="Critical power systems, fire safety, medical gas piping support, HVAC and lightning protection for healthcare." data-bn="স্বাস্থ্যসেবার জন্য ক্রিটিক্যাল পাওয়ার সিস্টেম, ফায়ার সেফটি, মেডিক্যাল গ্যাস পাইপিং সহায়তা, এইচভিএসি এবং লাইটনিং প্রটেকশন।">Critical power, fire safety, HVAC and lightning protection for healthcare facilities.</p>
+        <div class="sc-services"><span class="sc-tag">Power</span><span class="sc-tag">Fire</span><span class="sc-tag">HVAC</span><span class="sc-tag">Lightning</span></div>
+      </div>
+      <div class="sector-card reveal reveal-delay-2">
+        <span class="sc-icon">🏢</span>
+        <div class="sc-title" data-en="Commercial Buildings" data-bn="বাণিজ্যিক ভবন">Commercial Buildings</div>
+        <p class="sc-desc" data-en="Full MEP packages — LT switchgear, BBT, HVAC, fire detection and lightning protection." data-bn="সম্পূর্ণ MEP প্যাকেজ — LT সুইচগিয়ার, বিবিটি, এইচভিএসি, ফায়ার ডিটেকশন এবং লাইটনিং প্রটেকশন।">Full MEP packages — LT switchgear, BBT, HVAC, fire detection and lightning protection.</p>
+        <div class="sc-services"><span class="sc-tag">BBT</span><span class="sc-tag">HVAC</span><span class="sc-tag">Fire</span><span class="sc-tag">Lightning</span></div>
+      </div>
+      <div class="sector-card reveal reveal-delay-3">
+        <span class="sc-icon">💻</span>
+        <div class="sc-title" data-en="Data Centres" data-bn="ডেটা সেন্টার">Data Centres</div>
+        <p class="sc-desc" data-en="Precision cooling, UPS power, FM-200 suppression and redundant electrical systems for data centre operations." data-bn="ডেটা সেন্টার অপারেশনের জন্য প্রিসিশন কুলিং, UPS পাওয়ার, FM-200 সাপ্রেশন এবং রিডান্ড্যান্ট বৈদ্যুতিক সিস্টেম।">Precision cooling, FM-200 suppression and redundant electrical systems.</p>
+        <div class="sc-services"><span class="sc-tag">Precision HVAC</span><span class="sc-tag">FM-200</span><span class="sc-tag">Power</span></div>
+      </div>
+      <div class="sector-card reveal reveal-delay-1">
+        <span class="sc-icon">⚡</span>
+        <div class="sc-title" data-en="Power Plants" data-bn="পাওয়ার প্ল্যান্ট">Power Plants</div>
+        <p class="sc-desc" data-en="HT switchgear, transformer installation, protection relay systems and safety compliance for power generation." data-bn="পাওয়ার জেনারেশনের জন্য HT সুইচগিয়ার, ট্রান্সফরমার ইনস্টলেশন, প্রটেকশন রিলে সিস্টেম এবং সেফটি কমপ্লায়েন্স।">HT switchgear, transformer installation and safety compliance for power generation.</p>
+        <div class="sc-services"><span class="sc-tag">HT Switchgear</span><span class="sc-tag">Transformer</span><span class="sc-tag">Safety</span></div>
+      </div>
+      <div class="sector-card reveal reveal-delay-2">
+        <span class="sc-icon">⚗️</span>
+        <div class="sc-title" data-en="Chemical Plants" data-bn="কেমিক্যাল প্ল্যান্ট">Chemical Plants</div>
+        <p class="sc-desc" data-en="Hazardous area electrical, fire suppression, storage tank fabrication and explosion-proof automation." data-bn="বিপজ্জনক এলাকার বৈদ্যুতিক, ফায়ার সাপ্রেশন, স্টোরেজ ট্যাংক ফ্যাব্রিকেশন এবং এক্সপ্লোশন-প্রুফ অটোমেশন।">Hazardous area electrical, fire suppression and storage tank fabrication.</p>
+        <div class="sc-services"><span class="sc-tag">Tank Fab</span><span class="sc-tag">Fire</span><span class="sc-tag">Automation</span></div>
+      </div>
+      <div class="sector-card reveal reveal-delay-3">
+        <span class="sc-icon">🏗️</span>
+        <div class="sc-title" data-en="Steel & Heavy Industry" data-bn="স্টিল ও ভারী শিল্প">Steel & Heavy Industry</div>
+        <p class="sc-desc" data-en="PLC/automation systems, high-capacity motor control, switchgear and industrial maintenance contracts." data-bn="PLC/অটোমেশন সিস্টেম, হাই-ক্যাপাসিটি মোটর কন্ট্রোল, সুইচগিয়ার এবং ইন্ডাস্ট্রিয়াল মেইনটেন্যান্স কন্ট্রাক্ট।">PLC/automation systems, high-capacity motor control and maintenance contracts.</p>
+        <div class="sc-services"><span class="sc-tag">PLC</span><span class="sc-tag">Switchgear</span><span class="sc-tag">Maintenance</span></div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="sec-header reveal" style="margin-top:20px">
+      <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-en="What Clients Say" data-bn="ক্লায়েন্টরা কী বলেন">What Clients Say</span></div>
+      <h2 class="sec-title" data-en="Client <span>Feedback</span>" data-bn="ক্লায়েন্ট <span>মতামত</span>">Client <span>Feedback</span></h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="test-card reveal reveal-delay-1">
+        <p class="test-text" data-en='"Amptek delivered our entire fire safety and power system on schedule and to full NFPA compliance. Highly professional team."' data-bn='"অ্যাম্পটেক সম্পূর্ণ ফায়ার সেফটি ও পাওয়ার সিস্টেম সময়মতো এবং সম্পূর্ণ NFPA কমপ্লায়েন্সে ডেলিভারি দিয়েছে। অত্যন্ত পেশাদার টিম।"'>"Amptek delivered our entire fire safety and power system on schedule and to full NFPA compliance. Highly professional team."</p>
+        <div class="test-author"><div class="test-avatar">R</div><div><div class="test-name" data-en="Factory Manager" data-bn="ফ্যাক্টরি ম্যানেজার">Factory Manager</div><div class="test-co" data-en="RMG Factory, Ashulia" data-bn="পোশাক কারখানা, আশুলিয়া">RMG Factory, Ashulia</div></div></div>
+      </div>
+      <div class="test-card reveal reveal-delay-2">
+        <p class="test-text" data-en='"Our FM-200 system and precision HVAC were installed flawlessly. Amptek''s engineers really understand pharmaceutical compliance requirements."' data-bn='"আমাদের FM-200 সিস্টেম এবং প্রিসিশন এইচভিএসি নির্ভুলভাবে ইনস্টল করা হয়েছে। অ্যাম্পটেকের ইঞ্জিনিয়াররা সত্যিই ফার্মাসিউটিক্যাল কমপ্লায়েন্স বোঝেন।"'>"Our FM-200 system and precision HVAC were installed flawlessly. Amptek's engineers understand pharmaceutical compliance."</p>
+        <div class="test-author"><div class="test-avatar">M</div><div><div class="test-name" data-en="Facility Director" data-bn="ফ্যাসিলিটি ডিরেক্টর">Facility Director</div><div class="test-co" data-en="Pharma Plant, Gazipur" data-bn="ফার্মা প্ল্যান্ট, গাজীপুর">Pharma Plant, Gazipur</div></div></div>
+      </div>
+      <div class="test-card reveal reveal-delay-3">
+        <p class="test-text" data-en='"The PLC automation system has reduced our downtime by over 40%. Amptek''s team was thorough, responsive and delivered exactly what was promised."' data-bn='"PLC অটোমেশন সিস্টেম আমাদের ডাউনটাইম ৪০% এরও বেশি কমিয়েছে। অ্যাম্পটেকের টিম পুঙ্খানুপুঙ্খ, সাড়াশীল এবং প্রতিশ্রুত ঠিক তাই ডেলিভারি দিয়েছে।"'>"The PLC automation system reduced our downtime by over 40%. Amptek was thorough and delivered exactly what was promised."</p>
+        <div class="test-author"><div class="test-avatar">K</div><div><div class="test-name" data-en="Operations Manager" data-bn="অপারেশন ম্যানেজার">Operations Manager</div><div class="test-co" data-en="Steel Industry, Chattogram" data-bn="স্টিল ইন্ডাস্ট্রি, চট্টগ্রাম">Steel Industry, Chattogram</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo-main">Amp<span>tek</span></div><div class="footer-logo-sub">Engineering</div><p class="footer-tagline" data-en="Powering industry, protecting lives." data-bn="শিল্প পরিচালনা, জীবন সুরক্ষা।">Powering industry, protecting lives.</p><a class="footer-phone" href="tel:01671113616">📞 01671-113616</a></div>
+      <div class="footer-col"><h4 data-en="Services" data-bn="সেবাসমূহ">Services</h4><a href="services.html#power">Power Systems</a><a href="services.html#fire">Fire Safety</a><a href="services.html#mechanical">Mechanical</a><a href="services.html#industrial">Industrial</a><a href="services.html#safety">Safety</a></div>
+      <div class="footer-col"><h4 data-en="Company" data-bn="কোম্পানি">Company</h4><a href="index.html" data-en="Home" data-bn="হোম">Home</a><a href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a><a href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></div>
+      <div class="footer-col"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><a href="tel:01671113616">📞 01671-113616</a><a href="https://wa.me/8801671113616">💬 WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 <span class="amp">Amptek Engineering</span>. <span data-en="All rights reserved." data-bn="সর্বস্বত্ব সংরক্ষিত।">All rights reserved.</span></span><span data-en="Powering Industry. Protecting Lives." data-bn="শিল্প পরিচালনা। জীবন সুরক্ষা।">Powering Industry. Protecting Lives.</span></div>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="shared.js"></script>
+</body>
+</html>

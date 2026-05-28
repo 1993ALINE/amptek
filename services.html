@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amptek Engineering — Services</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.services-full{display:flex;flex-direction:column;gap:0}
+.svc-block{padding:72px 0;border-bottom:1px solid var(--border);scroll-margin-top:90px}
+.svc-block:last-child{border-bottom:none}
+.svc-inner{max-width:1260px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.svc-inner.flip{direction:rtl}
+.svc-inner.flip>*{direction:ltr}
+.svc-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.svc-label::before{content:'';width:24px;height:2px;background:var(--orange)}
+.svc-icon-big{font-size:64px;margin-bottom:16px;display:block;filter:drop-shadow(0 0 20px rgba(249,115,22,0.3))}
+.svc-title{font-family:var(--eng);font-size:clamp(36px,5vw,56px);font-weight:900;text-transform:uppercase;color:#fff;letter-spacing:-1px;line-height:.95;margin-bottom:14px}
+.svc-title span{color:var(--orange)}
+.svc-desc{font-size:15px;color:var(--text2);line-height:1.75;margin-bottom:24px}
+.svc-sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.sub-card{background:var(--navy2);border:1px solid var(--border);border-radius:6px;padding:16px 14px;transition:all .2s}
+.sub-card:hover{border-color:rgba(249,115,22,0.4);background:var(--navy3)}
+.sub-icon{font-size:22px;margin-bottom:8px;display:block}
+.sub-name{font-family:var(--eng);font-size:15px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:4px;letter-spacing:.3px}
+.sub-desc{font-size:12px;color:var(--text2);line-height:1.5}
+.svc-highlight{background:linear-gradient(135deg,var(--navy3),var(--navy2));border:1px solid var(--border);border-radius:8px;padding:28px;position:relative;overflow:hidden}
+.svc-highlight::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber))}
+.svc-highlight h4{font-family:var(--eng);font-size:18px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:14px;letter-spacing:.3px}
+.feat-list{display:flex;flex-direction:column;gap:10px}
+.feat-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.5}
+.feat-bullet{width:20px;height:20px;background:rgba(249,115,22,0.15);border:1px solid rgba(249,115,22,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--orange);flex-shrink:0;margin-top:1px}
+.standards-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.std-badge{background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.25);color:#06B6D4;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.5px}
+@media(max-width:768px){.svc-inner,.svc-inner.flip{grid-template-columns:1fr;direction:ltr}.svc-sub-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+  <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+  <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+  <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+  <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+  <a href="tel:01671113616" style="color:var(--orange);padding:14px 16px;font-weight:700;font-size:16px;border-top:1px solid var(--border);margin-top:8px">📞 01671-113616</a>
+</div>
+<div class="nav-container">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><div class="nav-logo-main">Amp<span>tek</span></div><div class="nav-logo-sub">Engineering</div></a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+      <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+      <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+      <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+      <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" id="lbEn" onclick="setLang('en')">EN</button><button class="lang-btn" id="lbBn" onclick="setLang('bn')">বাং</button></div>
+      <a class="nav-cta" href="tel:01671113616"><span data-en="Call Now" data-bn="কল করুন">Call Now</span></a>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div class="page-banner">
+  <div class="page-banner-inner">
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a> › <span data-en="Services" data-bn="সেবাসমূহ">Services</span></div>
+    <div class="page-eyebrow" data-en="5 Engineering Divisions" data-bn="৫টি ইঞ্জিনিয়ারিং বিভাগ">5 Engineering Divisions</div>
+    <h1 class="page-title" data-en="Our <span>Services</span>" data-bn="আমাদের <span>সেবাসমূহ</span>">Our <span>Services</span></h1>
+    <p class="page-desc" data-en="Comprehensive engineering solutions across Power, Fire Safety, Mechanical, Industrial, and Safety disciplines." data-bn="পাওয়ার, ফায়ার সেফটি, মেকানিক্যাল, ইন্ডাস্ট্রিয়াল এবং সেফটি বিভাগে ব্যাপক ইঞ্জিনিয়ারিং সমাধান।">Comprehensive engineering solutions across Power, Fire Safety, Mechanical, Industrial, and Safety disciplines.</p>
+    <!-- Quick Jump -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:24px">
+      <a href="#power" class="btn btn-sm btn-outline">⚡ <span data-en="Power" data-bn="পাওয়ার">Power</span></a>
+      <a href="#fire" class="btn btn-sm btn-outline">🔥 <span data-en="Fire Safety" data-bn="ফায়ার সেফটি">Fire Safety</span></a>
+      <a href="#mechanical" class="btn btn-sm btn-outline">⚙️ <span data-en="Mechanical" data-bn="মেকানিক্যাল">Mechanical</span></a>
+      <a href="#industrial" class="btn btn-sm btn-outline">🤖 <span data-en="Industrial" data-bn="ইন্ডাস্ট্রিয়াল">Industrial</span></a>
+      <a href="#safety" class="btn btn-sm btn-outline">🛡️ <span data-en="Safety" data-bn="সেফটি">Safety</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="marquee-section"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<div class="services-full">
+
+  <!-- POWER -->
+  <div class="svc-block" id="power">
+    <div class="svc-inner reveal">
+      <div>
+        <div class="svc-label" data-en="Division 01 — Power Systems" data-bn="বিভাগ ০১ — পাওয়ার সিস্টেম">Division 01 — Power Systems</div>
+        <span class="svc-icon-big">⚡</span>
+        <h2 class="svc-title" data-en="Power <span>Systems</span>" data-bn="পাওয়ার <span>সিস্টেম</span>">Power <span>Systems</span></h2>
+        <p class="svc-desc" data-en="Complete HT/LT electrical infrastructure design, supply, installation and commissioning for factories, commercial buildings and industrial facilities across Bangladesh." data-bn="বাংলাদেশ জুড়ে কারখানা, বাণিজ্যিক ভবন এবং শিল্প সুবিধার জন্য সম্পূর্ণ HT/LT বৈদ্যুতিক অবকাঠামো ডিজাইন, সরবরাহ, স্থাপন এবং কমিশনিং।">Complete HT/LT electrical infrastructure design, supply, installation and commissioning for factories, commercial buildings and industrial facilities across Bangladesh.</p>
+        <div class="svc-sub-grid">
+          <div class="sub-card"><span class="sub-icon">🔌</span><div class="sub-name" data-en="HT/LT Switchgear" data-bn="HT/LT সুইচগিয়ার">HT/LT Switchgear</div><div class="sub-desc" data-en="High & low tension switchgear panels, MCC, PCC, APFC and distribution boards." data-bn="হাই ও লো টেনশন সুইচগিয়ার প্যানেল, MCC, PCC, APFC এবং ডিস্ট্রিবিউশন বোর্ড।">High & low tension switchgear panels, MCC, PCC, APFC and distribution boards.</div></div>
+          <div class="sub-card"><span class="sub-icon">⚡</span><div class="sub-name" data-en="Bus Bar Trunking" data-bn="বাস বার ট্রাংকিং">Bus Bar Trunking</div><div class="sub-desc" data-en="BBT systems for efficient power distribution in multi-storey and industrial buildings." data-bn="বহুতল ও শিল্প ভবনে দক্ষ পাওয়ার ডিস্ট্রিবিউশনের জন্য বিবিটি সিস্টেম।">BBT systems for efficient power distribution in multi-storey and industrial buildings.</div></div>
+          <div class="sub-card" style="grid-column:span 2"><span class="sub-icon">🔋</span><div class="sub-name" data-en="Power Transformers" data-bn="পাওয়ার ট্রান্সফরমার">Power Transformers</div><div class="sub-desc" data-en="Supply, installation and commissioning of distribution and power transformers. Maintenance contracts available." data-bn="ডিস্ট্রিবিউশন ও পাওয়ার ট্রান্সফরমারের সরবরাহ, স্থাপন এবং কমিশনিং। মেইনটেন্যান্স কন্ট্রাক্ট উপলব্ধ।">Supply, installation and commissioning of distribution and power transformers. Maintenance contracts available.</div></div>
+        </div>
+        <a class="btn btn-primary" href="contact.html" data-en="Request a Quote →" data-bn="কোটেশন নিন →">Request a Quote →</a>
+      </div>
+      <div class="svc-highlight reveal reveal-delay-2">
+        <h4 data-en="Key Capabilities" data-bn="মূল সক্ষমতা">Key Capabilities</h4>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="33kV / 11kV HT switchgear design and installation" data-bn="33kV / 11kV HT সুইচগিয়ার ডিজাইন ও স্থাপন">33kV / 11kV HT switchgear design and installation</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="LT distribution boards up to 6300A" data-bn="6300A পর্যন্ত LT ডিস্ট্রিবিউশন বোর্ড">LT distribution boards up to 6300A</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Motor Control Centres (MCC) and PCC" data-bn="মোটর কন্ট্রোল সেন্টার (MCC) এবং PCC">Motor Control Centres (MCC) and PCC</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="BBT up to 5000A rising mains" data-bn="5000A পর্যন্ত বিবিটি রাইজিং মেইনস">BBT up to 5000A rising mains</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Transformer installation up to 5MVA" data-bn="5MVA পর্যন্ত ট্রান্সফরমার স্থাপন">Transformer installation up to 5MVA</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Power factor correction (APFC)" data-bn="পাওয়ার ফ্যাক্টর কারেকশন (APFC)">Power factor correction (APFC)</span></div>
+        </div>
+        <div class="standards-row"><span class="std-badge">IEC 61439</span><span class="std-badge">IEC 60076</span><span class="std-badge">BNBC</span><span class="std-badge">BREB</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIRE SAFETY -->
+  <div class="svc-block" id="fire" style="background:rgba(17,24,39,0.4)">
+    <div class="svc-inner flip reveal">
+      <div>
+        <div class="svc-label" data-en="Division 02 — Fire Safety" data-bn="বিভাগ ০২ — ফায়ার সেফটি">Division 02 — Fire Safety</div>
+        <span class="svc-icon-big">🔥</span>
+        <h2 class="svc-title" data-en="Fire <span>Safety</span>" data-bn="ফায়ার <span>সেফটি</span>">Fire <span>Safety</span></h2>
+        <p class="svc-desc" data-en="Life safety systems designed and installed to NFPA standards. From detection to suppression — protecting your people, assets and operations." data-bn="NFPA মানদণ্ড অনুযায়ী ডিজাইন ও স্থাপিত লাইফ সেফটি সিস্টেম। ডিটেকশন থেকে সাপ্রেশন — আপনার মানুষ, সম্পদ ও কার্যক্রম সুরক্ষা।">Life safety systems designed and installed to NFPA standards. From detection to suppression — protecting your people, assets and operations.</p>
+        <div class="svc-sub-grid">
+          <div class="sub-card"><span class="sub-icon">🚨</span><div class="sub-name" data-en="NFPA Detection" data-bn="NFPA ডিটেকশন">NFPA Detection</div><div class="sub-desc" data-en="Addressable and conventional fire alarm systems per NFPA 72. Smoke, heat, beam and aspirating detectors." data-bn="NFPA 72 অনুযায়ী অ্যাড্রেসেবল ও কনভেনশনাল ফায়ার অ্যালার্ম সিস্টেম।">Addressable and conventional fire alarm systems per NFPA 72.</div></div>
+          <div class="sub-card"><span class="sub-icon">💧</span><div class="sub-name" data-en="Hydrant Systems" data-bn="হাইড্রান্ট সিস্টেম">Hydrant Systems</div><div class="sub-desc" data-en="Internal and external fire hydrant and hose reel systems per NFPA 14 and local codes." data-bn="NFPA 14 অনুযায়ী অভ্যন্তরীণ ও বাহ্যিক ফায়ার হাইড্রান্ট ও হোজ রিল সিস্টেম।">Internal and external fire hydrant systems per NFPA 14.</div></div>
+          <div class="sub-card" style="grid-column:span 2"><span class="sub-icon">🧯</span><div class="sub-name" data-en="FM-200 Suppression" data-bn="FM-200 সাপ্রেশন">FM-200 Suppression</div><div class="sub-desc" data-en="Clean agent FM-200 (HFC-227ea) gaseous suppression systems for server rooms, control panels, and sensitive equipment. No water damage, zero residue." data-bn="সার্ভার রুম, কন্ট্রোল প্যানেল এবং সংবেদনশীল সরঞ্জামের জন্য ক্লিন এজেন্ট FM-200 গ্যাসিয়াস সাপ্রেশন সিস্টেম। পানির ক্ষতি নেই, শূন্য অবশিষ্ট।">Clean agent FM-200 gaseous suppression for server rooms and sensitive equipment.</div></div>
+        </div>
+        <a class="btn btn-primary" href="contact.html" data-en="Request a Quote →" data-bn="কোটেশন নিন →">Request a Quote →</a>
+      </div>
+      <div class="svc-highlight reveal reveal-delay-2">
+        <h4 data-en="Key Capabilities" data-bn="মূল সক্ষমতা">Key Capabilities</h4>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Full fire risk assessment and design" data-bn="সম্পূর্ণ ফায়ার রিস্ক মূল্যায়ন ও ডিজাইন">Full fire risk assessment and design</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="NFPA 13 sprinkler systems" data-bn="NFPA 13 স্প্রিংকলার সিস্টেম">NFPA 13 sprinkler systems</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Fire pump sets and jockey pumps" data-bn="ফায়ার পাম্প সেট ও জকি পাম্প">Fire pump sets and jockey pumps</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Emergency voice evacuation systems" data-bn="ইমার্জেন্সি ভয়েস ইভাকুয়েশন সিস্টেম">Emergency voice evacuation systems</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Annual maintenance contracts (AMC)" data-bn="বার্ষিক মেইনটেন্যান্স কন্ট্রাক্ট">Annual maintenance contracts (AMC)</span></div>
+        </div>
+        <div class="standards-row"><span class="std-badge">NFPA 72</span><span class="std-badge">NFPA 13</span><span class="std-badge">NFPA 14</span><span class="std-badge">FM-200</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MECHANICAL -->
+  <div class="svc-block" id="mechanical">
+    <div class="svc-inner reveal">
+      <div>
+        <div class="svc-label" data-en="Division 03 — Mechanical" data-bn="বিভাগ ০৩ — মেকানিক্যাল">Division 03 — Mechanical</div>
+        <span class="svc-icon-big">⚙️</span>
+        <h2 class="svc-title" data-en="Mechanical <span>Engineering</span>" data-bn="মেকানিক্যাল <span>ইঞ্জিনিয়ারিং</span>">Mechanical <span>Engineering</span></h2>
+        <p class="svc-desc" data-en="Heavy mechanical solutions for thermal systems, climate control, and custom fabrication. Serving textile, pharma, food processing and industrial clients." data-bn="তাপীয় সিস্টেম, জলবায়ু নিয়ন্ত্রণ এবং কাস্টম ফ্যাব্রিকেশনের জন্য ভারী মেকানিক্যাল সমাধান। টেক্সটাইল, ফার্মা, খাদ্য প্রক্রিয়াকরণ এবং শিল্প ক্লায়েন্টদের সেবা।">Heavy mechanical solutions for thermal systems, climate control, and custom fabrication.</p>
+        <div class="svc-sub-grid">
+          <div class="sub-card"><span class="sub-icon">♨️</span><div class="sub-name" data-en="Boiler" data-bn="বয়লার">Boiler</div><div class="sub-desc" data-en="Supply, installation, commissioning and annual servicing of steam and hot water boilers." data-bn="স্টিম ও হট ওয়াটার বয়লারের সরবরাহ, স্থাপন, কমিশনিং এবং বার্ষিক সার্ভিসিং।">Supply, installation, commissioning and annual servicing of boilers.</div></div>
+          <div class="sub-card"><span class="sub-icon">❄️</span><div class="sub-name">HVAC</div><div class="sub-desc" data-en="Central AC, VRF/VRV, duct systems, AHU and precision cooling for data centres." data-bn="সেন্ট্রাল এসি, VRF/VRV, ডাক্ট সিস্টেম, AHU এবং ডেটা সেন্টারের জন্য প্রিসিশন কুলিং।">Central AC, VRF/VRV, duct systems and precision cooling.</div></div>
+          <div class="sub-card" style="grid-column:span 2"><span class="sub-icon">🏗️</span><div class="sub-name" data-en="Tank Fabrication" data-bn="ট্যাংক ফ্যাব্রিকেশন">Tank Fabrication</div><div class="sub-desc" data-en="Custom steel tanks for fuel, water, chemical storage and process vessels. Design, fabrication, testing and installation." data-bn="জ্বালানি, পানি, রাসায়নিক সংরক্ষণ এবং প্রক্রিয়া জাহাজের জন্য কাস্টম স্টিল ট্যাংক। ডিজাইন, ফ্যাব্রিকেশন, পরীক্ষা এবং স্থাপন।">Custom steel tanks for fuel, water and chemical storage. Design to installation.</div></div>
+        </div>
+        <a class="btn btn-primary" href="contact.html" data-en="Request a Quote →" data-bn="কোটেশন নিন →">Request a Quote →</a>
+      </div>
+      <div class="svc-highlight reveal reveal-delay-2">
+        <h4 data-en="Key Capabilities" data-bn="মূল সক্ষমতা">Key Capabilities</h4>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Steam boilers up to 10 tonnes/hr" data-bn="10 টন/ঘণ্টা পর্যন্ত স্টিম বয়লার">Steam boilers up to 10 tonnes/hr</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="HVAC design and load calculation" data-bn="এইচভিএসি ডিজাইন ও লোড ক্যালকুলেশন">HVAC design and load calculation</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="VRF/VRV multi-zone systems" data-bn="VRF/VRV মাল্টি-জোন সিস্টেম">VRF/VRV multi-zone systems</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="MS and SS tank fabrication" data-bn="MS ও SS ট্যাংক ফ্যাব্রিকেশন">MS and SS tank fabrication</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Pressure vessel design per ASME" data-bn="ASME অনুযায়ী প্রেশার ভেসেল ডিজাইন">Pressure vessel design per ASME</span></div>
+        </div>
+        <div class="standards-row"><span class="std-badge">ASME</span><span class="std-badge">ASHRAE</span><span class="std-badge">DESA</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDUSTRIAL -->
+  <div class="svc-block" id="industrial" style="background:rgba(17,24,39,0.4)">
+    <div class="svc-inner flip reveal">
+      <div>
+        <div class="svc-label" data-en="Division 04 — Industrial" data-bn="বিভাগ ০৪ — ইন্ডাস্ট্রিয়াল">Division 04 — Industrial</div>
+        <span class="svc-icon-big">🤖</span>
+        <h2 class="svc-title" data-en="Industrial <span>Automation</span>" data-bn="ইন্ডাস্ট্রিয়াল <span>অটোমেশন</span>">Industrial <span>Automation</span></h2>
+        <p class="svc-desc" data-en="Smart automation and intelligent control systems to modernise your production lines, reduce downtime and cut operational costs." data-bn="আপনার প্রোডাকশন লাইন আধুনিক করতে, ডাউনটাইম কমাতে এবং পরিচালন খরচ কমাতে স্মার্ট অটোমেশন ও বুদ্ধিমান কন্ট্রোল সিস্টেম।">Smart automation and intelligent control systems to modernise your production lines and cut costs.</p>
+        <div class="svc-sub-grid">
+          <div class="sub-card"><span class="sub-icon">⚙️</span><div class="sub-name" data-en="Automation" data-bn="অটোমেশন">Automation</div><div class="sub-desc" data-en="End-to-end industrial automation — conveyor systems, motor drives, SCADA integration." data-bn="এন্ড-টু-এন্ড ইন্ডাস্ট্রিয়াল অটোমেশন — কনভেয়ার সিস্টেম, মোটর ড্রাইভ, SCADA ইন্টিগ্রেশন।">End-to-end industrial automation — conveyor, drives, SCADA.</div></div>
+          <div class="sub-card"><span class="sub-icon">💻</span><div class="sub-name">PLC</div><div class="sub-desc" data-en="PLC programming, panel design and commissioning. Siemens, Allen Bradley, Mitsubishi platforms." data-bn="PLC প্রোগ্রামিং, প্যানেল ডিজাইন এবং কমিশনিং। সিমেন্স, অ্যালেন ব্র্যাডলি, মিতসুবিশি প্ল্যাটফর্ম।">PLC programming and commissioning. Siemens, AB, Mitsubishi.</div></div>
+          <div class="sub-card" style="grid-column:span 2"><span class="sub-icon">🔧</span><div class="sub-name" data-en="Machine Maintenance" data-bn="মেশিন মেইনটেন্যান্স">Machine Maintenance</div><div class="sub-desc" data-en="Preventive and corrective maintenance contracts for industrial machinery. Minimise downtime with scheduled servicing." data-bn="ইন্ডাস্ট্রিয়াল মেশিনারির জন্য প্রিভেন্টিভ ও কারেক্টিভ মেইনটেন্যান্স কন্ট্রাক্ট। নির্ধারিত সার্ভিসিং দিয়ে ডাউনটাইম কমান।">Preventive and corrective maintenance contracts for industrial machinery.</div></div>
+        </div>
+        <a class="btn btn-primary" href="contact.html" data-en="Request a Quote →" data-bn="কোটেশন নিন →">Request a Quote →</a>
+      </div>
+      <div class="svc-highlight reveal reveal-delay-2">
+        <h4 data-en="Key Capabilities" data-bn="মূল সক্ষমতা">Key Capabilities</h4>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Siemens S7 / Allen Bradley PLC" data-bn="সিমেন্স S7 / অ্যালেন ব্র্যাডলি PLC">Siemens S7 / Allen Bradley PLC</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Variable frequency drives (VFD)" data-bn="ভ্যারিয়েবল ফ্রিকোয়েন্সি ড্রাইভ (VFD)">Variable frequency drives (VFD)</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="HMI / SCADA system integration" data-bn="HMI / SCADA সিস্টেম ইন্টিগ্রেশন">HMI / SCADA system integration</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Conveyor and packaging automation" data-bn="কনভেয়ার ও প্যাকেজিং অটোমেশন">Conveyor and packaging automation</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Annual maintenance contracts" data-bn="বার্ষিক মেইনটেন্যান্স কন্ট্রাক্ট">Annual maintenance contracts</span></div>
+        </div>
+        <div class="standards-row"><span class="std-badge">IEC 61131</span><span class="std-badge">Siemens</span><span class="std-badge">Allen Bradley</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAFETY -->
+  <div class="svc-block" id="safety">
+    <div class="svc-inner reveal">
+      <div>
+        <div class="svc-label" data-en="Division 05 — Safety" data-bn="বিভাগ ০৫ — সেফটি">Division 05 — Safety</div>
+        <span class="svc-icon-big">🛡️</span>
+        <h2 class="svc-title" data-en="Safety <span>Systems</span>" data-bn="সেফটি <span>সিস্টেম</span>">Safety <span>Systems</span></h2>
+        <p class="svc-desc" data-en="Protecting structures and ensuring full regulatory compliance — from lightning protection design to safety auditing for industrial and commercial facilities." data-bn="কাঠামো সুরক্ষা এবং সম্পূর্ণ নিয়ন্ত্রক সম্মতি নিশ্চিত করা — লাইটনিং প্রটেকশন ডিজাইন থেকে শিল্প ও বাণিজ্যিক সুবিধার সেফটি অডিটিং পর্যন্ত।">Protecting structures and ensuring full regulatory compliance.</p>
+        <div class="svc-sub-grid">
+          <div class="sub-card"><span class="sub-icon">⚡</span><div class="sub-name" data-en="Lightning Protection" data-bn="লাইটনিং প্রটেকশন">Lightning Protection</div><div class="sub-desc" data-en="IEC 62305 compliant lightning protection systems. Risk assessment, design, installation and testing." data-bn="IEC 62305 কমপ্লায়েন্ট লাইটনিং প্রটেকশন সিস্টেম। রিস্ক মূল্যায়ন, ডিজাইন, স্থাপন এবং পরীক্ষা।">IEC 62305 compliant systems. Risk assessment to testing.</div></div>
+          <div class="sub-card"><span class="sub-icon">📋</span><div class="sub-name" data-en="Compliance" data-bn="কমপ্লায়েন্স">Compliance</div><div class="sub-desc" data-en="Safety audits, documentation, DIFE compliance, fire safety certificates and regulatory reporting." data-bn="সেফটি অডিট, ডকুমেন্টেশন, DIFE কমপ্লায়েন্স, ফায়ার সেফটি সার্টিফিকেট এবং নিয়ন্ত্রক রিপোর্টিং।">Safety audits, DIFE compliance, fire safety certificates.</div></div>
+        </div>
+        <a class="btn btn-primary" href="contact.html" data-en="Request a Quote →" data-bn="কোটেশন নিন →">Request a Quote →</a>
+      </div>
+      <div class="svc-highlight reveal reveal-delay-2">
+        <h4 data-en="Key Capabilities" data-bn="মূল সক্ষমতা">Key Capabilities</h4>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="IEC 62305 lightning risk assessment" data-bn="IEC 62305 লাইটনিং রিস্ক মূল্যায়ন">IEC 62305 lightning risk assessment</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Earthing system design and testing" data-bn="আর্থিং সিস্টেম ডিজাইন ও পরীক্ষা">Earthing system design and testing</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="DIFE / FSCD compliance documentation" data-bn="DIFE / FSCD কমপ্লায়েন্স ডকুমেন্টেশন">DIFE / FSCD compliance documentation</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Electrical safety audits and thermography" data-bn="বৈদ্যুতিক সেফটি অডিট ও থার্মোগ্রাফি">Electrical safety audits and thermography</span></div>
+          <div class="feat-item"><div class="feat-bullet">✓</div><span data-en="Safety training for facility staff" data-bn="সুবিধা কর্মীদের সেফটি প্রশিক্ষণ">Safety training for facility staff</span></div>
+        </div>
+        <div class="standards-row"><span class="std-badge">IEC 62305</span><span class="std-badge">DIFE</span><span class="std-badge">FSCD</span><span class="std-badge">BNBC</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<section class="section" style="background:linear-gradient(135deg,var(--navy2),var(--navy3));border-top:1px solid var(--border)">
+  <div class="section-inner" style="text-align:center">
+    <div class="sec-eyebrow" style="justify-content:center;margin-bottom:12px"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-en="Ready to Start?" data-bn="শুরু করতে প্রস্তুত?">Ready to Start?</span></div>
+    <h2 class="sec-title reveal" style="text-align:center" data-en="Let's Discuss Your <span>Project</span>" data-bn="আপনার <span>প্রজেক্ট</span> নিয়ে আলোচনা করি">Let's Discuss Your <span>Project</span></h2>
+    <p class="sec-desc reveal" style="margin:0 auto 28px;text-align:center" data-en="Contact our engineering team today for a free site survey and quotation." data-bn="বিনামূল্যে সাইট সার্ভে ও কোটেশনের জন্য আজই আমাদের ইঞ্জিনিয়ারিং টিমের সাথে যোগাযোগ করুন।">Contact our engineering team today for a free site survey and quotation.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" class="reveal">
+      <a class="btn btn-primary" href="contact.html" data-en="Get Free Quote" data-bn="বিনামূল্যে কোটেশন নিন">Get Free Quote</a>
+      <a class="btn btn-outline" href="tel:01671113616">📞 01671-113616</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo-main">Amp<span>tek</span></div><div class="footer-logo-sub">Engineering</div><p class="footer-tagline" data-en="Powering industry, protecting lives." data-bn="শিল্প পরিচালনা, জীবন সুরক্ষা।">Powering industry, protecting lives.</p><a class="footer-phone" href="tel:01671113616">📞 01671-113616</a></div>
+      <div class="footer-col"><h4 data-en="Services" data-bn="সেবাসমূহ">Services</h4><a href="#power" data-en="Power Systems" data-bn="পাওয়ার সিস্টেম">Power Systems</a><a href="#fire" data-en="Fire Safety" data-bn="ফায়ার সেফটি">Fire Safety</a><a href="#mechanical" data-en="Mechanical" data-bn="মেকানিক্যাল">Mechanical</a><a href="#industrial" data-en="Industrial" data-bn="ইন্ডাস্ট্রিয়াল">Industrial</a><a href="#safety" data-en="Safety" data-bn="সেফটি">Safety</a></div>
+      <div class="footer-col"><h4 data-en="Company" data-bn="কোম্পানি">Company</h4><a href="index.html" data-en="Home" data-bn="হোম">Home</a><a href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a><a href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></div>
+      <div class="footer-col"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><a href="tel:01671113616">📞 01671-113616</a><a href="https://wa.me/8801671113616">💬 WhatsApp</a><a href="contact.html" data-en="Send Enquiry" data-bn="অনুসন্ধান পাঠান">Send Enquiry</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 <span class="amp">Amptek Engineering</span>. <span data-en="All rights reserved." data-bn="সর্বস্বত্ব সংরক্ষিত।">All rights reserved.</span></span><span data-en="Powering Industry. Protecting Lives." data-bn="শিল্প পরিচালনা। জীবন সুরক্ষা।">Powering Industry. Protecting Lives.</span></div>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="shared.js"></script>
+</body>
+</html>

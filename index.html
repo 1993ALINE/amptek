@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amptek Engineering — Home</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 24px 60px;position:relative;z-index:1;overflow:hidden}
+.hero-glow1{position:absolute;top:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(249,115,22,0.13) 0%,transparent 70%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-80px;left:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(6,182,212,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1260px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.eyebrow-line{width:36px;height:2px;background:var(--orange)}
+.eyebrow-text{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:700}
+.hero-title{font-family:var(--eng);font-size:clamp(52px,7vw,88px);font-weight:900;line-height:.92;text-transform:uppercase;letter-spacing:-2px;margin-bottom:22px}
+.hero-title .t1{color:#fff;display:block}
+.hero-title .t2{color:var(--orange);display:block}
+.hero-title .t3{color:var(--text2);font-size:.48em;letter-spacing:4px;font-weight:400;display:block;margin-top:10px;font-family:var(--body);text-transform:uppercase}
+.hero-desc{font-size:16px;color:var(--text2);line-height:1.75;margin-bottom:32px;max-width:500px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.hero-stats{display:flex;gap:28px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap}
+.stat-num{font-family:var(--eng);font-size:38px;font-weight:900;color:#fff;line-height:1}
+.stat-num span{color:var(--orange)}
+.stat-lbl{font-size:11px;color:var(--text3);letter-spacing:.5px;margin-top:3px;text-transform:uppercase}
+/* RIGHT PANEL */
+.hero-panel{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hp-card{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:20px 14px;text-align:center;transition:all .3s;cursor:pointer;text-decoration:none;display:block;position:relative;overflow:hidden}
+.hp-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(249,115,22,0.1),transparent);opacity:0;transition:opacity .3s}
+.hp-card:hover{border-color:rgba(249,115,22,0.5);transform:translateY(-3px)}
+.hp-card:hover::before{opacity:1}
+.hp-card:hover .hp-arrow{opacity:1;transform:translateX(0)}
+.hp-icon{font-size:30px;margin-bottom:8px;display:block}
+.hp-title{font-family:var(--eng);font-size:15px;font-weight:800;text-transform:uppercase;color:#fff;letter-spacing:.5px;margin-bottom:3px}
+.hp-sub{font-size:11px;color:var(--text3);line-height:1.4}
+.hp-arrow{font-size:12px;color:var(--orange);margin-top:6px;opacity:0;transform:translateX(-4px);transition:all .25s;display:block}
+.hp-card.featured{border-color:rgba(249,115,22,0.45);background:linear-gradient(135deg,rgba(249,115,22,0.12),var(--navy2))}
+/* HOME SERVICES PREVIEW */
+.services-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sp-card{padding:28px 24px;cursor:pointer;text-decoration:none;display:block}
+.sp-cat{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.sp-cat::before{content:'';width:16px;height:1px;background:var(--orange)}
+.sp-icon{font-size:36px;margin-bottom:12px;display:block}
+.sp-title{font-family:var(--eng);font-size:22px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:8px;line-height:1}
+.sp-items{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.sp-item{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:7px}
+.sp-item::before{content:'';width:5px;height:5px;background:var(--orange);border-radius:50%;flex-shrink:0}
+.sp-more{margin-top:16px;font-size:12px;color:var(--orange);font-weight:700;letter-spacing:.5px;display:flex;align-items:center;gap:4px}
+/* WHY STRIP */
+.why-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ws-card{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:24px 20px;text-align:center;transition:all .25s}
+.ws-card:hover{border-color:rgba(249,115,22,0.3);transform:translateY(-2px)}
+.ws-icon{font-size:32px;margin-bottom:12px;display:block}
+.ws-num{font-family:var(--eng);font-size:36px;font-weight:900;color:var(--orange);line-height:1}
+.ws-num span{font-size:20px}
+.ws-label{font-size:12px;color:var(--text2);margin-top:4px;line-height:1.4}
+@media(max-width:960px){.hero-inner{grid-template-columns:1fr}.hero-panel{max-width:420px}}
+@media(max-width:640px){.hero-panel{grid-template-columns:1fr 1fr}.services-preview{grid-template-columns:1fr}.why-strip{grid-template-columns:1fr 1fr}.hero-stats{gap:18px}}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+  <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+  <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+  <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+  <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+  <a href="tel:01671113616" style="color:var(--orange);padding:14px 16px;font-weight:700;font-size:16px;border-top:1px solid var(--border);margin-top:8px">📞 01671-113616</a>
+</div>
+
+<!-- NAV -->
+<div class="nav-container">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-main">Amp<span>tek</span></div>
+      <div class="nav-logo-sub" data-en="Engineering" data-bn="ইঞ্জিনিয়ারিং">Engineering</div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+      <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+      <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+      <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+      <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="lbEn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="lbBn" onclick="setLang('bn')">বাং</button>
+      </div>
+      <a class="nav-cta" href="tel:01671113616">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.73 19.79 19.79 0 0 1 1.61 4.1 2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.18-1.18a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-en="Call Now" data-bn="কল করুন">Call Now</span>
+      </a>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text" data-en="Multi-Discipline Engineering" data-bn="মাল্টি-ডিসিপ্লিন ইঞ্জিনিয়ারিং">Multi-Discipline Engineering</span></div>
+      <h1 class="hero-title">
+        <span class="t1" data-en="AMPTEK" data-bn="অ্যাম্পটেক">AMPTEK</span>
+        <span class="t2" data-en="ENGINEERING" data-bn="ইঞ্জিনিয়ারিং">ENGINEERING</span>
+        <span class="t3" data-en="POWERING INDUSTRY. PROTECTING LIVES." data-bn="শিল্প পরিচালনা। জীবন সুরক্ষা।">POWERING INDUSTRY. PROTECTING LIVES.</span>
+      </h1>
+      <p class="hero-desc" data-en="Bangladesh's trusted partner for Power Systems, Fire Safety, Mechanical Engineering, Industrial Automation and Safety Solutions — all under one roof." data-bn="বাংলাদেশের বিশ্বস্ত পার্টনার — পাওয়ার সিস্টেম, ফায়ার সেফটি, মেকানিক্যাল ইঞ্জিনিয়ারিং, ইন্ডাস্ট্রিয়াল অটোমেশন এবং সেফটি সমাধান — একটি ছাদের নিচে।">Bangladesh's trusted partner for Power Systems, Fire Safety, Mechanical Engineering, Industrial Automation and Safety Solutions — all under one roof.</p>
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="services.html" data-en="Explore Services" data-bn="সেবাসমূহ দেখুন">Explore Services</a>
+        <a class="btn btn-outline" href="contact.html" data-en="Get Free Quote" data-bn="বিনামূল্যে কোটেশন নিন">Get Free Quote</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">15<span>+</span></div><div class="stat-lbl" data-en="Years Experience" data-bn="বছরের অভিজ্ঞতা">Years Experience</div></div>
+        <div><div class="stat-num">500<span>+</span></div><div class="stat-lbl" data-en="Projects Done" data-bn="প্রজেক্ট সম্পন্ন">Projects Done</div></div>
+        <div><div class="stat-num">5</div><div class="stat-lbl" data-en="Divisions" data-bn="বিভাগ">Divisions</div></div>
+        <div><div class="stat-num">24<span>/7</span></div><div class="stat-lbl" data-en="Support" data-bn="সহায়তা">Support</div></div>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <a class="hp-card featured" href="services.html#power"><span class="hp-icon">⚡</span><div class="hp-title" data-en="Power" data-bn="পাওয়ার">Power</div><div class="hp-sub" data-en="Switchgear · BBT · Transformers" data-bn="সুইচগিয়ার · বিবিটি · ট্রান্সফরমার">Switchgear · BBT · Transformers</div><span class="hp-arrow">→ View</span></a>
+      <a class="hp-card" href="services.html#fire"><span class="hp-icon">🔥</span><div class="hp-title" data-en="Fire Safety" data-bn="ফায়ার সেফটি">Fire Safety</div><div class="hp-sub" data-en="NFPA · Hydrant · FM-200" data-bn="NFPA · হাইড্রান্ট · FM-200">NFPA · Hydrant · FM-200</div><span class="hp-arrow">→ View</span></a>
+      <a class="hp-card" href="services.html#mechanical"><span class="hp-icon">⚙️</span><div class="hp-title" data-en="Mechanical" data-bn="মেকানিক্যাল">Mechanical</div><div class="hp-sub" data-en="Boiler · HVAC · Tank Fab" data-bn="বয়লার · এইচভিএসি · ট্যাংক">Boiler · HVAC · Tank Fab</div><span class="hp-arrow">→ View</span></a>
+      <a class="hp-card" href="services.html#industrial"><span class="hp-icon">🤖</span><div class="hp-title" data-en="Industrial" data-bn="ইন্ডাস্ট্রিয়াল">Industrial</div><div class="hp-sub" data-en="Automation · PLC · Maintenance" data-bn="অটোমেশন · পিএলসি · মেইন্টেন্যান্স">Automation · PLC · Maintenance</div><span class="hp-arrow">→ View</span></a>
+      <a class="hp-card" href="services.html#safety" style="grid-column:span 2"><span class="hp-icon">🛡️</span><div class="hp-title" data-en="Safety Systems" data-bn="সেফটি সিস্টেম">Safety Systems</div><div class="hp-sub" data-en="Lightning Protection · Compliance Auditing" data-bn="লাইটনিং প্রটেকশন · কমপ্লায়েন্স অডিটিং">Lightning Protection · Compliance Auditing</div><span class="hp-arrow">→ View</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<!-- SERVICES PREVIEW -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-header reveal">
+      <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-en="What We Do" data-bn="আমরা কী করি">What We Do</span></div>
+      <h2 class="sec-title" data-en="Five Engineering <span>Divisions</span>" data-bn="পাঁচটি ইঞ্জিনিয়ারিং <span>বিভাগ</span>">Five Engineering <span>Divisions</span></h2>
+      <p class="sec-desc" data-en="Complete industrial solutions from a single trusted engineering partner." data-bn="একটি বিশ্বস্ত ইঞ্জিনিয়ারিং পার্টনারের কাছ থেকে সম্পূর্ণ শিল্প সমাধান।">Complete industrial solutions from a single trusted engineering partner.</p>
+    </div>
+    <div class="services-preview">
+      <a class="card sp-card reveal reveal-delay-1" href="services.html#power">
+        <div class="sp-cat" data-en="Division 01" data-bn="বিভাগ ০১">Division 01</div>
+        <span class="sp-icon">⚡</span>
+        <div class="sp-title" data-en="Power Systems" data-bn="পাওয়ার সিস্টেম">Power Systems</div>
+        <div class="sp-items">
+          <div class="sp-item" data-en="HT/LT Switchgear" data-bn="HT/LT সুইচগিয়ার">HT/LT Switchgear</div>
+          <div class="sp-item" data-en="Bus Bar Trunking (BBT)" data-bn="বাস বার ট্রাংকিং">Bus Bar Trunking (BBT)</div>
+          <div class="sp-item" data-en="Power Transformers" data-bn="পাওয়ার ট্রান্সফরমার">Power Transformers</div>
+        </div>
+        <div class="sp-more" data-en="Learn More →" data-bn="আরও জানুন →">Learn More →</div>
+      </a>
+      <a class="card sp-card reveal reveal-delay-2" href="services.html#fire">
+        <div class="sp-cat" data-en="Division 02" data-bn="বিভাগ ০২">Division 02</div>
+        <span class="sp-icon">🔥</span>
+        <div class="sp-title" data-en="Fire Safety" data-bn="ফায়ার সেফটি">Fire Safety</div>
+        <div class="sp-items">
+          <div class="sp-item" data-en="NFPA Fire Detection" data-bn="NFPA ফায়ার ডিটেকশন">NFPA Fire Detection</div>
+          <div class="sp-item" data-en="Hydrant Systems" data-bn="হাইড্রান্ট সিস্টেম">Hydrant Systems</div>
+          <div class="sp-item" data-en="FM-200 Suppression" data-bn="FM-200 সাপ্রেশন">FM-200 Suppression</div>
+        </div>
+        <div class="sp-more" data-en="Learn More →" data-bn="আরও জানুন →">Learn More →</div>
+      </a>
+      <a class="card sp-card reveal reveal-delay-3" href="services.html#mechanical">
+        <div class="sp-cat" data-en="Division 03" data-bn="বিভাগ ০৩">Division 03</div>
+        <span class="sp-icon">⚙️</span>
+        <div class="sp-title" data-en="Mechanical" data-bn="মেকানিক্যাল">Mechanical</div>
+        <div class="sp-items">
+          <div class="sp-item" data-en="Boiler Solutions" data-bn="বয়লার সমাধান">Boiler Solutions</div>
+          <div class="sp-item" data-en="HVAC Systems" data-bn="এইচভিএসি সিস্টেম">HVAC Systems</div>
+          <div class="sp-item" data-en="Tank Fabrication" data-bn="ট্যাংক ফ্যাব্রিকেশন">Tank Fabrication</div>
+        </div>
+        <div class="sp-more" data-en="Learn More →" data-bn="আরও জানুন →">Learn More →</div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <a class="btn btn-outline reveal" href="services.html" data-en="View All 5 Divisions →" data-bn="সব ৫টি বিভাগ দেখুন →">View All 5 Divisions →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY STRIP -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-header reveal" style="text-align:center;align-items:center">
+      <div class="sec-eyebrow" style="justify-content:center"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-en="Why Amptek" data-bn="কেন অ্যাম্পটেক">Why Amptek</span></div>
+      <h2 class="sec-title" data-en="Trusted Across <span>Bangladesh</span>" data-bn="বাংলাদেশ জুড়ে <span>বিশ্বস্ত</span>">Trusted Across <span>Bangladesh</span></h2>
+    </div>
+    <div class="why-strip">
+      <div class="ws-card reveal reveal-delay-1"><span class="ws-icon">🏆</span><div class="ws-num">15<span>+</span></div><div class="ws-label" data-en="Years of Engineering Excellence" data-bn="বছরের ইঞ্জিনিয়ারিং উৎকর্ষ">Years of Engineering Excellence</div></div>
+      <div class="ws-card reveal reveal-delay-2"><span class="ws-icon">✅</span><div class="ws-num">500<span>+</span></div><div class="ws-label" data-en="Projects Successfully Completed" data-bn="প্রজেক্ট সফলভাবে সম্পন্ন">Projects Successfully Completed</div></div>
+      <div class="ws-card reveal reveal-delay-3"><span class="ws-icon">👷</span><div class="ws-num">50<span>+</span></div><div class="ws-label" data-en="Certified Engineers & Technicians" data-bn="সার্টিফাইড ইঞ্জিনিয়ার ও টেকনিশিয়ান">Certified Engineers & Technicians</div></div>
+      <div class="ws-card reveal reveal-delay-4"><span class="ws-icon">📞</span><div class="ws-num">24<span>/7</span></div><div class="ws-label" data-en="Emergency Support Available" data-bn="জরুরি সহায়তা উপলব্ধ">Emergency Support Available</div></div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <a class="btn btn-outline reveal" href="about.html" data-en="About Amptek →" data-bn="অ্যাম্পটেক সম্পর্কে →">About Amptek →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-main">Amp<span>tek</span></div>
+        <div class="footer-logo-sub">Engineering</div>
+        <p class="footer-tagline" data-en="Powering industry, protecting lives — Bangladesh's trusted multi-discipline engineering company." data-bn="শিল্প পরিচালনা, জীবন সুরক্ষা — বাংলাদেশের বিশ্বস্ত ইঞ্জিনিয়ারিং কোম্পানি।">Powering industry, protecting lives — Bangladesh's trusted multi-discipline engineering company.</p>
+        <a class="footer-phone" href="tel:01671113616">📞 01671-113616</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Power & Fire" data-bn="পাওয়ার ও ফায়ার">Power & Fire</h4>
+        <a href="services.html#power" data-en="HT/LT Switchgear" data-bn="HT/LT সুইচগিয়ার">HT/LT Switchgear</a>
+        <a href="services.html#power" data-en="Bus Bar Trunking" data-bn="বাস বার ট্রাংকিং">Bus Bar Trunking</a>
+        <a href="services.html#power" data-en="Transformers" data-bn="ট্রান্সফরমার">Transformers</a>
+        <a href="services.html#fire" data-en="NFPA Detection" data-bn="NFPA ডিটেকশন">NFPA Detection</a>
+        <a href="services.html#fire" data-en="FM-200" data-bn="FM-200">FM-200</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Mechanical & Industrial" data-bn="মেকানিক্যাল ও ইন্ডাস্ট্রিয়াল">Mechanical & Industrial</h4>
+        <a href="services.html#mechanical" data-en="Boiler" data-bn="বয়লার">Boiler</a>
+        <a href="services.html#mechanical" data-en="HVAC" data-bn="এইচভিএসি">HVAC</a>
+        <a href="services.html#mechanical" data-en="Tank Fabrication" data-bn="ট্যাংক ফ্যাব্রিকেশন">Tank Fabrication</a>
+        <a href="services.html#industrial" data-en="Automation & PLC" data-bn="অটোমেশন ও পিএলসি">Automation & PLC</a>
+        <a href="services.html#safety" data-en="Lightning Protection" data-bn="লাইটনিং প্রটেকশন">Lightning Protection</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Company" data-bn="কোম্পানি">Company</h4>
+        <a href="index.html" data-en="Home" data-bn="হোম">Home</a>
+        <a href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+        <a href="clients.html" data-en="Our Clients" data-bn="আমাদের ক্লায়েন্ট">Our Clients</a>
+        <a href="contact.html" data-en="Contact Us" data-bn="যোগাযোগ করুন">Contact Us</a>
+        <a href="tel:01671113616" data-en="Emergency: 01671-113616" data-bn="জরুরি: 01671-113616">Emergency: 01671-113616</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 <span class="amp">Amptek Engineering</span>. <span data-en="All rights reserved." data-bn="সর্বস্বত্ব সংরক্ষিত।">All rights reserved.</span></span>
+      <span data-en="Powering Industry. Protecting Lives." data-bn="শিল্প পরিচালনা। জীবন সুরক্ষা।">Powering Industry. Protecting Lives.</span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+<script src="shared.js"></script>
+</body>
+</html>

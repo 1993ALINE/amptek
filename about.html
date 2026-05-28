@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amptek Engineering — About Us</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;margin-bottom:56px}
+.big-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:28px}
+.big-stat{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:24px;text-align:center;transition:all .25s}
+.big-stat:hover{border-color:rgba(249,115,22,0.35);transform:translateY(-2px)}
+.bs-num{font-family:var(--eng);font-size:44px;font-weight:900;color:var(--orange);line-height:1}
+.bs-num span{font-size:24px}
+.bs-label{font-size:12px;color:var(--text2);margin-top:5px;line-height:1.4}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.val-card{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:24px;transition:all .25s}
+.val-card:hover{border-color:rgba(249,115,22,0.3);background:var(--navy3)}
+.val-icon{font-size:32px;margin-bottom:12px;display:block}
+.val-title{font-family:var(--eng);font-size:17px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:6px;letter-spacing:.3px}
+.val-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:20px}
+.team-card{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:24px;text-align:center;transition:all .25s}
+.team-card:hover{border-color:rgba(249,115,22,0.3)}
+.team-avatar{width:64px;height:64px;background:linear-gradient(135deg,var(--orange),var(--amber));border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-family:var(--eng);font-size:24px;font-weight:900;color:#fff}
+.team-name{font-weight:700;color:#fff;margin-bottom:3px}
+.team-role{font-size:12px;color:var(--text3);letter-spacing:.3px}
+.why-list{display:flex;flex-direction:column;gap:18px}
+.why-row{display:flex;gap:16px;align-items:flex-start;padding:18px;background:var(--navy2);border:1px solid var(--border);border-radius:6px;transition:all .25s}
+.why-row:hover{border-color:rgba(249,115,22,0.3)}
+.why-icon{width:42px;height:42px;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.why-row h4{font-family:var(--eng);font-size:16px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:4px;letter-spacing:.3px}
+.why-row p{font-size:13px;color:var(--text2);line-height:1.6}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr}.values-grid{grid-template-columns:1fr 1fr}.team-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.values-grid,.big-stat-grid{grid-template-columns:1fr}.team-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+  <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+  <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+  <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+  <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+  <a href="tel:01671113616" style="color:var(--orange);padding:14px 16px;font-weight:700;font-size:16px;border-top:1px solid var(--border);margin-top:8px">📞 01671-113616</a>
+</div>
+<div class="nav-container">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><div class="nav-logo-main">Amp<span>tek</span></div><div class="nav-logo-sub">Engineering</div></a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+      <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+      <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+      <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+      <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" id="lbEn" onclick="setLang('en')">EN</button><button class="lang-btn" id="lbBn" onclick="setLang('bn')">বাং</button></div>
+      <a class="nav-cta" href="tel:01671113616"><span data-en="Call Now" data-bn="কল করুন">Call Now</span></a>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="page-banner">
+  <div class="page-banner-inner">
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a> › <span data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</span></div>
+    <div class="page-eyebrow" data-en="Our Story" data-bn="আমাদের গল্প">Our Story</div>
+    <h1 class="page-title" data-en="About <span>Amptek</span>" data-bn="<span>অ্যাম্পটেক</span> সম্পর্কে">About <span>Amptek</span></h1>
+    <p class="page-desc" data-en="15+ years of engineering excellence — powering Bangladesh's industries with trusted, certified solutions." data-bn="১৫+ বছরের ইঞ্জিনিয়ারিং উৎকর্ষ — বিশ্বস্ত, সার্টিফাইড সমাধান দিয়ে বাংলাদেশের শিল্প পরিচালনা।">15+ years of engineering excellence — powering Bangladesh's industries with trusted, certified solutions.</p>
+  </div>
+</div>
+<div class="marquee-section"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<!-- WHO WE ARE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-en="Who We Are" data-bn="আমরা কারা">Who We Are</span></div>
+        <h2 class="sec-title" data-en="Bangladesh's <span>Engineering Partner</span>" data-bn="বাংলাদেশের <span>ইঞ্জিনিয়ারিং পার্টনার</span>">Bangladesh's <span>Engineering Partner</span></h2>
+        <p style="font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:16px" data-en="Amptek Engineering is a multi-discipline engineering company based in Bangladesh, delivering integrated solutions across Power, Fire Safety, Mechanical, Industrial Automation and Safety systems." data-bn="অ্যাম্পটেক ইঞ্জিনিয়ারিং বাংলাদেশভিত্তিক একটি মাল্টি-ডিসিপ্লিন ইঞ্জিনিয়ারিং কোম্পানি, যা পাওয়ার, ফায়ার সেফটি, মেকানিক্যাল, ইন্ডাস্ট্রিয়াল অটোমেশন এবং সেফটি সিস্টেম জুড়ে ইন্টিগ্রেটেড সমাধান প্রদান করে।">Amptek Engineering is a multi-discipline engineering company based in Bangladesh, delivering integrated solutions across Power, Fire Safety, Mechanical, Industrial Automation and Safety systems.</p>
+        <p style="font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:24px" data-en="Founded over 15 years ago, we have grown to serve leading RMG factories, pharmaceutical plants, hospitals, data centres and commercial buildings across the country — always with a commitment to international standards, reliable delivery and lasting partnerships." data-bn="১৫ বছরেরও বেশি আগে প্রতিষ্ঠিত, আমরা দেশজুড়ে শীর্ষস্থানীয় পোশাক কারখানা, ফার্মাসিউটিক্যাল প্ল্যান্ট, হাসপাতাল, ডেটা সেন্টার এবং বাণিজ্যিক ভবনগুলি পরিষেবা দিতে বৃদ্ধি পেয়েছি — সর্বদা আন্তর্জাতিক মানদণ্ড, নির্ভরযোগ্য ডেলিভারি এবং দীর্ঘস্থায়ী অংশীদারিত্বের প্রতিশ্রুতি নিয়ে।">Founded over 15 years ago, we have grown to serve leading RMG factories, pharmaceutical plants, hospitals, data centres and commercial buildings across the country.</p>
+        <a class="btn btn-primary" href="contact.html" data-en="Work With Us →" data-bn="আমাদের সাথে কাজ করুন →">Work With Us →</a>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="big-stat-grid">
+          <div class="big-stat"><div class="bs-num">15<span>+</span></div><div class="bs-label" data-en="Years in Business" data-bn="বছর ব্যবসায়">Years in Business</div></div>
+          <div class="big-stat"><div class="bs-num">500<span>+</span></div><div class="bs-label" data-en="Projects Completed" data-bn="প্রজেক্ট সম্পন্ন">Projects Completed</div></div>
+          <div class="big-stat"><div class="bs-num">50<span>+</span></div><div class="bs-label" data-en="Certified Engineers" data-bn="সার্টিফাইড ইঞ্জিনিয়ার">Certified Engineers</div></div>
+          <div class="big-stat"><div class="bs-num">5</div><div class="bs-label" data-en="Engineering Divisions" data-bn="ইঞ্জিনিয়ারিং বিভাগ">Engineering Divisions</div></div>
+        </div>
+        <div style="background:linear-gradient(135deg,var(--navy2),var(--navy3));border:1px solid var(--border);border-radius:8px;padding:20px;position:relative;overflow:hidden">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber))"></div>
+          <div style="font-family:var(--eng);font-size:18px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase" data-en="Our Mission" data-bn="আমাদের মিশন">Our Mission</div>
+          <p style="font-size:13px;color:var(--text2);line-height:1.7;font-style:italic" data-en='"To be Bangladesh''s most trusted engineering partner — delivering safe, efficient and compliant solutions that power industry and protect lives."' data-bn='"বাংলাদেশের সবচেয়ে বিশ্বস্ত ইঞ্জিনিয়ারিং পার্টনার হওয়া — নিরাপদ, দক্ষ এবং কমপ্লায়েন্ট সমাধান প্রদান করা যা শিল্প পরিচালনা করে এবং জীবন রক্ষা করে।"'>"To be Bangladesh's most trusted engineering partner — delivering safe, efficient and compliant solutions that power industry and protect lives."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VALUES -->
+    <div class="sec-header reveal">
+      <div class="sec-eyebrow"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-en="Our Values" data-bn="আমাদের মূল্যবোধ">Our Values</span></div>
+      <h2 class="sec-title" data-en="What Drives <span>Us</span>" data-bn="আমাদের <span>চালিকাশক্তি</span>">What Drives <span>Us</span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="val-card reveal reveal-delay-1"><span class="val-icon">🎯</span><div class="val-title" data-en="Precision" data-bn="নির্ভুলতা">Precision</div><p class="val-desc" data-en="Every installation is executed to exact specifications and international standards. No shortcuts." data-bn="প্রতিটি ইনস্টলেশন সঠিক স্পেসিফিকেশন ও আন্তর্জাতিক মানদণ্ড অনুযায়ী সম্পন্ন হয়। কোনো শর্টকাট নেই।">Every installation is executed to exact specifications and international standards. No shortcuts.</p></div>
+      <div class="val-card reveal reveal-delay-2"><span class="val-icon">🤝</span><div class="val-title" data-en="Integrity" data-bn="সততা">Integrity</div><p class="val-desc" data-en="We quote honestly, deliver on time and stand behind every project with post-commissioning support." data-bn="আমরা সৎভাবে কোটেশন দিই, সময়মতো ডেলিভারি দিই এবং কমিশনিং-পরবর্তী সহায়তা দিয়ে প্রতিটি প্রজেক্টের পিছনে থাকি।">We quote honestly, deliver on time and stand behind every project with full support.</p></div>
+      <div class="val-card reveal reveal-delay-3"><span class="val-icon">🛡️</span><div class="val-title" data-en="Safety First" data-bn="প্রথমে সেফটি">Safety First</div><p class="val-desc" data-en="Safety is not a checkbox — it is embedded in every design decision, installation and maintenance activity." data-bn="সেফটি কোনো চেকবক্স নয় — এটি প্রতিটি ডিজাইন সিদ্ধান্ত, ইনস্টলেশন এবং মেইনটেন্যান্স কার্যক্রমে এমবেড করা।">Safety is embedded in every design decision and installation activity.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY CHOOSE US -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-header reveal" style="text-align:center;align-items:center">
+      <div class="sec-eyebrow" style="justify-content:center"><div class="sec-eyebrow-line"></div><span class="sec-eyebrow-text" data-en="Why Choose Amptek" data-bn="কেন অ্যাম্পটেক বেছে নেবেন">Why Choose Amptek</span></div>
+      <h2 class="sec-title" data-en="Our <span>Advantages</span>" data-bn="আমাদের <span>সুবিধাসমূহ</span>">Our <span>Advantages</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" class="reveal">
+      <div class="why-row"><div class="why-icon">🏗️</div><div><h4 data-en="End-to-End Delivery" data-bn="এন্ড-টু-এন্ড ডেলিভারি">End-to-End Delivery</h4><p data-en="From design and procurement to installation, testing and handover — one team, one accountability." data-bn="ডিজাইন ও সংগ্রহ থেকে স্থাপন, পরীক্ষা এবং হ্যান্ডওভার পর্যন্ত — একটি টিম, একটি জবাবদিহিতা।">From design and procurement to installation, testing and handover — one team, one accountability.</p></div></div>
+      <div class="why-row"><div class="why-icon">📜</div><div><h4 data-en="International Standards" data-bn="আন্তর্জাতিক মানদণ্ড">International Standards</h4><p data-en="All work conforms to NFPA, IEC, ASME, BNBC and relevant Bangladesh standards." data-bn="সমস্ত কাজ NFPA, IEC, ASME, BNBC এবং প্রাসঙ্গিক বাংলাদেশ মানদণ্ড মেনে চলে।">All work conforms to NFPA, IEC, ASME, BNBC and relevant Bangladesh standards.</p></div></div>
+      <div class="why-row"><div class="why-icon">⚡</div><div><h4 data-en="Fast Mobilisation" data-bn="দ্রুত মোবিলাইজেশন">Fast Mobilisation</h4><p data-en="Dedicated project teams ready to mobilise across Bangladesh within 24–48 hours." data-bn="ডেডিকেটেড প্রজেক্ট টিম ২৪–৪৮ ঘণ্টার মধ্যে বাংলাদেশ জুড়ে মোবিলাইজ করতে প্রস্তুত।">Dedicated project teams ready to mobilise across Bangladesh within 24–48 hours.</p></div></div>
+      <div class="why-row"><div class="why-icon">🔧</div><div><h4 data-en="AMC & After-Sales" data-bn="AMC ও আফটার-সেলস">AMC & After-Sales</h4><p data-en="Annual maintenance contracts keep your systems compliant, efficient and downtime-free." data-bn="বার্ষিক মেইনটেন্যান্স কন্ট্রাক্ট আপনার সিস্টেম কমপ্লায়েন্ট, দক্ষ এবং ডাউনটাইম-মুক্ত রাখে।">Annual maintenance contracts keep your systems compliant, efficient and downtime-free.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo-main">Amp<span>tek</span></div><div class="footer-logo-sub">Engineering</div><p class="footer-tagline" data-en="Powering industry, protecting lives." data-bn="শিল্প পরিচালনা, জীবন সুরক্ষা।">Powering industry, protecting lives.</p><a class="footer-phone" href="tel:01671113616">📞 01671-113616</a></div>
+      <div class="footer-col"><h4 data-en="Services" data-bn="সেবাসমূহ">Services</h4><a href="services.html#power">Power Systems</a><a href="services.html#fire">Fire Safety</a><a href="services.html#mechanical">Mechanical</a><a href="services.html#industrial">Industrial</a><a href="services.html#safety">Safety</a></div>
+      <div class="footer-col"><h4 data-en="Company" data-bn="কোম্পানি">Company</h4><a href="index.html" data-en="Home" data-bn="হোম">Home</a><a href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a><a href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></div>
+      <div class="footer-col"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><a href="tel:01671113616">📞 01671-113616</a><a href="https://wa.me/8801671113616">💬 WhatsApp</a><a href="contact.html" data-en="Send Enquiry" data-bn="অনুসন্ধান পাঠান">Send Enquiry</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 <span class="amp">Amptek Engineering</span>. <span data-en="All rights reserved." data-bn="সর্বস্বত্ব সংরক্ষিত।">All rights reserved.</span></span><span data-en="Powering Industry. Protecting Lives." data-bn="শিল্প পরিচালনা। জীবন সুরক্ষা।">Powering Industry. Protecting Lives.</span></div>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="shared.js"></script>
+</body>
+</html>

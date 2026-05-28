@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amptek Engineering — Contact</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+.contact-info-stack{display:flex;flex-direction:column;gap:14px}
+.ci-card{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:20px;display:flex;gap:16px;align-items:flex-start;transition:all .25s}
+.ci-card:hover{border-color:rgba(249,115,22,0.3);background:var(--navy3)}
+.ci-icon{width:46px;height:46px;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ci-label{font-size:10px;font-weight:700;color:var(--text3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.ci-value{font-size:15px;font-weight:600;color:#fff}
+.ci-value a{color:var(--orange);transition:color .2s}
+.ci-value a:hover{color:#fff}
+.ci-sub{font-size:12px;color:var(--text3);margin-top:3px}
+.quick-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.qb{padding:12px;border-radius:6px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;transition:all .2s;border:none}
+.qb-call{background:var(--orange);color:#fff}
+.qb-call:hover{background:var(--orange2)}
+.qb-wa{background:rgba(37,211,102,0.12);border:1px solid rgba(37,211,102,0.3);color:#25D366}
+.qb-wa:hover{background:rgba(37,211,102,0.2)}
+.cf-box{background:var(--navy2);border:1px solid var(--border);border-radius:8px;padding:32px;position:relative;overflow:hidden}
+.cf-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber))}
+.cf-title{font-family:var(--eng);font-size:24px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:22px;letter-spacing:.5px}
+.form-submit{width:100%;padding:14px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-size:14px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;margin-top:4px}
+.form-submit:hover{background:var(--orange2)}
+.form-submit.loading{background:var(--text3);cursor:not-allowed}
+.success-box{display:none;background:rgba(46,125,50,0.12);border:1px solid rgba(46,125,50,0.3);border-radius:8px;padding:24px;text-align:center;margin-top:16px}
+.success-box.show{display:block}
+.success-box h4{font-family:var(--eng);font-size:20px;font-weight:800;color:#4CAF50;margin-bottom:8px;text-transform:uppercase}
+.success-box p{font-size:14px;color:var(--text2);line-height:1.6}
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.faq-item{background:var(--navy2);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.faq-q{padding:16px 18px;font-weight:700;font-size:14px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .2s}
+.faq-q:hover{background:var(--navy3)}
+.faq-q .arrow{color:var(--orange);transition:transform .25s;font-size:18px;line-height:1}
+.faq-q.open .arrow{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 18px 16px;font-size:13px;color:var(--text2);line-height:1.7}
+.faq-a.open{display:block}
+@media(max-width:768px){.contact-layout{grid-template-columns:1fr}.quick-btns{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+  <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+  <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+  <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+  <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+  <a href="tel:01671113616" style="color:var(--orange);padding:14px 16px;font-weight:700;font-size:16px;border-top:1px solid var(--border);margin-top:8px">📞 01671-113616</a>
+</div>
+<div class="nav-container">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><div class="nav-logo-main">Amp<span>tek</span></div><div class="nav-logo-sub">Engineering</div></a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+      <a class="nav-link" href="services.html" data-en="Services" data-bn="সেবাসমূহ">Services</a>
+      <a class="nav-link" href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a>
+      <a class="nav-link" href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a>
+      <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle"><button class="lang-btn active" id="lbEn" onclick="setLang('en')">EN</button><button class="lang-btn" id="lbBn" onclick="setLang('bn')">বাং</button></div>
+      <a class="nav-cta" href="tel:01671113616"><span data-en="Call Now" data-bn="কল করুন">Call Now</span></a>
+      <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div class="page-banner">
+  <div class="page-banner-inner">
+    <div class="breadcrumb"><a href="index.html" data-en="Home" data-bn="হোম">Home</a> › <span data-en="Contact" data-bn="যোগাযোগ">Contact</span></div>
+    <div class="page-eyebrow" data-en="Get In Touch" data-bn="যোগাযোগ করুন">Get In Touch</div>
+    <h1 class="page-title" data-en="Contact <span>Us</span>" data-bn="আমাদের সাথে <span>যোগাযোগ</span>">Contact <span>Us</span></h1>
+    <p class="page-desc" data-en="Ready to start your project? Get a free site survey and quotation from our engineering team." data-bn="আপনার প্রজেক্ট শুরু করতে প্রস্তুত? আমাদের ইঞ্জিনিয়ারিং টিমের কাছ থেকে বিনামূল্যে সাইট সার্ভে ও কোটেশন নিন।">Ready to start your project? Get a free site survey and quotation from our engineering team.</p>
+  </div>
+</div>
+<div class="marquee-section"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="contact-layout">
+
+      <!-- LEFT: INFO -->
+      <div class="contact-info-stack reveal">
+        <div class="ci-card">
+          <div class="ci-icon">📞</div>
+          <div>
+            <div class="ci-label" data-en="Phone & WhatsApp" data-bn="ফোন ও হোয়াটসঅ্যাপ">Phone & WhatsApp</div>
+            <div class="ci-value"><a href="tel:01671113616">01671-113616</a></div>
+            <div class="ci-sub" data-en="Available Sat–Thu 9AM–6PM | Emergency 24/7" data-bn="শনি–বৃহস্পতি সকাল ৯টা–সন্ধ্যা ৬টা | জরুরি ২৪/৭">Available Sat–Thu 9AM–6PM | Emergency 24/7</div>
+          </div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon">🏢</div>
+          <div>
+            <div class="ci-label" data-en="Company" data-bn="কোম্পানি">Company</div>
+            <div class="ci-value">Amptek Engineering</div>
+            <div class="ci-sub" data-en="Multi-Discipline Engineering Company" data-bn="মাল্টি-ডিসিপ্লিন ইঞ্জিনিয়ারিং কোম্পানি">Multi-Discipline Engineering Company</div>
+          </div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon">🇧🇩</div>
+          <div>
+            <div class="ci-label" data-en="Location" data-bn="অবস্থান">Location</div>
+            <div class="ci-value" data-en="Bangladesh" data-bn="বাংলাদেশ">Bangladesh</div>
+            <div class="ci-sub" data-en="Serving all divisions nationwide" data-bn="সারাদেশে সব বিভাগে সেবা">Serving all divisions nationwide</div>
+          </div>
+        </div>
+        <div class="ci-card">
+          <div class="ci-icon">⏰</div>
+          <div>
+            <div class="ci-label" data-en="Working Hours" data-bn="কার্যসময়">Working Hours</div>
+            <div class="ci-value" data-en="Sat–Thu: 9:00AM – 6:00PM" data-bn="শনি–বৃহস্পতি: সকাল ৯:০০–সন্ধ্যা ৬:০০">Sat–Thu: 9:00AM – 6:00PM</div>
+            <div class="ci-sub" data-en="24/7 Emergency Response Available" data-bn="২৪/৭ জরুরি রেসপন্স উপলব্ধ">24/7 Emergency Response Available</div>
+          </div>
+        </div>
+        <div class="quick-btns">
+          <a class="qb qb-call" href="tel:01671113616">📞 <span data-en="Call Now" data-bn="কল করুন">Call Now</span></a>
+          <a class="qb qb-wa" href="https://wa.me/8801671113616" target="_blank">💬 WhatsApp</a>
+        </div>
+
+        <!-- FAQ -->
+        <div style="margin-top:16px">
+          <div style="font-family:var(--eng);font-size:18px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:14px;letter-spacing:.3px" data-en="Common Questions" data-bn="সাধারণ প্রশ্ন">Common Questions</div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)"><span data-en="Do you offer free site surveys?" data-bn="আপনারা কি বিনামূল্যে সাইট সার্ভে অফার করেন?">Do you offer free site surveys?</span><span class="arrow">▼</span></div>
+              <div class="faq-a" data-en="Yes — we offer free initial site surveys and quotations for all project types across Bangladesh." data-bn="হ্যাঁ — আমরা বাংলাদেশ জুড়ে সব ধরনের প্রজেক্টের জন্য বিনামূল্যে প্রাথমিক সাইট সার্ভে ও কোটেশন অফার করি।">Yes — we offer free initial site surveys and quotations for all project types across Bangladesh.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)"><span data-en="How quickly can you mobilise?" data-bn="আপনারা কত দ্রুত মোবিলাইজ করতে পারেন?">How quickly can you mobilise?</span><span class="arrow">▼</span></div>
+              <div class="faq-a" data-en="For emergency situations, we can mobilise within 24 hours. Standard projects are scheduled within 48–72 hours of order confirmation." data-bn="জরুরি পরিস্থিতিতে, আমরা ২৪ ঘণ্টার মধ্যে মোবিলাইজ করতে পারি। স্ট্যান্ডার্ড প্রজেক্ট অর্ডার নিশ্চিতকরণের ৪৮–৭২ ঘণ্টার মধ্যে নির্ধারিত হয়।">Emergency mobilisation within 24 hours. Standard projects scheduled within 48–72 hours of order confirmation.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)"><span data-en="Do you provide maintenance contracts?" data-bn="আপনারা কি মেইনটেন্যান্স কন্ট্রাক্ট প্রদান করেন?">Do you provide maintenance contracts?</span><span class="arrow">▼</span></div>
+              <div class="faq-a" data-en="Yes — we offer Annual Maintenance Contracts (AMC) for all installed systems including fire safety, power systems, HVAC and automation." data-bn="হ্যাঁ — আমরা ফায়ার সেফটি, পাওয়ার সিস্টেম, এইচভিএসি এবং অটোমেশন সহ সমস্ত ইনস্টল করা সিস্টেমের জন্য বার্ষিক মেইনটেন্যান্স কন্ট্রাক্ট (AMC) অফার করি।">Yes — Annual Maintenance Contracts (AMC) for all installed systems including fire safety, power, HVAC and automation.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="cf-box reveal reveal-delay-2">
+        <div class="cf-title" data-en="Send an Enquiry" data-bn="অনুসন্ধান পাঠান">Send an Enquiry</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Full Name *" data-bn="পুরো নাম *">Full Name *</label>
+            <input class="form-control" id="cName" type="text" placeholder="Your full name" data-en-placeholder="Your full name" data-bn-placeholder="আপনার পুরো নাম">
+          </div>
+          <div class="form-group">
+            <label data-en="Phone Number *" data-bn="ফোন নম্বর *">Phone Number *</label>
+            <input class="form-control" id="cPhone" type="tel" placeholder="01XXXXXXXXX">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-en="Company / Organisation" data-bn="কোম্পানি / প্রতিষ্ঠান">Company / Organisation</label>
+            <input class="form-control" id="cCompany" type="text" placeholder="Your company" data-en-placeholder="Your company" data-bn-placeholder="আপনার কোম্পানি">
+          </div>
+          <div class="form-group">
+            <label data-en="Location / City" data-bn="অবস্থান / শহর">Location / City</label>
+            <input class="form-control" id="cCity" type="text" placeholder="e.g. Dhaka, Chattogram" data-en-placeholder="e.g. Dhaka, Chattogram" data-bn-placeholder="যেমন: ঢাকা, চট্টগ্রাম">
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-en="Service Required *" data-bn="প্রয়োজনীয় সেবা *">Service Required *</label>
+          <select class="form-control" id="cService">
+            <option value="" data-en="Select a service..." data-bn="সেবা বেছে নিন...">Select a service...</option>
+            <optgroup label="⚡ Power Systems">
+              <option data-en="HT/LT Switchgear" data-bn="HT/LT সুইচগিয়ার">HT/LT Switchgear</option>
+              <option data-en="Bus Bar Trunking (BBT)" data-bn="বাস বার ট্রাংকিং (BBT)">Bus Bar Trunking (BBT)</option>
+              <option data-en="Power Transformers" data-bn="পাওয়ার ট্রান্সফরমার">Power Transformers</option>
+            </optgroup>
+            <optgroup label="🔥 Fire Safety">
+              <option data-en="NFPA Fire Detection" data-bn="NFPA ফায়ার ডিটেকশন">NFPA Fire Detection</option>
+              <option data-en="Fire Hydrant System" data-bn="ফায়ার হাইড্রান্ট সিস্টেম">Fire Hydrant System</option>
+              <option data-en="FM-200 Suppression" data-bn="FM-200 সাপ্রেশন">FM-200 Suppression</option>
+            </optgroup>
+            <optgroup label="⚙️ Mechanical">
+              <option data-en="Boiler" data-bn="বয়লার">Boiler</option>
+              <option data-en="HVAC Systems" data-bn="এইচভিএসি সিস্টেম">HVAC Systems</option>
+              <option data-en="Tank Fabrication" data-bn="ট্যাংক ফ্যাব্রিকেশন">Tank Fabrication</option>
+            </optgroup>
+            <optgroup label="🤖 Industrial">
+              <option data-en="Industrial Automation" data-bn="ইন্ডাস্ট্রিয়াল অটোমেশন">Industrial Automation</option>
+              <option data-en="PLC Programming" data-bn="পিএলসি প্রোগ্রামিং">PLC Programming</option>
+              <option data-en="Machine Maintenance" data-bn="মেশিন মেইনটেন্যান্স">Machine Maintenance</option>
+            </optgroup>
+            <optgroup label="🛡️ Safety">
+              <option data-en="Lightning Protection" data-bn="লাইটনিং প্রটেকশন">Lightning Protection</option>
+              <option data-en="Safety Compliance" data-bn="সেফটি কমপ্লায়েন্স">Safety Compliance</option>
+            </optgroup>
+            <option data-en="Multiple / Other Services" data-bn="একাধিক / অন্যান্য সেবা">Multiple / Other Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-en="Project Description" data-bn="প্রজেক্টের বিবরণ">Project Description</label>
+          <textarea class="form-control" id="cMsg" rows="4" placeholder="Describe your project, site size, timeline..." data-en-placeholder="Describe your project, site size, timeline..." data-bn-placeholder="আপনার প্রজেক্ট, সাইটের আকার, সময়সীমা বর্ণনা করুন..."></textarea>
+        </div>
+        <button class="form-submit" id="submitBtn" onclick="submitForm()">
+          <span id="submitText" data-en="Send Enquiry →" data-bn="অনুসন্ধান পাঠান →">Send Enquiry →</span>
+        </button>
+        <div class="success-box" id="successBox">
+          <div style="font-size:40px;margin-bottom:10px">✅</div>
+          <h4 id="successTitle" data-en="Enquiry Sent!" data-bn="অনুসন্ধান পাঠানো হয়েছে!">Enquiry Sent!</h4>
+          <p id="successMsg"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo-main">Amp<span>tek</span></div><div class="footer-logo-sub">Engineering</div><p class="footer-tagline" data-en="Powering industry, protecting lives." data-bn="শিল্প পরিচালনা, জীবন সুরক্ষা।">Powering industry, protecting lives.</p><a class="footer-phone" href="tel:01671113616">📞 01671-113616</a></div>
+      <div class="footer-col"><h4 data-en="Services" data-bn="সেবাসমূহ">Services</h4><a href="services.html#power">Power Systems</a><a href="services.html#fire">Fire Safety</a><a href="services.html#mechanical">Mechanical</a><a href="services.html#industrial">Industrial</a><a href="services.html#safety">Safety</a></div>
+      <div class="footer-col"><h4 data-en="Company" data-bn="কোম্পানি">Company</h4><a href="index.html" data-en="Home" data-bn="হোম">Home</a><a href="about.html" data-en="About Us" data-bn="আমাদের সম্পর্কে">About Us</a><a href="clients.html" data-en="Clients" data-bn="ক্লায়েন্ট">Clients</a></div>
+      <div class="footer-col"><h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4><a href="tel:01671113616">📞 01671-113616</a><a href="https://wa.me/8801671113616">💬 WhatsApp</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 <span class="amp">Amptek Engineering</span>. <span data-en="All rights reserved." data-bn="সর্বস্বত্ব সংরক্ষিত।">All rights reserved.</span></span><span data-en="Powering Industry. Protecting Lives." data-bn="শিল্প পরিচালনা। জীবন সুরক্ষা।">Powering Industry. Protecting Lives.</span></div>
+  </div>
+</footer>
+<div id="toast"></div>
+<script src="shared.js"></script>
+<script>
+function submitForm(){
+  const name = document.getElementById('cName').value.trim();
+  const phone = document.getElementById('cPhone').value.trim();
+  const service = document.getElementById('cService').value;
+  const lang = document.documentElement.getAttribute('data-lang') || 'en';
+  if(!name){ showToast(lang==='en'?'Please enter your name.':'আপনার নাম দিন।', false); return; }
+  if(!phone || phone.length < 11){ showToast(lang==='en'?'Please enter a valid phone number.':'সঠিক ফোন নম্বর দিন।', false); return; }
+  if(!service){ showToast(lang==='en'?'Please select a service.':'একটি সেবা বেছে নিন।', false); return; }
+  const btn = document.getElementById('submitBtn');
+  btn.classList.add('loading');
+  document.getElementById('submitText').textContent = lang==='en' ? 'Sending...' : 'পাঠানো হচ্ছে...';
+  setTimeout(()=>{
+    btn.classList.remove('loading');
+    document.getElementById('submitText').setAttribute('data-en','Send Enquiry →');
+    document.getElementById('submitText').setAttribute('data-bn','অনুসন্ধান পাঠান →');
+    document.getElementById('submitText').textContent = lang==='en' ? 'Send Enquiry →' : 'অনুসন্ধান পাঠান →';
+    const box = document.getElementById('successBox');
+    box.classList.add('show');
+    document.getElementById('successMsg').textContent = lang==='en'
+      ? `Thank you, ${name}! We have received your enquiry for "${service}". Our team will call you on ${phone} within 2 business hours.`
+      : `ধন্যবাদ, ${name}! আমরা "${service}" এর জন্য আপনার অনুসন্ধান পেয়েছি। আমাদের টিম ২ কার্যঘণ্টার মধ্যে ${phone} নম্বরে কল করবে।`;
+    document.getElementById('cName').value='';
+    document.getElementById('cPhone').value='';
+    document.getElementById('cCompany').value='';
+    document.getElementById('cCity').value='';
+    document.getElementById('cMsg').value='';
+    document.getElementById('cService').selectedIndex=0;
+  }, 1400);
+}
+
+function toggleFaq(el){
+  const a = el.nextElementSibling;
+  const isOpen = a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));
+  if(!isOpen){ a.classList.add('open'); el.classList.add('open'); }
+}
+</script>
+</body>
+</html>
