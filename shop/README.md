@@ -2,7 +2,7 @@
 
 BDShop-style storefront for **Amptek**: category hubs, product grids, BDT pricing, cart, and FAQ.
 
-**Contact:** 01671-113616 · nahidalam85@gmail.com
+**Contact:** 01671-113615 · info@amptekeng.com · www.amptekeng.com
 
 ## Preview locally
 
