@@ -1,4 +1,4 @@
-const CART_KEY = 'shopbd_cart';
+const CART_KEY = 'amptek_cart';
 
 function getCart() {
   try {
@@ -220,7 +220,7 @@ function renderProductDetail() {
     return;
   }
   const pct = discountPercent(p.price, p.oldPrice);
-  document.title = `${p.name} — ShopBD`;
+  document.title = `${p.name} — Amptek`;
   el.innerHTML = `
     <div class="pd-gallery"><span>${p.emoji}</span></div>
     <div class="pd-info">

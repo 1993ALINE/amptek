@@ -3,8 +3,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --primary:#e11d48;
-  --primary-dark:#be123c;
+  --primary:#f59e0b;
+  --primary-dark:#d97706;
   --accent:#059669;
   --accent-light:#d1fae5;
   --bg:#f8fafc;
@@ -38,7 +38,7 @@ button{font-family:inherit;cursor:pointer}
 .site-header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 1px 0 rgba(0,0,0,0.04)}
 .header-inner{max-width:1280px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:20px}
 .logo{font-size:26px;font-weight:800;color:var(--primary);letter-spacing:-0.5px;flex-shrink:0}
-.logo span{color:var(--text)}
+.logo span{color:var(--primary)}
 .search-wrap{flex:1;max-width:560px;position:relative}
 .search-wrap input{
   width:100%;padding:11px 16px 11px 44px;
