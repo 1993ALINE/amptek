@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +11,19 @@
 <div class="top-bar">
   <div class="top-bar-inner">
     <span>📞 <span data-company-phone></span></span>
-    <a href="index.html">← Continue Shopping</a>
+    <a href="index.html" data-en="← Continue" data-bn="← ফিরে যান">← Continue</a>
   </div>
 </div>
 
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="logo">Amp<span>tek</span></a>
-    <form class="search-wrap" id="searchForm">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="search" id="searchInput" placeholder="Search products…">
-    </form>
-    <div class="header-actions">
-      <a href="cart.html" class="icon-btn" aria-label="Cart">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <div class="header-actions" style="margin-left:auto">
+      <div class="lang-toggle">
+        <button type="button" class="lang-btn active" id="lbEn" onclick="setShopLang('en')">EN</button>
+        <button type="button" class="lang-btn" id="lbBn" onclick="setShopLang('bn')">বাং</button>
+      </div>
+      <a href="cart.html" class="icon-btn">
         <span class="cart-count" data-cart-count style="display:none">0</span>
       </a>
     </div>
@@ -32,35 +31,35 @@
 </header>
 
 <main class="page-main">
-  <h1 class="page-title">Request a Quote</h1>
+  <h1 class="page-title" data-en="Request a Quote" data-bn="কোটেশন অনুরোধ">Request a Quote</h1>
 
   <div class="empty-cart" id="cartEmpty" style="display:none">
-    <div style="font-size:64px">🛒</div>
-    <p>Your cart is empty</p>
-    <a href="index.html" class="btn-add" style="display:inline-block;width:auto;padding:12px 28px">Start Shopping</a>
+    <div style="font-size:64px">📋</div>
+    <p data-en="Your quote list is empty" data-bn="আপনার তালিকা খালি">Your quote list is empty</p>
+    <a href="index.html" class="btn-add" style="display:inline-block;width:auto;padding:12px 28px" data-en="Browse Services" data-bn="সেবা দেখুন">Browse Services</a>
   </div>
 
   <div class="cart-layout" id="cartContent" style="display:none">
     <div class="cart-table" id="cartRows"></div>
     <aside class="cart-summary">
-      <h3>Order Summary</h3>
-      <div class="summary-line"><span>Subtotal</span><span id="cartSubtotal">৳0</span></div>
-      <div class="summary-line"><span>Delivery</span><span id="cartDelivery">৳0</span></div>
-      <div class="summary-line total"><span>Total</span><span id="cartTotal">৳0</span></div>
-      <button type="button" class="btn-checkout" onclick="window.location.href='contact.html'">Submit Quote Request</button>
-      <p style="font-size:12px;color:var(--text3);margin-top:12px;text-align:center">We will call you at <span data-company-phone></span></p>
+      <h3 data-en="Order Summary" data-bn="সারাংশ">Order Summary</h3>
+      <div class="summary-line"><span data-en="Subtotal" data-bn="উপমোট">Subtotal</span><span id="cartSubtotal">—</span></div>
+      <div class="summary-line"><span data-en="Delivery" data-bn="ডেলিভারি">Delivery</span><span id="cartDelivery">—</span></div>
+      <div class="summary-line total"><span data-en="Total" data-bn="মোট">Total</span><span id="cartTotal">—</span></div>
+      <button type="button" class="btn-checkout" onclick="window.location.href='contact.html'" data-en="Submit Quote Request" data-bn="কোটেশন পাঠান">Submit Quote Request</button>
+      <p style="font-size:12px;color:var(--text3);margin-top:12px;text-align:center"><span data-en="We will call you at" data-bn="আমরা কল করব">We will call you at</span> <span data-company-phone></span></p>
     </aside>
   </div>
 </main>
 
 <footer class="site-footer" style="margin-top:48px">
-  <div class="footer-bottom" style="border:none;padding:0">© 2026 Amptek</div>
+  <div class="footer-bottom" style="border:none;padding:0">© 2026 Amptek Engineering</div>
 </footer>
 
 <div id="toast"></div>
 <script src="js/company.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/products.js"></script>
 <script src="js/shop.js"></script>
-<!-- injectCompanyInfo runs on load -->
 </body>
 </html>

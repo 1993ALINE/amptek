@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amptek Engineering — Electrical, Fire Safety & Mechanical Solutions</title>
-  <meta name="description" content="Amptek Engineering — Engineering Tomorrow, Today! Electrical, fire safety & mechanical solutions. Dhaka-1230. Call 01671-113615.">
+  <meta name="description" content="Amptek Engineering — Engineering Tomorrow, Today! Electrical, fire safety & mechanical solutions. Dhaka-1230.">
   <link rel="stylesheet" href="css/shop.css">
 </head>
 <body>
@@ -13,21 +13,25 @@
   <div class="top-bar-inner">
     <span>📞 <span data-company-phone></span> · <span data-company-tagline></span></span>
     <span>
-      <a data-facebook-href target="_blank" rel="noopener">Facebook</a> ·
-      <a href="contact.html">Contact</a> ·
-      <a href="cart.html">Quote List</a>
+      <a data-facebook-href target="_blank" rel="noopener" data-en="Facebook" data-bn="ফেসবুক">Facebook</a> ·
+      <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a> ·
+      <a href="cart.html" data-en="Quote List" data-bn="কোটেশন তালিকা">Quote List</a>
     </span>
   </div>
 </div>
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo">Amp<span>tek</span> <small style="font-size:11px;font-weight:600;color:var(--text3);letter-spacing:1px">Engineering</small></a>
+    <a href="index.html" class="logo">Amp<span>tek</span> <small style="font-size:11px;font-weight:600;color:var(--text3);letter-spacing:1px" data-en="Engineering" data-bn="ইঞ্জিনিয়ারিং">Engineering</small></a>
     <form class="search-wrap" id="searchForm">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="search" id="searchInput" placeholder="Search switchgear, fire safety, HVAC, PLC…" autocomplete="off">
+      <input type="search" id="searchInput" data-en-placeholder="Search switchgear, fire safety, HVAC, PLC…" data-bn-placeholder="সুইচগিয়ার, ফায়ার সেফটি, এইচভিএসি, পিএলসি খুঁজুন…" placeholder="Search switchgear, fire safety, HVAC, PLC…" autocomplete="off">
     </form>
     <div class="header-actions">
+      <div class="lang-toggle">
+        <button type="button" class="lang-btn active" id="lbEn" onclick="setShopLang('en')">EN</button>
+        <button type="button" class="lang-btn" id="lbBn" onclick="setShopLang('bn')">বাং</button>
+      </div>
       <a href="cart.html" class="icon-btn" aria-label="Quote list">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <span class="cart-count" data-cart-count style="display:none">0</span>
@@ -38,18 +42,17 @@
 
 <nav class="main-nav">
   <div class="nav-inner">
-    <a class="nav-link active" href="index.html">Home</a>
-    <a class="nav-link" href="#power">Power</a>
-    <a class="nav-link" href="#fire">Fire Safety</a>
-    <a class="nav-link" href="#mechanical">Mechanical</a>
-    <a class="nav-link" href="#industrial">Industrial</a>
-    <a class="nav-link" href="#safety">Safety</a>
-    <a class="nav-link" href="#products">All Services</a>
-    <a class="nav-link" href="contact.html">Contact</a>
+    <a class="nav-link active" href="index.html" data-en="Home" data-bn="হোম">Home</a>
+    <a class="nav-link" href="#power" data-en="Power" data-bn="পাওয়ার">Power</a>
+    <a class="nav-link" href="#fire" data-en="Fire Safety" data-bn="ফায়ার সেফটি">Fire Safety</a>
+    <a class="nav-link" href="#mechanical" data-en="Mechanical" data-bn="মেকানিক্যাল">Mechanical</a>
+    <a class="nav-link" href="#industrial" data-en="Industrial" data-bn="ইন্ডাস্ট্রিয়াল">Industrial</a>
+    <a class="nav-link" href="#safety" data-en="Safety" data-bn="সেফটি">Safety</a>
+    <a class="nav-link" href="#products" data-en="All Services" data-bn="সব সেবা">All Services</a>
+    <a class="nav-link" href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
   </div>
 </nav>
 
-<!-- About — from Facebook cover & About section -->
 <section class="hero-about">
   <div class="hero-about-inner">
     <p class="hero-eyebrow" data-company-slogan></p>
@@ -58,59 +61,51 @@
     <p class="hero-lead" data-company-intro></p>
     <p style="font-size:14px;color:#94a3b8;margin-bottom:16px">📍 <span data-company-address></span></p>
     <div class="hero-actions">
-      <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
-      <a data-facebook-href target="_blank" rel="noopener" class="btn btn-outline">Follow on Facebook →</a>
-      <a href="tel:01671113615" class="btn btn-outline">Call Now</a>
+      <a href="contact.html" class="btn btn-primary" data-en="Get Free Quote" data-bn="বিনামূল্যে কোটেশন">Get Free Quote</a>
+      <a data-facebook-href target="_blank" rel="noopener" class="btn btn-outline" data-en="Follow on Facebook →" data-bn="ফেসবুকে ফলো করুন →">Follow on Facebook →</a>
+      <a href="tel:01671113615" class="btn btn-outline" data-en="Call Now" data-bn="কল করুন">Call Now</a>
     </div>
     <div class="company-stats" id="companyStats"></div>
   </div>
 </section>
 
-<!-- Division hubs -->
-<div class="hub-grid hub-grid-5">
-  <a href="#power" class="hub-card hub-1"><h3>⚡ Power Systems</h3><p>Switchgear, BBT, transformers</p><span class="hub-cta">Explore →</span></a>
-  <a href="#fire" class="hub-card hub-2"><h3>🔥 Fire Safety</h3><p>NFPA, hydrant, FM-200</p><span class="hub-cta">Explore →</span></a>
-  <a href="#mechanical" class="hub-card hub-3"><h3>⚙️ Mechanical</h3><p>Boiler, HVAC, tanks</p><span class="hub-cta">Explore →</span></a>
-  <a href="#industrial" class="hub-card hub-4"><h3>🤖 Industrial</h3><p>Automation & PLC</p><span class="hub-cta">Explore →</span></a>
-  <a href="#safety" class="hub-card hub-5"><h3>🛡️ Safety</h3><p>Lightning & compliance</p><span class="hub-cta">Explore →</span></a>
-</div>
+<div class="hub-grid hub-grid-5" id="hubGrid"></div>
 
 <section class="section" id="searchSection" style="display:none">
-  <div class="section-head"><h2 class="section-title">Search results</h2></div>
+  <div class="section-head"><h2 class="section-title" data-en="Search results" data-bn="অনুসন্ধানের ফলাফল">Search results</h2></div>
   <div class="product-grid" id="searchResults"></div>
 </section>
 
 <section class="section" id="power">
   <div class="section-head">
-    <h2 class="section-title">Popular Services<small>Trusted by factories & commercial buildings</small></h2>
-    <a href="#products" class="view-all">All services →</a>
+    <h2 class="section-title" data-en="Popular Services" data-bn="জনপ্রিয় সেবা">Popular Services<small data-en="Trusted by factories & commercial buildings" data-bn="কারখানা ও বাণিজ্যিক ভবনের বিশ্বস্ত পার্টনার">Trusted by factories & commercial buildings</small></h2>
+    <a href="#products" class="view-all" data-en="All services →" data-bn="সব সেবা →">All services →</a>
   </div>
   <div class="product-grid" id="mostSold"></div>
 </section>
 
 <section class="section" style="padding-top:0">
   <div class="section-head">
-    <h2 class="section-title">New & Featured<small>Latest engineering solutions</small></h2>
+    <h2 class="section-title" data-en="New & Featured" data-bn="নতুন ও বিশেষ">New & Featured<small data-en="Latest engineering solutions" data-bn="সর্বশেষ ইঞ্জিনিয়ারিং সমাধান">Latest engineering solutions</small></h2>
   </div>
   <div class="product-grid" id="mostDiscount"></div>
 </section>
 
 <section class="section" style="padding-top:0">
   <div class="section-head">
-    <h2 class="section-title">Special Offers<small>Free surveys & AMC packages</small></h2>
+    <h2 class="section-title" data-en="Special Offers" data-bn="বিশেষ অফার">Special Offers<small data-en="Free surveys & AMC packages" data-bn="বিনামূল্যে সার্ভে ও AMC প্যাকেজ">Free surveys & AMC packages</small></h2>
   </div>
   <div class="product-grid" id="newArrivals"></div>
 </section>
 
 <section class="section" id="products">
   <div class="section-head">
-    <h2 class="section-title">All Engineering Services</h2>
-    <p class="sec-desc" style="margin-top:8px;color:var(--text2)">Serving <span data-company-intro style="display:inline"></span></p>
+    <h2 class="section-title" data-en="All Engineering Services" data-bn="সমস্ত ইঞ্জিনিয়ারিং সেবা">All Engineering Services</h2>
   </div>
   <div class="category-row" id="categoryChips">
-    <button type="button" class="cat-chip active" data-category="all">All</button>
+    <button type="button" class="cat-chip active" data-category="all" data-en="All" data-bn="সব">All</button>
     <button type="button" class="cat-chip" data-category="power">⚡ Power</button>
-    <button type="button" class="cat-chip" data-category="fire">🔥 Fire Safety</button>
+    <button type="button" class="cat-chip" data-category="fire">🔥 Fire</button>
     <button type="button" class="cat-chip" data-category="mechanical">⚙️ Mechanical</button>
     <button type="button" class="cat-chip" data-category="industrial">🤖 Industrial</button>
     <button type="button" class="cat-chip" data-category="safety">🛡️ Safety</button>
@@ -120,36 +115,32 @@
 
 <div class="trust-strip">
   <div class="trust-inner">
-    <div class="trust-item"><span class="trust-icon">🏗️</span><div><strong>End-to-End Delivery</strong><span>Design to commissioning</span></div></div>
-    <div class="trust-item"><span class="trust-icon">📜</span><div><strong>International Standards</strong><span>NFPA, IEC, ASME, BNBC</span></div></div>
-    <div class="trust-item"><span class="trust-icon">⚡</span><div><strong>Fast Mobilisation</strong><span>24–48 hours nationwide</span></div></div>
-    <div class="trust-item"><span class="trust-icon">📞</span><div><strong>24/7 Emergency</strong><span>Always available</span></div></div>
+    <div class="trust-item"><span class="trust-icon">🏗️</span><div><strong data-en="End-to-End Delivery" data-bn="এন্ড-টু-এন্ড ডেলিভারি">End-to-End Delivery</strong><span data-en="Design to commissioning" data-bn="ডিজাইন থেকে কমিশনিং">Design to commissioning</span></div></div>
+    <div class="trust-item"><span class="trust-icon">📜</span><div><strong data-en="International Standards" data-bn="আন্তর্জাতিক মানদণ্ড">International Standards</strong><span>NFPA, IEC, ASME, BNBC</span></div></div>
+    <div class="trust-item"><span class="trust-icon">⚡</span><div><strong data-en="Fast Mobilisation" data-bn="দ্রুত মোবিলাইজেশন">Fast Mobilisation</strong><span data-en="24–48 hours nationwide" data-bn="২৪–৪৮ ঘণ্টায় সারাদেশে">24–48 hours nationwide</span></div></div>
+    <div class="trust-item"><span class="trust-icon">📞</span><div><strong data-en="24/7 Emergency" data-bn="২৪/৭ জরুরি">24/7 Emergency</strong><span data-en="Always available" data-bn="সবসময় উপলব্ধ">Always available</span></div></div>
   </div>
 </div>
 
 <section class="faq-section">
   <div class="faq-inner">
-    <h2>Frequently Asked Questions</h2>
-    <p>About <span data-company-name></span></p>
+    <h2 data-en="Frequently Asked Questions" data-bn="সাধারণ জিজ্ঞাসা">Frequently Asked Questions</h2>
+    <p><span data-en="About" data-bn="সম্পর্কে">About</span> <span data-company-name></span></p>
     <div class="faq-item">
-      <button type="button" class="faq-q">Do you offer free site surveys?<span class="arrow">▼</span></button>
-      <div class="faq-a">Yes — we offer free initial site surveys and quotations for power, fire safety, mechanical and automation projects across Bangladesh.</div>
+      <button type="button" class="faq-q" data-en="Do you offer free site surveys?" data-bn="আপনারা কি বিনামূল্যে সাইট সার্ভে দেন?">Do you offer free site surveys?<span class="arrow">▼</span></button>
+      <div class="faq-a" data-en="Yes — free initial site surveys and quotations for power, fire safety, mechanical and automation projects across Bangladesh." data-bn="হ্যাঁ — বাংলাদেশ জুড়ে পাওয়ার, ফায়ার সেফটি, মেকানিক্যাল ও অটোমেশন প্রজেক্টের জন্য বিনামূল্যে সাইট সার্ভে ও কোটেশন।">Yes — free initial site surveys and quotations for power, fire safety, mechanical and automation projects across Bangladesh.</div>
     </div>
     <div class="faq-item">
-      <button type="button" class="faq-q">What services does Amptek Engineering provide?<span class="arrow">▼</span></button>
-      <div class="faq-a">Five divisions: Power Systems (HT/LT switchgear, BBT, transformers), Fire Safety (NFPA detection, hydrant, FM-200), Mechanical (boiler, HVAC, tank fabrication), Industrial Automation (PLC, maintenance), and Safety Systems (lightning protection, compliance auditing).</div>
+      <button type="button" class="faq-q" data-en="What services does Amptek Engineering provide?" data-bn="অ্যাম্পটেক ইঞ্জিনিয়ারিং কী সেবা দেয়?">What services does Amptek Engineering provide?<span class="arrow">▼</span></button>
+      <div class="faq-a" data-en="Five divisions: Power (switchgear, BBT, transformers), Fire Safety (NFPA, hydrant, FM-200), Mechanical (boiler, HVAC, tanks), Industrial (PLC, automation), Safety (lightning, compliance)." data-bn="পাঁচটি বিভাগ: পাওয়ার, ফায়ার সেফটি, মেকানিক্যাল, ইন্ডাস্ট্রিয়াল ও সেফটি — ফেসবুক পেজের মতোই।">Five divisions: Power, Fire Safety, Mechanical, Industrial, Safety.</div>
     </div>
     <div class="faq-item">
-      <button type="button" class="faq-q">How quickly can you mobilise?<span class="arrow">▼</span></button>
-      <div class="faq-a">Emergency mobilisation within 24 hours. Standard projects are scheduled within 48–72 hours of order confirmation.</div>
+      <button type="button" class="faq-q" data-en="How quickly can you mobilise?" data-bn="কত দ্রুত মোবিলাইজ করতে পারেন?">How quickly can you mobilise?<span class="arrow">▼</span></button>
+      <div class="faq-a" data-en="Emergency mobilisation within 24 hours. Standard projects within 48–72 hours of confirmation." data-bn="জরুরি অবস্থায় ২৪ ঘণ্টার মধ্যে। সাধারণ প্রজেক্ট ৪৮–৭২ ঘণ্টায়।">Emergency mobilisation within 24 hours. Standard projects within 48–72 hours of confirmation.</div>
     </div>
     <div class="faq-item">
-      <button type="button" class="faq-q">Do you provide maintenance contracts?<span class="arrow">▼</span></button>
-      <div class="faq-a">Yes — Annual Maintenance Contracts (AMC) for fire safety, power systems, HVAC and automation keep your systems compliant and efficient.</div>
-    </div>
-    <div class="faq-item">
-      <button type="button" class="faq-q">How can I contact you?<span class="arrow">▼</span></button>
-      <div class="faq-a">Call <span data-company-phone></span>, email <span data-company-email></span>, message us on <a data-facebook-href target="_blank" rel="noopener">Facebook</a>, or use WhatsApp. <span data-company-tagline></span></div>
+      <button type="button" class="faq-q" data-en="How can I contact you?" data-bn="যোগাযোগ কীভাবে করব?">How can I contact you?<span class="arrow">▼</span></button>
+      <div class="faq-a" data-en="Call us, email us, or message on Facebook." data-bn="কল করুন, ইমেইল করুন, বা ফেসবুকে মেসেজ করুন।">Call <span data-company-phone></span>, email <span data-company-email></span>, or <a data-facebook-href target="_blank" rel="noopener">Facebook</a>.</div>
     </div>
   </div>
 </section>
@@ -160,36 +151,34 @@
       <div>
         <div class="logo" style="color:#fff;margin-bottom:12px">Amp<span style="color:#f59e0b">tek</span> Engineering</div>
         <p data-company-intro></p>
-        <p style="margin-top:12px"><a data-facebook-href target="_blank" rel="noopener" class="social-fb">📘 Follow us on Facebook</a></p>
+        <p style="margin-top:12px"><a data-facebook-href target="_blank" rel="noopener" class="social-fb" data-en="📘 Follow us on Facebook" data-bn="📘 ফেসবুকে আমাদের অনুসরণ করুন">📘 Follow us on Facebook</a></p>
       </div>
       <div>
-        <h4>Services</h4>
-        <a href="#power">Power Systems</a>
-        <a href="#fire">Fire Safety</a>
-        <a href="#mechanical">Mechanical</a>
-        <a href="#industrial">Industrial</a>
-        <a href="#safety">Safety</a>
+        <h4 data-en="Services" data-bn="সেবাসমূহ">Services</h4>
+        <a href="#power" data-en="Power Systems" data-bn="পাওয়ার সিস্টেম">Power Systems</a>
+        <a href="#fire" data-en="Fire Safety" data-bn="ফায়ার সেফটি">Fire Safety</a>
+        <a href="#mechanical" data-en="Mechanical" data-bn="মেকানিক্যাল">Mechanical</a>
       </div>
       <div>
-        <h4>Company</h4>
-        <a href="contact.html">Contact</a>
-        <a href="cart.html">Request Quote</a>
-        <a href="../index.html">Corporate Website</a>
+        <h4 data-en="Company" data-bn="কোম্পানি">Company</h4>
+        <a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a>
+        <a href="cart.html" data-en="Request Quote" data-bn="কোটেশন চান">Request Quote</a>
+        <a href="../index.html" data-en="Corporate Website" data-bn="কর্পোরেট ওয়েবসাইট">Corporate Website</a>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4 data-en="Contact" data-bn="যোগাযোগ">Contact</h4>
         <p>📞 <span data-company-phone></span></p>
         <p>✉️ <span data-company-email></span></p>
         <p>📍 <span data-company-address></span></p>
-        <p>🌐 <span data-company-website></span></p>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 <span data-company-name></span>. <span data-company-tagline></span></div>
+    <div class="footer-bottom">© 2026 <span data-company-name></span>. <span data-company-slogan></span></div>
   </div>
 </footer>
 
 <div id="toast"></div>
 <script src="js/company.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/products.js"></script>
 <script src="js/shop.js"></script>
 </body>

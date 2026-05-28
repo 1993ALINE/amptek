@@ -4,6 +4,7 @@ const AMPTEK = {
   nameDisplay: 'AMPTEK ENGINEERING',
   shortName: 'Amptek',
   slogan: 'Engineering Tomorrow, Today!',
+  sloganBn: 'আজই আগামীর ইঞ্জিনিয়ারিং!',
   tagline: 'Electrical, Fire Safety & Mechanical Solutions',
   taglineBn: 'ইলেকট্রিক্যাল, ফায়ার সেফটি ও মেকানিক্যাল সমাধান',
   pageType: 'Engineering Service',
@@ -17,57 +18,252 @@ const AMPTEK = {
   whatsapp: '8801671113615',
   facebook: 'https://www.facebook.com/AmptekEngineering',
   address: 'Holding No - 266, Rajabari Uttarkhan, Dhaka-1230, Bangladesh',
+  addressBn: 'হোল্ডিং নং - ২৬৬, রাজাবাড়ী উত্তরখান, ঢাকা-১২৩০, বাংলাদেশ',
   addressShort: 'Rajabari Uttarkhan, Dhaka-1230',
   location: 'Dhaka, Bangladesh',
   hours: 'Sat–Thu: 9:00 AM – 6:00 PM',
+  hoursBn: 'শনি–বৃহস্পতি: সকাল ৯টা – সন্ধ্যা ৬টা',
   emergency: '24/7 Emergency Support',
+  emergencyBn: '২৪/৭ জরুরি সহায়তা',
   intro:
     'Amptek Engineering is a multi-discipline engineering service in Bangladesh — Power, Fire Safety, Mechanical, Industrial Automation and Safety Systems. Electrical, fire safety and mechanical solutions from design to commissioning.',
-  mission:
-    "Engineering tomorrow, today — delivering safe, efficient and compliant solutions that power industry and protect lives.",
+  introBn:
+    'অ্যাম্পটেক ইঞ্জিনিয়ারিং বাংলাদেশের একটি মাল্টি-ডিসিপ্লিন ইঞ্জিনিয়ারিং সেবা — পাওয়ার, ফায়ার সেফটি, মেকানিক্যাল, ইন্ডাস্ট্রিয়াল অটোমেশন ও সেফটি সিস্টেম। ডিজাইন থেকে কমিশনিং পর্যন্ত সম্পূর্ণ সমাধান।',
   stats: [
-    { num: '15+', label: 'Years Experience' },
-    { num: '500+', label: 'Projects Completed' },
-    { num: '50+', label: 'Certified Engineers' },
-    { num: '5', label: 'Service Divisions' },
+    { num: '15+', label: 'Years Experience', labelBn: 'বছরের অভিজ্ঞতা' },
+    { num: '500+', label: 'Projects Completed', labelBn: 'প্রজেক্ট সম্পন্ন' },
+    { num: '50+', label: 'Certified Engineers', labelBn: 'সার্টিফাইড ইঞ্জিনিয়ার' },
+    { num: '5', label: 'Service Divisions', labelBn: 'সেবা বিভাগ' },
   ],
-  clients: 'RMG factories, pharmaceutical plants, hospitals, data centres & commercial buildings',
   divisions: [
-    { id: 'power', name: 'Power', icon: '⚡', desc: 'HT/LT Switchgear, BBT & Transformers' },
-    { id: 'fire', name: 'Fire Safety', icon: '🔥', desc: 'NFPA Detection, Hydrants & FM-200' },
-    { id: 'mechanical', name: 'Mechanical', icon: '⚙️', desc: 'Boiler, HVAC & Tank Fabrication' },
-    { id: 'industrial', name: 'Industrial', icon: '🤖', desc: 'Automation, PLC & Machine Maintenance' },
-    { id: 'safety', name: 'Safety', icon: '🛡️', desc: 'Lightning Protection & Compliance' },
+    { id: 'power', name: 'Power Systems', nameBn: 'পাওয়ার সিস্টেম', icon: '⚡', desc: 'HT/LT Switchgear, BBT & Transformers', descBn: 'HT/LT সুইচগিয়ার, BBT ও ট্রান্সফরমার' },
+    { id: 'fire', name: 'Fire Safety', nameBn: 'ফায়ার সেফটি', icon: '🔥', desc: 'NFPA Detection, Hydrants & FM-200', descBn: 'NFPA ডিটেকশন, হাইড্রান্ট ও FM-200' },
+    { id: 'mechanical', name: 'Mechanical', nameBn: 'মেকানিক্যাল', icon: '⚙️', desc: 'Boiler, HVAC & Tank Fabrication', descBn: 'বয়লার, এইচভিএসি ও ট্যাংক ফ্যাব্রিকেশন' },
+    { id: 'industrial', name: 'Industrial', nameBn: 'ইন্ডাস্ট্রিয়াল', icon: '🤖', desc: 'Automation, PLC & Maintenance', descBn: 'অটোমেশন, PLC ও মেইনটেন্যান্স' },
+    { id: 'safety', name: 'Safety', nameBn: 'সেফটি', icon: '🛡️', desc: 'Lightning Protection & Compliance', descBn: 'লাইটনিং প্রটেকশন ও কমপ্লায়েন্স' },
   ],
 };
+/** Bengali + English — shared key `amptek_lang` with corporate site */
+const SHOP_I18N = {
+  en: {
+    facebook: 'Facebook',
+    contact: 'Contact',
+    quoteList: 'Quote List',
+    engineering: 'Engineering',
+    searchPlaceholder: 'Search switchgear, fire safety, HVAC, PLC…',
+    home: 'Home',
+    power: 'Power',
+    fireSafety: 'Fire Safety',
+    mechanical: 'Mechanical',
+    industrial: 'Industrial',
+    safety: 'Safety',
+    allServices: 'All Services',
+    getFreeQuote: 'Get Free Quote',
+    followFacebook: 'Follow on Facebook →',
+    callNow: 'Call Now',
+    explore: 'Explore →',
+    searchResults: 'Search results',
+    popularServices: 'Popular Services',
+    popularSub: 'Trusted by factories & commercial buildings',
+    allServicesLink: 'All services →',
+    newFeatured: 'New & Featured',
+    newFeaturedSub: 'Latest engineering solutions',
+    specialOffers: 'Special Offers',
+    specialOffersSub: 'Free surveys & AMC packages',
+    allEngServices: 'All Engineering Services',
+    all: 'All',
+    faqTitle: 'Frequently Asked Questions',
+    faqAbout: 'About',
+    followFb: '📘 Follow us on Facebook',
+    services: 'Services',
+    company: 'Company',
+    requestQuote: 'Request Quote',
+    corporateSite: 'Corporate Website',
+    freeQuote: 'Free quote available',
+    addQuoteList: 'Add to Quote List',
+    addCart: 'Add to Cart',
+    added: 'Added ✓',
+    addedQuote: 'Added to quote list',
+    trust1t: 'End-to-End Delivery', trust1d: 'Design to commissioning',
+    trust2t: 'International Standards', trust2d: 'NFPA, IEC, ASME, BNBC',
+    trust3t: 'Fast Mobilisation', trust3d: '24–48 hours nationwide',
+    trust4t: '24/7 Emergency', trust4d: 'Always available',
+    badgePopular: 'Popular', badgeNew: 'New', badgeOffer: 'Offer',
+    backStore: '← Back to store',
+    submitQuote: 'Submit Quote Request',
+    weWillCall: 'We will call you at',
+    emptyCart: 'Your quote list is empty',
+    startShopping: 'Browse Services',
+    orderSummary: 'Order Summary',
+    subtotal: 'Subtotal',
+    delivery: 'Delivery',
+    total: 'Total',
+    customQuote: 'Custom quotation',
+    onSurvey: 'On survey',
+    weCallYou: 'We will call you',
+    sendEnquiry: 'Send Enquiry',
+    yourName: 'Your name',
+    phone: 'Phone',
+    message: 'Message',
+    serviceNeeded: 'Service needed',
+    rights: 'All rights reserved.',
+  },
+  bn: {
+    facebook: 'ফেসবুক',
+    contact: 'যোগাযোগ',
+    quoteList: 'কোটেশন তালিকা',
+    engineering: 'ইঞ্জিনিয়ারিং',
+    searchPlaceholder: 'সুইচগিয়ার, ফায়ার সেফটি, এইচভিএসি, পিএলসি খুঁজুন…',
+    home: 'হোম',
+    power: 'পাওয়ার',
+    fireSafety: 'ফায়ার সেফটি',
+    mechanical: 'মেকানিক্যাল',
+    industrial: 'ইন্ডাস্ট্রিয়াল',
+    safety: 'সেফটি',
+    allServices: 'সব সেবা',
+    getFreeQuote: 'বিনামূল্যে কোটেশন',
+    followFacebook: 'ফেসবুকে ফলো করুন →',
+    callNow: 'কল করুন',
+    explore: 'দেখুন →',
+    searchResults: 'অনুসন্ধানের ফলাফল',
+    popularServices: 'জনপ্রিয় সেবা',
+    popularSub: 'কারখানা ও বাণিজ্যিক ভবনের বিশ্বস্ত পার্টনার',
+    allServicesLink: 'সব সেবা →',
+    newFeatured: 'নতুন ও বিশেষ',
+    newFeaturedSub: 'সর্বশেষ ইঞ্জিনিয়ারিং সমাধান',
+    specialOffers: 'বিশেষ অফার',
+    specialOffersSub: 'বিনামূল্যে সার্ভে ও AMC প্যাকেজ',
+    allEngServices: 'সমস্ত ইঞ্জিনিয়ারিং সেবা',
+    all: 'সব',
+    faqTitle: 'সাধারণ জিজ্ঞাসা',
+    faqAbout: 'সম্পর্কে',
+    followFb: '📘 ফেসবুকে আমাদের অনুসরণ করুন',
+    services: 'সেবাসমূহ',
+    company: 'কোম্পানি',
+    requestQuote: 'কোটেশন চান',
+    corporateSite: 'কর্পোরেট ওয়েবসাইট',
+    freeQuote: 'বিনামূল্যে কোটেশন',
+    addQuoteList: 'তালিকায় যোগ করুন',
+    addCart: 'কার্টে যোগ করুন',
+    added: 'যোগ হয়েছে ✓',
+    addedQuote: 'কোটেশন তালিকায় যোগ হয়েছে',
+    trust1t: 'এন্ড-টু-এন্ড ডেলিভারি', trust1d: 'ডিজাইন থেকে কমিশনিং',
+    trust2t: 'আন্তর্জাতিক মানদণ্ড', trust2d: 'NFPA, IEC, ASME, BNBC',
+    trust3t: 'দ্রুত মোবিলাইজেশন', trust3d: '২৪–৪৮ ঘণ্টায় সারাদেশে',
+    trust4t: '২৪/৭ জরুরি', trust4d: 'সবসময় উপলব্ধ',
+    badgePopular: 'জনপ্রিয়', badgeNew: 'নতুন', badgeOffer: 'অফার',
+    backStore: '← স্টোরে ফিরে যান',
+    submitQuote: 'কোটেশন অনুরোধ পাঠান',
+    weWillCall: 'আমরা কল করব',
+    emptyCart: 'আপনার তালিকা খালি',
+    startShopping: 'সেবা দেখুন',
+    orderSummary: 'সারাংশ',
+    subtotal: 'উপমোট',
+    delivery: 'ডেলিভারি',
+    total: 'মোট',
+    customQuote: 'কাস্টম কোটেশন',
+    onSurvey: 'সার্ভে অনুযায়ী',
+    weCallYou: 'আমরা যোগাযোগ করব',
+    sendEnquiry: 'অনুসন্ধান পাঠান',
+    yourName: 'আপনার নাম',
+    phone: 'ফোন',
+    message: 'বার্তা',
+    serviceNeeded: 'প্রয়োজনীয় সেবা',
+    rights: 'সর্বস্বত্ব সংরক্ষিত।',
+  },
+};
+
+function getShopLang() {
+  return document.documentElement.getAttribute('data-lang') || localStorage.getItem('amptek_lang') || 'en';
+}
+
+function t(key) {
+  const l = getShopLang();
+  return SHOP_I18N[l]?.[key] ?? SHOP_I18N.en[key] ?? key;
+}
+
+function setShopLang(l) {
+  localStorage.setItem('amptek_lang', l);
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l === 'bn' ? 'bn' : 'en';
+  document.getElementById('lbEn')?.classList.toggle('active', l === 'en');
+  document.getElementById('lbBn')?.classList.toggle('active', l === 'bn');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const val = el.getAttribute('data-' + l);
+    if (val == null) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+    else if (el.tagName === 'OPTION') el.textContent = val;
+    else el.innerHTML = val;
+  });
+  document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+    const ph = el.getAttribute('data-' + l + '-placeholder');
+    if (ph) el.placeholder = ph;
+  });
+  if (typeof injectCompanyInfo === 'function') injectCompanyInfo();
+  if (typeof renderHubCards === 'function') renderHubCards();
+  if (typeof refreshProductGrids === 'function') refreshProductGrids();
+  if (typeof renderCartPage === 'function') renderCartPage();
+  if (typeof renderProductDetail === 'function') renderProductDetail();
+}
+
+function initShopLang() {
+  const l = localStorage.getItem('amptek_lang') || 'en';
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l === 'bn' ? 'bn' : 'en';
+  document.getElementById('lbEn')?.classList.toggle('active', l === 'en');
+  document.getElementById('lbBn')?.classList.toggle('active', l === 'bn');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const val = el.getAttribute('data-' + l);
+    if (val == null) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+    else if (el.tagName === 'OPTION') el.textContent = val;
+    else el.innerHTML = val;
+  });
+  document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+    const ph = el.getAttribute('data-' + l + '-placeholder');
+    if (ph) el.placeholder = ph;
+  });
+}
 const CATEGORIES = AMPTEK.divisions.map(d => ({
   id: d.id,
   name: d.name,
+  nameBn: d.nameBn,
   icon: d.icon,
 }));
 
-/** Engineering services & solutions (request quote via cart) */
 const PRODUCTS = [
-  { id: 1, name: 'HT/LT Switchgear — Design, Supply & Installation', category: 'power', price: 0, oldPrice: null, badge: 'hot', emoji: '⚡', quoteOnly: true },
-  { id: 2, name: 'Bus Bar Trunking (BBT) Systems up to 5000A', category: 'power', price: 0, oldPrice: null, badge: 'hot', emoji: '🔌', quoteOnly: true },
-  { id: 3, name: 'Power Transformers — Supply & Commissioning', category: 'power', price: 0, oldPrice: null, badge: 'new', emoji: '🔋', quoteOnly: true },
-  { id: 4, name: 'NFPA Fire Detection & Alarm Systems', category: 'fire', price: 0, oldPrice: null, badge: 'hot', emoji: '🔥', quoteOnly: true },
-  { id: 5, name: 'Fire Hydrant & Hose Reel Systems', category: 'fire', price: 0, oldPrice: null, badge: 'hot', emoji: '💧', quoteOnly: true },
-  { id: 6, name: 'FM-200 Clean Agent Suppression', category: 'fire', price: 0, oldPrice: null, badge: 'new', emoji: '🧯', quoteOnly: true },
-  { id: 7, name: 'Boiler Solutions & Steam Systems', category: 'mechanical', price: 0, oldPrice: null, badge: 'hot', emoji: '⚙️', quoteOnly: true },
-  { id: 8, name: 'HVAC Design, Supply & Installation', category: 'mechanical', price: 0, oldPrice: null, badge: 'hot', emoji: '❄️', quoteOnly: true },
-  { id: 9, name: 'Tank Fabrication & Piping', category: 'mechanical', price: 0, oldPrice: null, badge: 'new', emoji: '🛢️', quoteOnly: true },
-  { id: 10, name: 'PLC Programming & Industrial Automation', category: 'industrial', price: 0, oldPrice: null, badge: 'hot', emoji: '🤖', quoteOnly: true },
-  { id: 11, name: 'Machine Maintenance & AMC', category: 'industrial', price: 0, oldPrice: null, badge: 'new', emoji: '🔧', quoteOnly: true },
-  { id: 12, name: 'Lightning Protection Systems', category: 'safety', price: 0, oldPrice: null, badge: 'hot', emoji: '⚡', quoteOnly: true },
-  { id: 13, name: 'Safety Compliance Auditing', category: 'safety', price: 0, oldPrice: null, badge: 'new', emoji: '📋', quoteOnly: true },
-  { id: 14, name: 'Free Site Survey & Engineering Consultation', category: 'power', price: 0, oldPrice: null, badge: 'new', emoji: '📐', quoteOnly: true },
-  { id: 15, name: 'Annual Maintenance Contract (AMC)', category: 'industrial', price: 0, oldPrice: null, badge: 'sale', emoji: '📅', quoteOnly: true },
-  { id: 16, name: 'Emergency Mobilisation — 24/7 Response', category: 'safety', price: 0, oldPrice: null, badge: 'hot', emoji: '🚨', quoteOnly: true },
+  { id: 1, name: 'HT/LT Switchgear — Design, Supply & Installation', nameBn: 'HT/LT সুইচগিয়ার — ডিজাইন, সরবরাহ ও স্থাপন', category: 'power', price: 0, badge: 'hot', emoji: '⚡', quoteOnly: true },
+  { id: 2, name: 'Bus Bar Trunking (BBT) Systems up to 5000A', nameBn: 'বাস বার ট্রাংকিং (BBT) সিস্টেম ৫০০০A পর্যন্ত', category: 'power', price: 0, badge: 'hot', emoji: '🔌', quoteOnly: true },
+  { id: 3, name: 'Power Transformers — Supply & Commissioning', nameBn: 'পাওয়ার ট্রান্সফরমার — সরবরাহ ও কমিশনিং', category: 'power', price: 0, badge: 'new', emoji: '🔋', quoteOnly: true },
+  { id: 4, name: 'NFPA Fire Detection & Alarm Systems', nameBn: 'NFPA ফায়ার ডিটেকশন ও অ্যালার্ম সিস্টেম', category: 'fire', price: 0, badge: 'hot', emoji: '🔥', quoteOnly: true },
+  { id: 5, name: 'Fire Hydrant & Hose Reel Systems', nameBn: 'ফায়ার হাইড্রান্ট ও হোজ রিল সিস্টেম', category: 'fire', price: 0, badge: 'hot', emoji: '💧', quoteOnly: true },
+  { id: 6, name: 'FM-200 Clean Agent Suppression', nameBn: 'FM-200 ক্লিন এজেন্ট সাপ্রেশন', category: 'fire', price: 0, badge: 'new', emoji: '🧯', quoteOnly: true },
+  { id: 7, name: 'Boiler Solutions & Steam Systems', nameBn: 'বয়লার সমাধান ও স্টিম সিস্টেম', category: 'mechanical', price: 0, badge: 'hot', emoji: '⚙️', quoteOnly: true },
+  { id: 8, name: 'HVAC Design, Supply & Installation', nameBn: 'এইচভিএসি ডিজাইন, সরবরাহ ও স্থাপন', category: 'mechanical', price: 0, badge: 'hot', emoji: '❄️', quoteOnly: true },
+  { id: 9, name: 'Tank Fabrication & Piping', nameBn: 'ট্যাংক ফ্যাব্রিকেশন ও পাইপিং', category: 'mechanical', price: 0, badge: 'new', emoji: '🛢️', quoteOnly: true },
+  { id: 10, name: 'PLC Programming & Industrial Automation', nameBn: 'পিএলসি প্রোগ্রামিং ও ইন্ডাস্ট্রিয়াল অটোমেশন', category: 'industrial', price: 0, badge: 'hot', emoji: '🤖', quoteOnly: true },
+  { id: 11, name: 'Machine Maintenance & AMC', nameBn: 'মেশিন মেইনটেন্যান্স ও AMC', category: 'industrial', price: 0, badge: 'new', emoji: '🔧', quoteOnly: true },
+  { id: 12, name: 'Lightning Protection Systems', nameBn: 'লাইটনিং প্রটেকশন সিস্টেম', category: 'safety', price: 0, badge: 'hot', emoji: '⚡', quoteOnly: true },
+  { id: 13, name: 'Safety Compliance Auditing', nameBn: 'সেফটি কমপ্লায়েন্স অডিটিং', category: 'safety', price: 0, badge: 'new', emoji: '📋', quoteOnly: true },
+  { id: 14, name: 'Free Site Survey & Engineering Consultation', nameBn: 'বিনামূল্যে সাইট সার্ভে ও ইঞ্জিনিয়ারিং পরামর্শ', category: 'power', price: 0, badge: 'new', emoji: '📐', quoteOnly: true },
+  { id: 15, name: 'Annual Maintenance Contract (AMC)', nameBn: 'বার্ষিক মেইনটেন্যান্স কন্ট্রাক্ট (AMC)', category: 'industrial', price: 0, badge: 'sale', emoji: '📅', quoteOnly: true },
+  { id: 16, name: 'Emergency Mobilisation — 24/7 Response', nameBn: 'জরুরি মোবিলাইজেশন — ২৪/৭ রেসপন্স', category: 'safety', price: 0, badge: 'hot', emoji: '🚨', quoteOnly: true },
 ];
 
+function getProductName(p) {
+  const l = typeof getShopLang === 'function' ? getShopLang() : 'en';
+  return l === 'bn' && p.nameBn ? p.nameBn : p.name;
+}
+
+function getDivisionLabel(catId) {
+  const d = AMPTEK.divisions.find(x => x.id === catId);
+  if (!d) return catId;
+  const l = typeof getShopLang === 'function' ? getShopLang() : 'en';
+  return l === 'bn' ? d.nameBn : d.name;
+}
+
 function formatBDT(amount) {
-  if (!amount) return 'Quote on request';
+  if (!amount) return typeof t === 'function' ? t('freeQuote') : 'Quote on request';
   return '৳' + amount.toLocaleString('en-BD');
 }
 
@@ -127,7 +323,7 @@ function addToCart(productId, qty = 1) {
   if (existing) existing.qty += qty;
   else cart.push({ id: product.id, qty });
   saveCart(cart);
-  showToast(product.quoteOnly ? 'Added to quote list' : `Added: ${product.name.slice(0, 40)}…`);
+  showToast(product.quoteOnly ? t('addedQuote') : `${t('added')}: ${getProductName(product).slice(0, 36)}…`);
 }
 
 function removeFromCart(productId) {
@@ -157,10 +353,10 @@ function showToast(msg) {
 function renderProductCard(p) {
   const pct = discountPercent(p.price, p.oldPrice);
   const badgeHtml = p.badge
-    ? `<span class="badge badge-${p.badge}">${p.badge === 'hot' ? 'Popular' : p.badge === 'new' ? 'New' : 'Offer'}</span>`
+    ? `<span class="badge badge-${p.badge}">${p.badge === 'hot' ? t('badgePopular') : p.badge === 'new' ? t('badgeNew') : t('badgeOffer')}</span>`
     : '';
   const priceHtml = p.quoteOnly
-    ? '<span class="price-sale" style="font-size:14px">Free quote available</span>'
+    ? `<span class="price-sale" style="font-size:14px">${t('freeQuote')}</span>`
     : `<span class="price-sale">${formatBDT(p.price)}</span>
        ${p.oldPrice ? `<span class="price-old">${formatBDT(p.oldPrice)}</span>` : ''}
        ${pct ? `<span class="discount-pct">-${pct}%</span>` : ''}`;
@@ -171,9 +367,9 @@ function renderProductCard(p) {
         <span>${p.emoji}</span>
       </a>
       <div class="product-body">
-        <a href="product.html?id=${p.id}" class="product-name">${p.name}</a>
+        <a href="product.html?id=${p.id}" class="product-name">${getProductName(p)}</a>
         <div class="product-prices">${priceHtml}</div>
-        <button type="button" class="btn-add" data-add="${p.id}">${p.quoteOnly ? 'Add to Quote List' : 'Add to Cart'}</button>
+        <button type="button" class="btn-add" data-add="${p.id}">${p.quoteOnly ? t('addQuoteList') : t('addCart')}</button>
       </div>
     </article>`;
 }
@@ -185,11 +381,13 @@ function renderProductGrid(container, products) {
   el.querySelectorAll('[data-add]').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
-      addToCart(Number(btn.dataset.add));
-      btn.textContent = 'Added ✓';
+      const pid = Number(btn.dataset.add);
+      const prod = getProduct(pid);
+      addToCart(pid);
+      btn.textContent = t('added');
       btn.classList.add('added');
       setTimeout(() => {
-        btn.textContent = 'Add to Cart';
+        btn.textContent = prod?.quoteOnly ? t('addQuoteList') : t('addCart');
         btn.classList.remove('added');
       }, 1500);
     });
@@ -324,7 +522,7 @@ function renderCartPage() {
       <div class="cart-row" data-id="${p.id}">
         <div class="cart-thumb">${p.emoji}</div>
         <div>
-          <a href="product.html?id=${p.id}" style="font-weight:600;font-size:14px">${p.name}</a>
+          <a href="product.html?id=${p.id}" style="font-weight:600;font-size:14px">${getProductName(p)}</a>
           <div style="font-size:13px;color:var(--text2);margin-top:4px">${formatBDT(p.price)} each</div>
         </div>
         <div class="qty-control">
@@ -339,9 +537,9 @@ function renderCartPage() {
 
   document.getElementById('cartRows').innerHTML = rows;
   const isQuote = cart.every(i => getProduct(i.id)?.quoteOnly);
-  document.getElementById('cartSubtotal').textContent = isQuote || !subtotal ? 'Custom quotation' : formatBDT(subtotal);
-  document.getElementById('cartDelivery').textContent = isQuote ? 'On survey' : (subtotal >= 5000 ? 'FREE' : formatBDT(120));
-  document.getElementById('cartTotal').textContent = isQuote || !subtotal ? 'We will call you' : formatBDT(subtotal + (subtotal >= 5000 ? 0 : 120));
+  document.getElementById('cartSubtotal').textContent = isQuote || !subtotal ? t('customQuote') : formatBDT(subtotal);
+  document.getElementById('cartDelivery').textContent = isQuote ? t('onSurvey') : (subtotal >= 5000 ? 'FREE' : formatBDT(120));
+  document.getElementById('cartTotal').textContent = isQuote || !subtotal ? t('weCallYou') : formatBDT(subtotal + (subtotal >= 5000 ? 0 : 120));
 
   content.querySelectorAll('[data-qty-minus]').forEach(b =>
     b.addEventListener('click', () => {
@@ -376,34 +574,66 @@ function renderProductDetail() {
     return;
   }
   const pct = discountPercent(p.price, p.oldPrice);
-  document.title = `${p.name} — Amptek`;
+  const l = getShopLang();
+  const metaCat = getDivisionLabel(p.category);
+  const metaExtra = l === 'bn' ? '· ১০০% প্রকৃত · অফিসিয়াল ওয়ারেন্টি' : '· 100% Genuine · Official Warranty';
+  const surveyText = l === 'bn'
+    ? 'বিনামূল্যে সাইট সার্ভে ও কোটেশনের জন্য যোগাযোগ করুন।'
+    : 'Contact us for a free site survey and quotation.';
+  document.title = `${getProductName(p)} — Amptek`;
   el.innerHTML = `
     <div class="pd-gallery"><span>${p.emoji}</span></div>
     <div class="pd-info">
-      <h1>${p.name}</h1>
-      <p class="pd-meta">Category: ${CATEGORIES.find(c => c.id === p.category)?.name || p.category} · 100% Genuine · Official Warranty</p>
+      <h1>${getProductName(p)}</h1>
+      <p class="pd-meta">${l === 'bn' ? 'বিভাগ' : 'Category'}: ${metaCat} ${metaExtra}</p>
       <div class="pd-prices product-prices">
         <span class="price-sale">${formatBDT(p.price)}</span>
         ${p.oldPrice ? `<span class="price-old">${formatBDT(p.oldPrice)}</span>` : ''}
         ${pct ? `<span class="discount-pct">Save ${pct}%</span>` : ''}
       </div>
-      <button type="button" class="btn-buy" id="pdAddCart">Add to Cart</button>
-      <a href="cart.html" class="view-all">View Cart →</a>
+      <button type="button" class="btn-buy" id="pdAddCart">${p.quoteOnly ? t('addQuoteList') : t('addCart')}</button>
+      <a href="cart.html" class="view-all">${t('quoteList')} →</a>
       <p style="margin-top:24px;font-size:14px;color:var(--text2);line-height:1.7">
-        Contact us for a free site survey and quotation. ${AMPTEK.hours}. ${AMPTEK.emergency}.
-        Call <a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a> or email <a href="mailto:${AMPTEK.email}">${AMPTEK.email}</a>.
+        ${surveyText} ${l === 'bn' ? AMPTEK.hoursBn : AMPTEK.hours}. ${l === 'bn' ? AMPTEK.emergencyBn : AMPTEK.emergency}.
+        ${l === 'bn' ? 'কল' : 'Call'} <a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a> ${l === 'bn' ? 'বা ইমেইল' : 'or email'} <a href="mailto:${AMPTEK.email}">${AMPTEK.email}</a>.
       </p>
     </div>`;
   document.getElementById('pdAddCart')?.addEventListener('click', () => addToCart(p.id));
 }
 
+function renderHubCards() {
+  const grid = document.getElementById('hubGrid');
+  if (!grid) return;
+  const l = getShopLang();
+  const hubs = ['hub-1', 'hub-2', 'hub-3', 'hub-4', 'hub-5'];
+  grid.innerHTML = AMPTEK.divisions.map((d, i) => {
+    const name = l === 'bn' ? d.nameBn : d.name;
+    const desc = l === 'bn' ? d.descBn : d.desc;
+    return `<a href="#${d.id}" class="hub-card ${hubs[i]}"><h3>${d.icon} ${name}</h3><p>${desc}</p><span class="hub-cta">${t('explore')}</span></a>`;
+  }).join('');
+}
+
+function refreshProductGrids() {
+  if (document.getElementById('mostSold')) renderProductGrid('#mostSold', getMostSold());
+  if (document.getElementById('mostDiscount')) renderProductGrid('#mostDiscount', getMostDiscount());
+  if (document.getElementById('newArrivals')) renderProductGrid('#newArrivals', getNewArrivals());
+  if (document.getElementById('allProducts')) {
+    const active = document.querySelector('.cat-chip.active')?.dataset.category || 'all';
+    const filtered = active === 'all' ? PRODUCTS.slice(0, 12) : getByCategory(active).slice(0, 12);
+    renderProductGrid('#allProducts', filtered);
+  }
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('search') && document.getElementById('searchResults')) runSearch(params.get('search'));
+}
+
 function injectCompanyInfo() {
+  const l = getShopLang();
   document.querySelectorAll('[data-company-name]').forEach(el => { el.textContent = AMPTEK.name; });
   document.querySelectorAll('[data-company-name-display]').forEach(el => { el.textContent = AMPTEK.nameDisplay; });
-  document.querySelectorAll('[data-company-slogan]').forEach(el => { el.textContent = AMPTEK.slogan; });
-  document.querySelectorAll('[data-company-tagline]').forEach(el => { el.textContent = AMPTEK.tagline; });
-  document.querySelectorAll('[data-company-intro]').forEach(el => { el.textContent = AMPTEK.intro; });
-  document.querySelectorAll('[data-company-address]').forEach(el => { el.textContent = AMPTEK.address; });
+  document.querySelectorAll('[data-company-slogan]').forEach(el => { el.textContent = l === 'bn' ? AMPTEK.sloganBn : AMPTEK.slogan; });
+  document.querySelectorAll('[data-company-tagline]').forEach(el => { el.textContent = l === 'bn' ? AMPTEK.taglineBn : AMPTEK.tagline; });
+  document.querySelectorAll('[data-company-intro]').forEach(el => { el.textContent = l === 'bn' ? AMPTEK.introBn : AMPTEK.intro; });
+  document.querySelectorAll('[data-company-address]').forEach(el => { el.textContent = l === 'bn' ? AMPTEK.addressBn : AMPTEK.address; });
   document.querySelectorAll('[data-company-website]').forEach(el => {
     el.innerHTML = `<a href="${AMPTEK.website}" target="_blank" rel="noopener">${AMPTEK.websiteDisplay}</a>`;
   });
@@ -419,9 +649,17 @@ function injectCompanyInfo() {
   const statsEl = document.getElementById('companyStats');
   if (statsEl) {
     statsEl.innerHTML = AMPTEK.stats.map(s =>
-      `<div class="stat-pill"><strong>${s.num}</strong><span>${s.label}</span></div>`
+      `<div class="stat-pill"><strong>${s.num}</strong><span>${l === 'bn' ? s.labelBn : s.label}</span></div>`
     ).join('');
   }
+  document.querySelectorAll('.cat-chip[data-category]').forEach(chip => {
+    const d = AMPTEK.divisions.find(x => x.id === chip.dataset.category);
+    if (!d) return;
+    const label = l === 'bn' ? d.nameBn : d.name;
+    chip.textContent = `${d.icon} ${label}`;
+  });
+  const allChip = document.querySelector('.cat-chip[data-category="all"]');
+  if (allChip) allChip.textContent = t('all');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -431,17 +669,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (!bootCheck()) return;
 
-  injectCompanyInfo();
+  if (typeof initShopLang === 'function') initShopLang();
+  renderHubCards();
   updateCartBadge();
   initFAQ();
   initSearch();
   initCategoryNav();
   applySearchFilter();
-
-  if (document.getElementById('mostSold')) renderProductGrid('#mostSold', getMostSold());
-  if (document.getElementById('mostDiscount')) renderProductGrid('#mostDiscount', getMostDiscount());
-  if (document.getElementById('newArrivals')) renderProductGrid('#newArrivals', getNewArrivals());
-  if (document.getElementById('allProducts')) renderProductGrid('#allProducts', PRODUCTS.slice(0, 12));
+  refreshProductGrids();
   if (document.getElementById('cartContent') || document.getElementById('cartEmpty')) renderCartPage();
   if (document.getElementById('productDetail')) renderProductDetail();
 

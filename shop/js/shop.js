@@ -30,7 +30,7 @@ function addToCart(productId, qty = 1) {
   if (existing) existing.qty += qty;
   else cart.push({ id: product.id, qty });
   saveCart(cart);
-  showToast(product.quoteOnly ? 'Added to quote list' : `Added: ${product.name.slice(0, 40)}…`);
+  showToast(product.quoteOnly ? t('addedQuote') : `${t('added')}: ${getProductName(product).slice(0, 36)}…`);
 }
 
 function removeFromCart(productId) {
@@ -60,10 +60,10 @@ function showToast(msg) {
 function renderProductCard(p) {
   const pct = discountPercent(p.price, p.oldPrice);
   const badgeHtml = p.badge
-    ? `<span class="badge badge-${p.badge}">${p.badge === 'hot' ? 'Popular' : p.badge === 'new' ? 'New' : 'Offer'}</span>`
+    ? `<span class="badge badge-${p.badge}">${p.badge === 'hot' ? t('badgePopular') : p.badge === 'new' ? t('badgeNew') : t('badgeOffer')}</span>`
     : '';
   const priceHtml = p.quoteOnly
-    ? '<span class="price-sale" style="font-size:14px">Free quote available</span>'
+    ? `<span class="price-sale" style="font-size:14px">${t('freeQuote')}</span>`
     : `<span class="price-sale">${formatBDT(p.price)}</span>
        ${p.oldPrice ? `<span class="price-old">${formatBDT(p.oldPrice)}</span>` : ''}
        ${pct ? `<span class="discount-pct">-${pct}%</span>` : ''}`;
@@ -74,9 +74,9 @@ function renderProductCard(p) {
         <span>${p.emoji}</span>
       </a>
       <div class="product-body">
-        <a href="product.html?id=${p.id}" class="product-name">${p.name}</a>
+        <a href="product.html?id=${p.id}" class="product-name">${getProductName(p)}</a>
         <div class="product-prices">${priceHtml}</div>
-        <button type="button" class="btn-add" data-add="${p.id}">${p.quoteOnly ? 'Add to Quote List' : 'Add to Cart'}</button>
+        <button type="button" class="btn-add" data-add="${p.id}">${p.quoteOnly ? t('addQuoteList') : t('addCart')}</button>
       </div>
     </article>`;
 }
@@ -88,11 +88,13 @@ function renderProductGrid(container, products) {
   el.querySelectorAll('[data-add]').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
-      addToCart(Number(btn.dataset.add));
-      btn.textContent = 'Added ✓';
+      const pid = Number(btn.dataset.add);
+      const prod = getProduct(pid);
+      addToCart(pid);
+      btn.textContent = t('added');
       btn.classList.add('added');
       setTimeout(() => {
-        btn.textContent = 'Add to Cart';
+        btn.textContent = prod?.quoteOnly ? t('addQuoteList') : t('addCart');
         btn.classList.remove('added');
       }, 1500);
     });
@@ -227,7 +229,7 @@ function renderCartPage() {
       <div class="cart-row" data-id="${p.id}">
         <div class="cart-thumb">${p.emoji}</div>
         <div>
-          <a href="product.html?id=${p.id}" style="font-weight:600;font-size:14px">${p.name}</a>
+          <a href="product.html?id=${p.id}" style="font-weight:600;font-size:14px">${getProductName(p)}</a>
           <div style="font-size:13px;color:var(--text2);margin-top:4px">${formatBDT(p.price)} each</div>
         </div>
         <div class="qty-control">
@@ -242,9 +244,9 @@ function renderCartPage() {
 
   document.getElementById('cartRows').innerHTML = rows;
   const isQuote = cart.every(i => getProduct(i.id)?.quoteOnly);
-  document.getElementById('cartSubtotal').textContent = isQuote || !subtotal ? 'Custom quotation' : formatBDT(subtotal);
-  document.getElementById('cartDelivery').textContent = isQuote ? 'On survey' : (subtotal >= 5000 ? 'FREE' : formatBDT(120));
-  document.getElementById('cartTotal').textContent = isQuote || !subtotal ? 'We will call you' : formatBDT(subtotal + (subtotal >= 5000 ? 0 : 120));
+  document.getElementById('cartSubtotal').textContent = isQuote || !subtotal ? t('customQuote') : formatBDT(subtotal);
+  document.getElementById('cartDelivery').textContent = isQuote ? t('onSurvey') : (subtotal >= 5000 ? 'FREE' : formatBDT(120));
+  document.getElementById('cartTotal').textContent = isQuote || !subtotal ? t('weCallYou') : formatBDT(subtotal + (subtotal >= 5000 ? 0 : 120));
 
   content.querySelectorAll('[data-qty-minus]').forEach(b =>
     b.addEventListener('click', () => {
@@ -279,34 +281,66 @@ function renderProductDetail() {
     return;
   }
   const pct = discountPercent(p.price, p.oldPrice);
-  document.title = `${p.name} — Amptek`;
+  const l = getShopLang();
+  const metaCat = getDivisionLabel(p.category);
+  const metaExtra = l === 'bn' ? '· ১০০% প্রকৃত · অফিসিয়াল ওয়ারেন্টি' : '· 100% Genuine · Official Warranty';
+  const surveyText = l === 'bn'
+    ? 'বিনামূল্যে সাইট সার্ভে ও কোটেশনের জন্য যোগাযোগ করুন।'
+    : 'Contact us for a free site survey and quotation.';
+  document.title = `${getProductName(p)} — Amptek`;
   el.innerHTML = `
     <div class="pd-gallery"><span>${p.emoji}</span></div>
     <div class="pd-info">
-      <h1>${p.name}</h1>
-      <p class="pd-meta">Category: ${CATEGORIES.find(c => c.id === p.category)?.name || p.category} · 100% Genuine · Official Warranty</p>
+      <h1>${getProductName(p)}</h1>
+      <p class="pd-meta">${l === 'bn' ? 'বিভাগ' : 'Category'}: ${metaCat} ${metaExtra}</p>
       <div class="pd-prices product-prices">
         <span class="price-sale">${formatBDT(p.price)}</span>
         ${p.oldPrice ? `<span class="price-old">${formatBDT(p.oldPrice)}</span>` : ''}
         ${pct ? `<span class="discount-pct">Save ${pct}%</span>` : ''}
       </div>
-      <button type="button" class="btn-buy" id="pdAddCart">Add to Cart</button>
-      <a href="cart.html" class="view-all">View Cart →</a>
+      <button type="button" class="btn-buy" id="pdAddCart">${p.quoteOnly ? t('addQuoteList') : t('addCart')}</button>
+      <a href="cart.html" class="view-all">${t('quoteList')} →</a>
       <p style="margin-top:24px;font-size:14px;color:var(--text2);line-height:1.7">
-        Contact us for a free site survey and quotation. ${AMPTEK.hours}. ${AMPTEK.emergency}.
-        Call <a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a> or email <a href="mailto:${AMPTEK.email}">${AMPTEK.email}</a>.
+        ${surveyText} ${l === 'bn' ? AMPTEK.hoursBn : AMPTEK.hours}. ${l === 'bn' ? AMPTEK.emergencyBn : AMPTEK.emergency}.
+        ${l === 'bn' ? 'কল' : 'Call'} <a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a> ${l === 'bn' ? 'বা ইমেইল' : 'or email'} <a href="mailto:${AMPTEK.email}">${AMPTEK.email}</a>.
       </p>
     </div>`;
   document.getElementById('pdAddCart')?.addEventListener('click', () => addToCart(p.id));
 }
 
+function renderHubCards() {
+  const grid = document.getElementById('hubGrid');
+  if (!grid) return;
+  const l = getShopLang();
+  const hubs = ['hub-1', 'hub-2', 'hub-3', 'hub-4', 'hub-5'];
+  grid.innerHTML = AMPTEK.divisions.map((d, i) => {
+    const name = l === 'bn' ? d.nameBn : d.name;
+    const desc = l === 'bn' ? d.descBn : d.desc;
+    return `<a href="#${d.id}" class="hub-card ${hubs[i]}"><h3>${d.icon} ${name}</h3><p>${desc}</p><span class="hub-cta">${t('explore')}</span></a>`;
+  }).join('');
+}
+
+function refreshProductGrids() {
+  if (document.getElementById('mostSold')) renderProductGrid('#mostSold', getMostSold());
+  if (document.getElementById('mostDiscount')) renderProductGrid('#mostDiscount', getMostDiscount());
+  if (document.getElementById('newArrivals')) renderProductGrid('#newArrivals', getNewArrivals());
+  if (document.getElementById('allProducts')) {
+    const active = document.querySelector('.cat-chip.active')?.dataset.category || 'all';
+    const filtered = active === 'all' ? PRODUCTS.slice(0, 12) : getByCategory(active).slice(0, 12);
+    renderProductGrid('#allProducts', filtered);
+  }
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('search') && document.getElementById('searchResults')) runSearch(params.get('search'));
+}
+
 function injectCompanyInfo() {
+  const l = getShopLang();
   document.querySelectorAll('[data-company-name]').forEach(el => { el.textContent = AMPTEK.name; });
   document.querySelectorAll('[data-company-name-display]').forEach(el => { el.textContent = AMPTEK.nameDisplay; });
-  document.querySelectorAll('[data-company-slogan]').forEach(el => { el.textContent = AMPTEK.slogan; });
-  document.querySelectorAll('[data-company-tagline]').forEach(el => { el.textContent = AMPTEK.tagline; });
-  document.querySelectorAll('[data-company-intro]').forEach(el => { el.textContent = AMPTEK.intro; });
-  document.querySelectorAll('[data-company-address]').forEach(el => { el.textContent = AMPTEK.address; });
+  document.querySelectorAll('[data-company-slogan]').forEach(el => { el.textContent = l === 'bn' ? AMPTEK.sloganBn : AMPTEK.slogan; });
+  document.querySelectorAll('[data-company-tagline]').forEach(el => { el.textContent = l === 'bn' ? AMPTEK.taglineBn : AMPTEK.tagline; });
+  document.querySelectorAll('[data-company-intro]').forEach(el => { el.textContent = l === 'bn' ? AMPTEK.introBn : AMPTEK.intro; });
+  document.querySelectorAll('[data-company-address]').forEach(el => { el.textContent = l === 'bn' ? AMPTEK.addressBn : AMPTEK.address; });
   document.querySelectorAll('[data-company-website]').forEach(el => {
     el.innerHTML = `<a href="${AMPTEK.website}" target="_blank" rel="noopener">${AMPTEK.websiteDisplay}</a>`;
   });
@@ -322,9 +356,17 @@ function injectCompanyInfo() {
   const statsEl = document.getElementById('companyStats');
   if (statsEl) {
     statsEl.innerHTML = AMPTEK.stats.map(s =>
-      `<div class="stat-pill"><strong>${s.num}</strong><span>${s.label}</span></div>`
+      `<div class="stat-pill"><strong>${s.num}</strong><span>${l === 'bn' ? s.labelBn : s.label}</span></div>`
     ).join('');
   }
+  document.querySelectorAll('.cat-chip[data-category]').forEach(chip => {
+    const d = AMPTEK.divisions.find(x => x.id === chip.dataset.category);
+    if (!d) return;
+    const label = l === 'bn' ? d.nameBn : d.name;
+    chip.textContent = `${d.icon} ${label}`;
+  });
+  const allChip = document.querySelector('.cat-chip[data-category="all"]');
+  if (allChip) allChip.textContent = t('all');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -334,17 +376,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (!bootCheck()) return;
 
-  injectCompanyInfo();
+  if (typeof initShopLang === 'function') initShopLang();
+  renderHubCards();
   updateCartBadge();
   initFAQ();
   initSearch();
   initCategoryNav();
   applySearchFilter();
-
-  if (document.getElementById('mostSold')) renderProductGrid('#mostSold', getMostSold());
-  if (document.getElementById('mostDiscount')) renderProductGrid('#mostDiscount', getMostDiscount());
-  if (document.getElementById('newArrivals')) renderProductGrid('#newArrivals', getNewArrivals());
-  if (document.getElementById('allProducts')) renderProductGrid('#allProducts', PRODUCTS.slice(0, 12));
+  refreshProductGrids();
   if (document.getElementById('cartContent') || document.getElementById('cartEmpty')) renderCartPage();
   if (document.getElementById('productDetail')) renderProductDetail();
 
