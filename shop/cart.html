@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Cart — Amptek</title>
+  <title>Quote List — Amptek Engineering</title>
   <link rel="stylesheet" href="css/shop.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
 </header>
 
 <main class="page-main">
-  <h1 class="page-title">Shopping Cart</h1>
+  <h1 class="page-title">Request a Quote</h1>
 
   <div class="empty-cart" id="cartEmpty" style="display:none">
     <div style="font-size:64px">🛒</div>
@@ -47,8 +47,8 @@
       <div class="summary-line"><span>Subtotal</span><span id="cartSubtotal">৳0</span></div>
       <div class="summary-line"><span>Delivery</span><span id="cartDelivery">৳0</span></div>
       <div class="summary-line total"><span>Total</span><span id="cartTotal">৳0</span></div>
-      <button type="button" class="btn-checkout" onclick="alert('Checkout demo — connect bKash/COD backend here.')">Place Order (COD)</button>
-      <p style="font-size:12px;color:var(--text3);margin-top:12px;text-align:center">Pay with bKash, Nagad, or card at checkout</p>
+      <button type="button" class="btn-checkout" onclick="window.location.href='contact.html'">Submit Quote Request</button>
+      <p style="font-size:12px;color:var(--text3);margin-top:12px;text-align:center">We will call you at <a href="tel:01671113616">01671-113616</a></p>
     </aside>
   </div>
 </main>
@@ -58,6 +58,8 @@
 </footer>
 
 <div id="toast"></div>
-<script src="js/app.js" defer></script>
+<script src="js/company.js"></script>
+<script src="js/products.js"></script>
+<script src="js/shop.js"></script>
 </body>
 </html>

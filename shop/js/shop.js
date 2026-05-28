@@ -30,7 +30,7 @@ function addToCart(productId, qty = 1) {
   if (existing) existing.qty += qty;
   else cart.push({ id: product.id, qty });
   saveCart(cart);
-  showToast(`Added: ${product.name.slice(0, 40)}…`);
+  showToast(product.quoteOnly ? 'Added to quote list' : `Added: ${product.name.slice(0, 40)}…`);
 }
 
 function removeFromCart(productId) {
@@ -60,8 +60,13 @@ function showToast(msg) {
 function renderProductCard(p) {
   const pct = discountPercent(p.price, p.oldPrice);
   const badgeHtml = p.badge
-    ? `<span class="badge badge-${p.badge}">${p.badge === 'hot' ? 'HOT' : p.badge === 'new' ? 'NEW' : `-${pct}%`}</span>`
-    : (pct ? `<span class="badge badge-sale">-${pct}%</span>` : '');
+    ? `<span class="badge badge-${p.badge}">${p.badge === 'hot' ? 'Popular' : p.badge === 'new' ? 'New' : 'Offer'}</span>`
+    : '';
+  const priceHtml = p.quoteOnly
+    ? '<span class="price-sale" style="font-size:14px">Free quote available</span>'
+    : `<span class="price-sale">${formatBDT(p.price)}</span>
+       ${p.oldPrice ? `<span class="price-old">${formatBDT(p.oldPrice)}</span>` : ''}
+       ${pct ? `<span class="discount-pct">-${pct}%</span>` : ''}`;
   return `
     <article class="product-card" data-id="${p.id}">
       <a href="product.html?id=${p.id}" class="product-img">
@@ -70,12 +75,8 @@ function renderProductCard(p) {
       </a>
       <div class="product-body">
         <a href="product.html?id=${p.id}" class="product-name">${p.name}</a>
-        <div class="product-prices">
-          <span class="price-sale">${formatBDT(p.price)}</span>
-          ${p.oldPrice ? `<span class="price-old">${formatBDT(p.oldPrice)}</span>` : ''}
-          ${pct ? `<span class="discount-pct">-${pct}%</span>` : ''}
-        </div>
-        <button type="button" class="btn-add" data-add="${p.id}">Add to Cart</button>
+        <div class="product-prices">${priceHtml}</div>
+        <button type="button" class="btn-add" data-add="${p.id}">${p.quoteOnly ? 'Add to Quote List' : 'Add to Cart'}</button>
       </div>
     </article>`;
 }
@@ -171,7 +172,7 @@ function filterByCategory(cat) {
 }
 
 function initCategoryNav() {
-  const map = { solar: 'solar', electronics: 'electronics', mobile: 'mobile', computing: 'computing', gaming: 'gaming', audio: 'audio', smart: 'smart', products: 'all' };
+  const map = { power: 'power', fire: 'fire', mechanical: 'mechanical', industrial: 'industrial', safety: 'safety', products: 'all' };
   document.querySelectorAll('.main-nav .nav-link[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       const id = link.getAttribute('href').slice(1);
@@ -185,7 +186,7 @@ function initCategoryNav() {
   document.querySelectorAll('.hub-card[href^="#"]').forEach(card => {
     card.addEventListener('click', e => {
       const id = card.getAttribute('href').slice(1);
-      const cat = map[id] || 'solar';
+      const cat = map[id] || 'power';
       if (!document.getElementById('allProducts')) return;
       e.preventDefault();
       filterByCategory(cat);
@@ -240,10 +241,10 @@ function renderCartPage() {
   }).join('');
 
   document.getElementById('cartRows').innerHTML = rows;
-  const delivery = subtotal >= 5000 ? 0 : 120;
-  document.getElementById('cartSubtotal').textContent = formatBDT(subtotal);
-  document.getElementById('cartDelivery').textContent = delivery ? formatBDT(delivery) : 'FREE';
-  document.getElementById('cartTotal').textContent = formatBDT(subtotal + delivery);
+  const isQuote = cart.every(i => getProduct(i.id)?.quoteOnly);
+  document.getElementById('cartSubtotal').textContent = isQuote || !subtotal ? 'Custom quotation' : formatBDT(subtotal);
+  document.getElementById('cartDelivery').textContent = isQuote ? 'On survey' : (subtotal >= 5000 ? 'FREE' : formatBDT(120));
+  document.getElementById('cartTotal').textContent = isQuote || !subtotal ? 'We will call you' : formatBDT(subtotal + (subtotal >= 5000 ? 0 : 120));
 
   content.querySelectorAll('[data-qty-minus]').forEach(b =>
     b.addEventListener('click', () => {
@@ -292,16 +293,42 @@ function renderProductDetail() {
       <button type="button" class="btn-buy" id="pdAddCart">Add to Cart</button>
       <a href="cart.html" class="view-all">View Cart →</a>
       <p style="margin-top:24px;font-size:14px;color:var(--text2);line-height:1.7">
-        Cash on delivery, bKash, Nagad, and card payments accepted. Free delivery on orders over ৳5,000.
-        Delivery in 2–5 business days across Bangladesh.
+        Contact us for a free site survey and quotation. ${AMPTEK.hours}. ${AMPTEK.emergency}.
+        Call <a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a> or email <a href="mailto:${AMPTEK.email}">${AMPTEK.email}</a>.
       </p>
     </div>`;
   document.getElementById('pdAddCart')?.addEventListener('click', () => addToCart(p.id));
 }
 
+function injectCompanyInfo() {
+  document.querySelectorAll('[data-company-name]').forEach(el => { el.textContent = AMPTEK.name; });
+  document.querySelectorAll('[data-company-tagline]').forEach(el => { el.textContent = AMPTEK.tagline; });
+  document.querySelectorAll('[data-company-intro]').forEach(el => { el.textContent = AMPTEK.intro; });
+  document.querySelectorAll('[data-company-phone]').forEach(el => {
+    el.innerHTML = `<a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a>`;
+  });
+  document.querySelectorAll('[data-company-email]').forEach(el => {
+    el.innerHTML = `<a href="mailto:${AMPTEK.email}">${AMPTEK.email}</a>`;
+  });
+  document.querySelectorAll('[data-facebook-href]').forEach(el => {
+    el.href = AMPTEK.facebook;
+  });
+  const statsEl = document.getElementById('companyStats');
+  if (statsEl) {
+    statsEl.innerHTML = AMPTEK.stats.map(s =>
+      `<div class="stat-pill"><strong>${s.num}</strong><span>${s.label}</span></div>`
+    ).join('');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof AMPTEK === 'undefined') {
+    console.error('company.js must load before shop scripts');
+    return;
+  }
   if (!bootCheck()) return;
 
+  injectCompanyInfo();
   updateCartBadge();
   initFAQ();
   initSearch();

@@ -89,6 +89,25 @@ button{font-family:inherit;cursor:pointer}
 .hub-card.hub-2{background:linear-gradient(135deg,#047857,#10b981)}
 .hub-card.hub-3{background:linear-gradient(135deg,#7c3aed,#a855f7)}
 .hub-card.hub-4{background:linear-gradient(135deg,#c2410c,#f97316)}
+.hub-card.hub-5{background:linear-gradient(135deg,#0f766e,#14b8a6)}
+.hub-grid-5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:1100px){.hub-grid-5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.hub-grid-5{grid-template-columns:1fr}}
+
+.hero-about{background:linear-gradient(160deg,#0f172a,#1e293b);color:#fff;padding:48px 20px 40px}
+.hero-about-inner{max-width:1280px;margin:0 auto}
+.hero-eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#f59e0b;margin-bottom:12px}
+.hero-about h1{font-size:clamp(28px,5vw,42px);font-weight:800;margin-bottom:14px;line-height:1.15}
+.hero-lead{font-size:16px;color:#cbd5e1;line-height:1.75;max-width:720px;margin-bottom:24px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.hero-actions .btn-outline{border-color:rgba(255,255,255,0.35);color:#fff}
+.hero-actions .btn-outline:hover{border-color:#f59e0b;color:#f59e0b}
+.company-stats{display:flex;gap:16px;flex-wrap:wrap}
+.stat-pill{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:14px 20px;min-width:120px}
+.stat-pill strong{display:block;font-size:22px;color:#f59e0b}
+.stat-pill span{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px}
+.social-fb{display:inline-block;margin-top:8px;color:#93c5fd;font-weight:600}
+.social-fb:hover{color:#fff}
 
 /* Section */
 .section{max-width:1280px;margin:0 auto;padding:32px 20px}

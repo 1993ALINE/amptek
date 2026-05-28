@@ -1,42 +1,65 @@
-const CATEGORIES = [
-  { id: 'solar', name: 'Solar & Green Energy', icon: '☀️' },
-  { id: 'electronics', name: 'Electronics', icon: '📱' },
-  { id: 'mobile', name: 'Mobile & Gadgets', icon: '📲' },
-  { id: 'computing', name: 'Laptops & PCs', icon: '💻' },
-  { id: 'audio', name: 'Audio & Headphones', icon: '🎧' },
-  { id: 'gaming', name: 'Gaming', icon: '🎮' },
-  { id: 'smart', name: 'Smart Home', icon: '🏠' },
-  { id: 'accessories', name: 'Accessories', icon: '🔌' },
-];
+/** Amptek Engineering — company info (aligned with website & Facebook page) */
+const AMPTEK = {
+  name: 'Amptek Engineering',
+  shortName: 'Amptek',
+  tagline: 'Powering Industry. Protecting Lives.',
+  taglineBn: 'শিল্প পরিচালনা। জীবন সুরক্ষা।',
+  phone: '01671113616',
+  phoneDisplay: '01671-113616',
+  email: 'nahidalam85@gmail.com',
+  whatsapp: '8801671113616',
+  facebook: 'https://www.facebook.com/AmptekEngineering',
+  facebookSearch: 'https://www.facebook.com/search/pages?q=Amptek%20Engineering',
+  location: 'Bangladesh',
+  hours: 'Sat–Thu: 9:00 AM – 6:00 PM',
+  emergency: '24/7 Emergency Support',
+  intro:
+    'Amptek Engineering is a multi-discipline engineering company based in Bangladesh, delivering integrated solutions across Power Systems, Fire Safety, Mechanical Engineering, Industrial Automation and Safety Systems — all under one roof.',
+  mission:
+    "To be Bangladesh's most trusted engineering partner — delivering safe, efficient and compliant solutions that power industry and protect lives.",
+  stats: [
+    { num: '15+', label: 'Years Experience' },
+    { num: '500+', label: 'Projects Completed' },
+    { num: '50+', label: 'Certified Engineers' },
+    { num: '5', label: 'Engineering Divisions' },
+  ],
+  clients: 'RMG factories, pharmaceutical plants, hospitals, data centres & commercial buildings',
+  divisions: [
+    { id: 'power', name: 'Power Systems', icon: '⚡', desc: 'HT/LT switchgear, BBT, transformers' },
+    { id: 'fire', name: 'Fire Safety', icon: '🔥', desc: 'NFPA detection, hydrant, FM-200' },
+    { id: 'mechanical', name: 'Mechanical', icon: '⚙️', desc: 'Boiler, HVAC, tank fabrication' },
+    { id: 'industrial', name: 'Industrial Automation', icon: '🤖', desc: 'PLC, automation, maintenance' },
+    { id: 'safety', name: 'Safety Systems', icon: '🛡️', desc: 'Lightning protection, compliance' },
+  ],
+};
+const CATEGORIES = AMPTEK.divisions.map(d => ({
+  id: d.id,
+  name: d.name,
+  icon: d.icon,
+}));
 
+/** Engineering services & solutions (request quote via cart) */
 const PRODUCTS = [
-  { id: 1, name: 'Jinko Tiger Neo 625W Bifacial Solar Panel (Pre-Order)', category: 'solar', price: 15499, oldPrice: 16500, badge: 'hot', emoji: '☀️' },
-  { id: 2, name: 'GearUP 12V 100Ah LiFePO4 Lithium Battery with Bluetooth BMS', category: 'solar', price: 29000, oldPrice: 35000, badge: 'hot', emoji: '🔋' },
-  { id: 3, name: 'EcoFlow E980 Portable Power Station 980Wh', category: 'solar', price: 49900, oldPrice: 55900, badge: 'hot', emoji: '⚡' },
-  { id: 4, name: 'GearUP 800W Pure Sine Wave Inverter for 12V Battery', category: 'solar', price: 14000, oldPrice: 15900, badge: 'hot', emoji: '🔌' },
-  { id: 5, name: 'EcoFlow DELTA Pro 3600W Portable Solar Power Station', category: 'solar', price: 169000, oldPrice: 224900, badge: 'hot', emoji: '⚡' },
-  { id: 6, name: 'Hex Flange Self Drilling Screw for Solar (2 Pcs)', category: 'solar', price: 50, oldPrice: 99, badge: 'sale', emoji: '🔩' },
-  { id: 7, name: 'Aluminum End Clamp for Solar Mounting (2 Pcs)', category: 'solar', price: 600, oldPrice: 890, badge: 'sale', emoji: '📐' },
-  { id: 8, name: 'TOMZN 2 Pole AC SPD Surge Protective Device 275V', category: 'solar', price: 1100, oldPrice: 1500, badge: 'sale', emoji: '⚡' },
-  { id: 9, name: 'TOMZN WiFi Automatic Transfer Switch 125A', category: 'solar', price: 5500, oldPrice: 7000, badge: 'new', emoji: '🔄' },
-  { id: 10, name: 'GearUP 2KW Hybrid Inverter + 100Ah Battery Combo', category: 'solar', price: 55000, oldPrice: 60000, badge: 'new', emoji: '📦' },
-  { id: 11, name: 'Samsung Galaxy A55 5G (8GB/256GB)', category: 'mobile', price: 42999, oldPrice: 45999, badge: 'hot', emoji: '📱' },
-  { id: 12, name: 'Xiaomi Redmi Note 13 Pro', category: 'mobile', price: 32999, oldPrice: 35999, badge: 'sale', emoji: '📱' },
-  { id: 13, name: 'Apple AirPods Pro (2nd Gen)', category: 'audio', price: 24999, oldPrice: 27999, badge: 'hot', emoji: '🎧' },
-  { id: 14, name: 'Sony WH-1000XM5 Wireless Headphones', category: 'audio', price: 34999, oldPrice: 38999, badge: 'sale', emoji: '🎧' },
-  { id: 15, name: 'ASUS TUF Gaming F15 RTX 4050 Laptop', category: 'computing', price: 124999, oldPrice: 134999, badge: 'hot', emoji: '💻' },
-  { id: 16, name: 'Lenovo IdeaPad Slim 3 Core i5', category: 'computing', price: 54999, oldPrice: 59999, badge: 'new', emoji: '💻' },
-  { id: 17, name: 'Logitech G502 Hero Gaming Mouse', category: 'gaming', price: 4999, oldPrice: 5999, badge: 'sale', emoji: '🖱️' },
-  { id: 18, name: 'Redragon K617 Fizz Gaming Keyboard', category: 'gaming', price: 2999, oldPrice: 3499, badge: 'hot', emoji: '⌨️' },
-  { id: 19, name: 'Xiaomi Smart Air Purifier 4', category: 'smart', price: 18999, oldPrice: 21999, badge: 'new', emoji: '🌬️' },
-  { id: 20, name: 'TP-Link Tapo Smart WiFi Plug (2-Pack)', category: 'smart', price: 2499, oldPrice: 2999, badge: 'sale', emoji: '🔌' },
-  { id: 21, name: 'Anker 65W GaN USB-C Charger', category: 'accessories', price: 3499, oldPrice: 3999, badge: 'hot', emoji: '🔋' },
-  { id: 22, name: 'Baseus 20000mAh Power Bank 65W', category: 'accessories', price: 3999, oldPrice: 4499, badge: 'sale', emoji: '🔋' },
-  { id: 23, name: 'Canon EOS R50 Mirrorless Camera Kit', category: 'electronics', price: 89999, oldPrice: 94999, badge: 'new', emoji: '📷' },
-  { id: 24, name: 'JBL Flip 6 Portable Bluetooth Speaker', category: 'audio', price: 11999, oldPrice: 13999, badge: 'hot', emoji: '🔊' },
+  { id: 1, name: 'HT/LT Switchgear — Design, Supply & Installation', category: 'power', price: 0, oldPrice: null, badge: 'hot', emoji: '⚡', quoteOnly: true },
+  { id: 2, name: 'Bus Bar Trunking (BBT) Systems up to 5000A', category: 'power', price: 0, oldPrice: null, badge: 'hot', emoji: '🔌', quoteOnly: true },
+  { id: 3, name: 'Power Transformers — Supply & Commissioning', category: 'power', price: 0, oldPrice: null, badge: 'new', emoji: '🔋', quoteOnly: true },
+  { id: 4, name: 'NFPA Fire Detection & Alarm Systems', category: 'fire', price: 0, oldPrice: null, badge: 'hot', emoji: '🔥', quoteOnly: true },
+  { id: 5, name: 'Fire Hydrant & Hose Reel Systems', category: 'fire', price: 0, oldPrice: null, badge: 'hot', emoji: '💧', quoteOnly: true },
+  { id: 6, name: 'FM-200 Clean Agent Suppression', category: 'fire', price: 0, oldPrice: null, badge: 'new', emoji: '🧯', quoteOnly: true },
+  { id: 7, name: 'Boiler Solutions & Steam Systems', category: 'mechanical', price: 0, oldPrice: null, badge: 'hot', emoji: '⚙️', quoteOnly: true },
+  { id: 8, name: 'HVAC Design, Supply & Installation', category: 'mechanical', price: 0, oldPrice: null, badge: 'hot', emoji: '❄️', quoteOnly: true },
+  { id: 9, name: 'Tank Fabrication & Piping', category: 'mechanical', price: 0, oldPrice: null, badge: 'new', emoji: '🛢️', quoteOnly: true },
+  { id: 10, name: 'PLC Programming & Industrial Automation', category: 'industrial', price: 0, oldPrice: null, badge: 'hot', emoji: '🤖', quoteOnly: true },
+  { id: 11, name: 'Machine Maintenance & AMC', category: 'industrial', price: 0, oldPrice: null, badge: 'new', emoji: '🔧', quoteOnly: true },
+  { id: 12, name: 'Lightning Protection Systems', category: 'safety', price: 0, oldPrice: null, badge: 'hot', emoji: '⚡', quoteOnly: true },
+  { id: 13, name: 'Safety Compliance Auditing', category: 'safety', price: 0, oldPrice: null, badge: 'new', emoji: '📋', quoteOnly: true },
+  { id: 14, name: 'Free Site Survey & Engineering Consultation', category: 'power', price: 0, oldPrice: null, badge: 'new', emoji: '📐', quoteOnly: true },
+  { id: 15, name: 'Annual Maintenance Contract (AMC)', category: 'industrial', price: 0, oldPrice: null, badge: 'sale', emoji: '📅', quoteOnly: true },
+  { id: 16, name: 'Emergency Mobilisation — 24/7 Response', category: 'safety', price: 0, oldPrice: null, badge: 'hot', emoji: '🚨', quoteOnly: true },
 ];
 
 function formatBDT(amount) {
+  if (!amount) return 'Quote on request';
   return '৳' + amount.toLocaleString('en-BD');
 }
 
@@ -58,13 +81,11 @@ function getMostSold() {
 }
 
 function getMostDiscount() {
-  return [...PRODUCTS]
-    .sort((a, b) => discountPercent(b.price, b.oldPrice) - discountPercent(a.price, a.oldPrice))
-    .slice(0, 6);
+  return PRODUCTS.filter(p => p.badge === 'new').slice(0, 6);
 }
 
 function getNewArrivals() {
-  return PRODUCTS.filter(p => p.badge === 'new').slice(0, 6);
+  return PRODUCTS.filter(p => p.badge === 'new' || p.badge === 'sale').slice(0, 6);
 }
 const CART_KEY = 'amptek_cart';
 
@@ -98,7 +119,7 @@ function addToCart(productId, qty = 1) {
   if (existing) existing.qty += qty;
   else cart.push({ id: product.id, qty });
   saveCart(cart);
-  showToast(`Added: ${product.name.slice(0, 40)}…`);
+  showToast(product.quoteOnly ? 'Added to quote list' : `Added: ${product.name.slice(0, 40)}…`);
 }
 
 function removeFromCart(productId) {
@@ -128,8 +149,13 @@ function showToast(msg) {
 function renderProductCard(p) {
   const pct = discountPercent(p.price, p.oldPrice);
   const badgeHtml = p.badge
-    ? `<span class="badge badge-${p.badge}">${p.badge === 'hot' ? 'HOT' : p.badge === 'new' ? 'NEW' : `-${pct}%`}</span>`
-    : (pct ? `<span class="badge badge-sale">-${pct}%</span>` : '');
+    ? `<span class="badge badge-${p.badge}">${p.badge === 'hot' ? 'Popular' : p.badge === 'new' ? 'New' : 'Offer'}</span>`
+    : '';
+  const priceHtml = p.quoteOnly
+    ? '<span class="price-sale" style="font-size:14px">Free quote available</span>'
+    : `<span class="price-sale">${formatBDT(p.price)}</span>
+       ${p.oldPrice ? `<span class="price-old">${formatBDT(p.oldPrice)}</span>` : ''}
+       ${pct ? `<span class="discount-pct">-${pct}%</span>` : ''}`;
   return `
     <article class="product-card" data-id="${p.id}">
       <a href="product.html?id=${p.id}" class="product-img">
@@ -138,12 +164,8 @@ function renderProductCard(p) {
       </a>
       <div class="product-body">
         <a href="product.html?id=${p.id}" class="product-name">${p.name}</a>
-        <div class="product-prices">
-          <span class="price-sale">${formatBDT(p.price)}</span>
-          ${p.oldPrice ? `<span class="price-old">${formatBDT(p.oldPrice)}</span>` : ''}
-          ${pct ? `<span class="discount-pct">-${pct}%</span>` : ''}
-        </div>
-        <button type="button" class="btn-add" data-add="${p.id}">Add to Cart</button>
+        <div class="product-prices">${priceHtml}</div>
+        <button type="button" class="btn-add" data-add="${p.id}">${p.quoteOnly ? 'Add to Quote List' : 'Add to Cart'}</button>
       </div>
     </article>`;
 }
@@ -239,7 +261,7 @@ function filterByCategory(cat) {
 }
 
 function initCategoryNav() {
-  const map = { solar: 'solar', electronics: 'electronics', mobile: 'mobile', computing: 'computing', gaming: 'gaming', audio: 'audio', smart: 'smart', products: 'all' };
+  const map = { power: 'power', fire: 'fire', mechanical: 'mechanical', industrial: 'industrial', safety: 'safety', products: 'all' };
   document.querySelectorAll('.main-nav .nav-link[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       const id = link.getAttribute('href').slice(1);
@@ -253,7 +275,7 @@ function initCategoryNav() {
   document.querySelectorAll('.hub-card[href^="#"]').forEach(card => {
     card.addEventListener('click', e => {
       const id = card.getAttribute('href').slice(1);
-      const cat = map[id] || 'solar';
+      const cat = map[id] || 'power';
       if (!document.getElementById('allProducts')) return;
       e.preventDefault();
       filterByCategory(cat);
@@ -308,10 +330,10 @@ function renderCartPage() {
   }).join('');
 
   document.getElementById('cartRows').innerHTML = rows;
-  const delivery = subtotal >= 5000 ? 0 : 120;
-  document.getElementById('cartSubtotal').textContent = formatBDT(subtotal);
-  document.getElementById('cartDelivery').textContent = delivery ? formatBDT(delivery) : 'FREE';
-  document.getElementById('cartTotal').textContent = formatBDT(subtotal + delivery);
+  const isQuote = cart.every(i => getProduct(i.id)?.quoteOnly);
+  document.getElementById('cartSubtotal').textContent = isQuote || !subtotal ? 'Custom quotation' : formatBDT(subtotal);
+  document.getElementById('cartDelivery').textContent = isQuote ? 'On survey' : (subtotal >= 5000 ? 'FREE' : formatBDT(120));
+  document.getElementById('cartTotal').textContent = isQuote || !subtotal ? 'We will call you' : formatBDT(subtotal + (subtotal >= 5000 ? 0 : 120));
 
   content.querySelectorAll('[data-qty-minus]').forEach(b =>
     b.addEventListener('click', () => {
@@ -360,16 +382,42 @@ function renderProductDetail() {
       <button type="button" class="btn-buy" id="pdAddCart">Add to Cart</button>
       <a href="cart.html" class="view-all">View Cart →</a>
       <p style="margin-top:24px;font-size:14px;color:var(--text2);line-height:1.7">
-        Cash on delivery, bKash, Nagad, and card payments accepted. Free delivery on orders over ৳5,000.
-        Delivery in 2–5 business days across Bangladesh.
+        Contact us for a free site survey and quotation. ${AMPTEK.hours}. ${AMPTEK.emergency}.
+        Call <a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a> or email <a href="mailto:${AMPTEK.email}">${AMPTEK.email}</a>.
       </p>
     </div>`;
   document.getElementById('pdAddCart')?.addEventListener('click', () => addToCart(p.id));
 }
 
+function injectCompanyInfo() {
+  document.querySelectorAll('[data-company-name]').forEach(el => { el.textContent = AMPTEK.name; });
+  document.querySelectorAll('[data-company-tagline]').forEach(el => { el.textContent = AMPTEK.tagline; });
+  document.querySelectorAll('[data-company-intro]').forEach(el => { el.textContent = AMPTEK.intro; });
+  document.querySelectorAll('[data-company-phone]').forEach(el => {
+    el.innerHTML = `<a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a>`;
+  });
+  document.querySelectorAll('[data-company-email]').forEach(el => {
+    el.innerHTML = `<a href="mailto:${AMPTEK.email}">${AMPTEK.email}</a>`;
+  });
+  document.querySelectorAll('[data-facebook-href]').forEach(el => {
+    el.href = AMPTEK.facebook;
+  });
+  const statsEl = document.getElementById('companyStats');
+  if (statsEl) {
+    statsEl.innerHTML = AMPTEK.stats.map(s =>
+      `<div class="stat-pill"><strong>${s.num}</strong><span>${s.label}</span></div>`
+    ).join('');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof AMPTEK === 'undefined') {
+    console.error('company.js must load before shop scripts');
+    return;
+  }
   if (!bootCheck()) return;
 
+  injectCompanyInfo();
   updateCartBadge();
   initFAQ();
   initSearch();
