@@ -1,35 +1,43 @@
-/** Amptek Engineering — company info (aligned with website & Facebook page) */
+/** Amptek Engineering — from Facebook page (cover + About) */
 const AMPTEK = {
   name: 'Amptek Engineering',
+  nameDisplay: 'AMPTEK ENGINEERING',
   shortName: 'Amptek',
-  tagline: 'Powering Industry. Protecting Lives.',
-  taglineBn: 'শিল্প পরিচালনা। জীবন সুরক্ষা।',
-  phone: '01671113616',
-  phoneDisplay: '01671-113616',
-  email: 'nahidalam85@gmail.com',
-  whatsapp: '8801671113616',
+  slogan: 'Engineering Tomorrow, Today!',
+  tagline: 'Electrical, Fire Safety & Mechanical Solutions',
+  taglineBn: 'ইলেকট্রিক্যাল, ফায়ার সেফটি ও মেকানিক্যাল সমাধান',
+  pageType: 'Engineering Service',
+  phone: '01671113615',
+  phoneIntl: '+8801671113615',
+  phoneDisplay: '01671-113615',
+  email: 'info@amptekeng.com',
+  emailAlt: 'nahidalam85@gmail.com',
+  website: 'https://www.amptekeng.com',
+  websiteDisplay: 'www.amptekeng.com',
+  whatsapp: '8801671113615',
   facebook: 'https://www.facebook.com/AmptekEngineering',
-  facebookSearch: 'https://www.facebook.com/search/pages?q=Amptek%20Engineering',
-  location: 'Bangladesh',
+  address: 'Holding No - 266, Rajabari Uttarkhan, Dhaka-1230, Bangladesh',
+  addressShort: 'Rajabari Uttarkhan, Dhaka-1230',
+  location: 'Dhaka, Bangladesh',
   hours: 'Sat–Thu: 9:00 AM – 6:00 PM',
   emergency: '24/7 Emergency Support',
   intro:
-    'Amptek Engineering is a multi-discipline engineering company based in Bangladesh, delivering integrated solutions across Power Systems, Fire Safety, Mechanical Engineering, Industrial Automation and Safety Systems — all under one roof.',
+    'Amptek Engineering is a multi-discipline engineering service in Bangladesh — Power, Fire Safety, Mechanical, Industrial Automation and Safety Systems. Electrical, fire safety and mechanical solutions from design to commissioning.',
   mission:
-    "To be Bangladesh's most trusted engineering partner — delivering safe, efficient and compliant solutions that power industry and protect lives.",
+    "Engineering tomorrow, today — delivering safe, efficient and compliant solutions that power industry and protect lives.",
   stats: [
     { num: '15+', label: 'Years Experience' },
     { num: '500+', label: 'Projects Completed' },
     { num: '50+', label: 'Certified Engineers' },
-    { num: '5', label: 'Engineering Divisions' },
+    { num: '5', label: 'Service Divisions' },
   ],
   clients: 'RMG factories, pharmaceutical plants, hospitals, data centres & commercial buildings',
   divisions: [
-    { id: 'power', name: 'Power Systems', icon: '⚡', desc: 'HT/LT switchgear, BBT, transformers' },
-    { id: 'fire', name: 'Fire Safety', icon: '🔥', desc: 'NFPA detection, hydrant, FM-200' },
-    { id: 'mechanical', name: 'Mechanical', icon: '⚙️', desc: 'Boiler, HVAC, tank fabrication' },
-    { id: 'industrial', name: 'Industrial Automation', icon: '🤖', desc: 'PLC, automation, maintenance' },
-    { id: 'safety', name: 'Safety Systems', icon: '🛡️', desc: 'Lightning protection, compliance' },
+    { id: 'power', name: 'Power', icon: '⚡', desc: 'HT/LT Switchgear, BBT & Transformers' },
+    { id: 'fire', name: 'Fire Safety', icon: '🔥', desc: 'NFPA Detection, Hydrants & FM-200' },
+    { id: 'mechanical', name: 'Mechanical', icon: '⚙️', desc: 'Boiler, HVAC & Tank Fabrication' },
+    { id: 'industrial', name: 'Industrial', icon: '🤖', desc: 'Automation, PLC & Machine Maintenance' },
+    { id: 'safety', name: 'Safety', icon: '🛡️', desc: 'Lightning Protection & Compliance' },
   ],
 };
 const CATEGORIES = AMPTEK.divisions.map(d => ({
@@ -391,8 +399,14 @@ function renderProductDetail() {
 
 function injectCompanyInfo() {
   document.querySelectorAll('[data-company-name]').forEach(el => { el.textContent = AMPTEK.name; });
+  document.querySelectorAll('[data-company-name-display]').forEach(el => { el.textContent = AMPTEK.nameDisplay; });
+  document.querySelectorAll('[data-company-slogan]').forEach(el => { el.textContent = AMPTEK.slogan; });
   document.querySelectorAll('[data-company-tagline]').forEach(el => { el.textContent = AMPTEK.tagline; });
   document.querySelectorAll('[data-company-intro]').forEach(el => { el.textContent = AMPTEK.intro; });
+  document.querySelectorAll('[data-company-address]').forEach(el => { el.textContent = AMPTEK.address; });
+  document.querySelectorAll('[data-company-website]').forEach(el => {
+    el.innerHTML = `<a href="${AMPTEK.website}" target="_blank" rel="noopener">${AMPTEK.websiteDisplay}</a>`;
+  });
   document.querySelectorAll('[data-company-phone]').forEach(el => {
     el.innerHTML = `<a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a>`;
   });

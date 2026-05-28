@@ -302,8 +302,14 @@ function renderProductDetail() {
 
 function injectCompanyInfo() {
   document.querySelectorAll('[data-company-name]').forEach(el => { el.textContent = AMPTEK.name; });
+  document.querySelectorAll('[data-company-name-display]').forEach(el => { el.textContent = AMPTEK.nameDisplay; });
+  document.querySelectorAll('[data-company-slogan]').forEach(el => { el.textContent = AMPTEK.slogan; });
   document.querySelectorAll('[data-company-tagline]').forEach(el => { el.textContent = AMPTEK.tagline; });
   document.querySelectorAll('[data-company-intro]').forEach(el => { el.textContent = AMPTEK.intro; });
+  document.querySelectorAll('[data-company-address]').forEach(el => { el.textContent = AMPTEK.address; });
+  document.querySelectorAll('[data-company-website]').forEach(el => {
+    el.innerHTML = `<a href="${AMPTEK.website}" target="_blank" rel="noopener">${AMPTEK.websiteDisplay}</a>`;
+  });
   document.querySelectorAll('[data-company-phone]').forEach(el => {
     el.innerHTML = `<a href="tel:${AMPTEK.phone}">${AMPTEK.phoneDisplay}</a>`;
   });
