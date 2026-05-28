@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopBD — Electronics & Green Energy Store Bangladesh</title>
+  <meta name="description" content="Shop electronics, solar panels, batteries, mobiles and gadgets. Cash on delivery, bKash, nationwide delivery.">
+  <link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <span>📞 Hotline: 09678-000-000 · 10 AM – 11 PM</span>
+    <span>
+      <a href="#">Track Order</a> ·
+      <a href="#">Offers</a> ·
+      <a href="cart.html">Cart</a>
+    </span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Shop<span>BD</span></a>
+    <form class="search-wrap" id="searchForm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="searchInput" placeholder="Search solar panels, mobiles, laptops…" autocomplete="off">
+    </form>
+    <div class="header-actions">
+      <a href="cart.html" class="icon-btn" aria-label="Cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" data-cart-count style="display:none">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <div class="nav-inner">
+    <a class="nav-link active" href="index.html">Home</a>
+    <a class="nav-link" href="#solar">Solar & Energy</a>
+    <a class="nav-link" href="#electronics">Electronics</a>
+    <a class="nav-link" href="#mobile">Mobile</a>
+    <a class="nav-link" href="#computing">Laptops</a>
+    <a class="nav-link" href="#gaming">Gaming</a>
+    <a class="nav-link" href="#audio">Audio</a>
+    <a class="nav-link" href="#smart">Smart Home</a>
+    <a class="nav-link" href="#products">All Products</a>
+  </div>
+</nav>
+
+<!-- Category hub banners (like BDShop) -->
+<div class="hub-grid">
+  <a href="#solar" class="hub-card hub-1">
+    <h3>Solar & Green Energy</h3>
+    <p>Panels, inverters, batteries</p>
+    <span class="hub-cta">Shop Now →</span>
+  </a>
+  <a href="#electronics" class="hub-card hub-2">
+    <h3>Electronics Hub</h3>
+    <p>Latest gadgets & devices</p>
+    <span class="hub-cta">Shop Now →</span>
+  </a>
+  <a href="#gaming" class="hub-card hub-3">
+    <h3>Gaming Zone</h3>
+    <p>Gear for every gamer</p>
+    <span class="hub-cta">Explore →</span>
+  </a>
+  <a href="#mobile" class="hub-card hub-4">
+    <h3>Mobile World</h3>
+    <p>Smartphones & accessories</p>
+    <span class="hub-cta">View All →</span>
+  </a>
+</div>
+
+<!-- Search results (when ?search=) -->
+<section class="section" id="searchSection" style="display:none">
+  <div class="section-head">
+    <h2 class="section-title">Search results</h2>
+  </div>
+  <div class="product-grid" id="searchResults"></div>
+</section>
+
+<!-- Most sold -->
+<section class="section" id="solar">
+  <div class="section-head">
+    <h2 class="section-title">Most Sold Items<small>Solar & green energy bestsellers</small></h2>
+    <a href="#products" class="view-all">View all →</a>
+  </div>
+  <div class="product-grid" id="mostSold"></div>
+</section>
+
+<!-- Most discount -->
+<section class="section" style="padding-top:0">
+  <div class="section-head">
+    <h2 class="section-title">Most Discount<small>Biggest savings today</small></h2>
+    <a href="#products" class="view-all">View all →</a>
+  </div>
+  <div class="product-grid" id="mostDiscount"></div>
+</section>
+
+<!-- New arrivals -->
+<section class="section" style="padding-top:0">
+  <div class="section-head">
+    <h2 class="section-title">New Arrivals<small>Fresh stock just in</small></h2>
+    <a href="#products" class="view-all">View all →</a>
+  </div>
+  <div class="product-grid" id="newArrivals"></div>
+</section>
+
+<!-- Shop by category -->
+<section class="section" id="products">
+  <div class="section-head">
+    <h2 class="section-title">Shop by Category</h2>
+  </div>
+  <div class="category-row" id="categoryChips">
+    <button type="button" class="cat-chip active" data-category="all">All</button>
+    <button type="button" class="cat-chip" data-category="solar">☀️ Solar</button>
+    <button type="button" class="cat-chip" data-category="mobile">📱 Mobile</button>
+    <button type="button" class="cat-chip" data-category="computing">💻 Computing</button>
+    <button type="button" class="cat-chip" data-category="audio">🎧 Audio</button>
+    <button type="button" class="cat-chip" data-category="gaming">🎮 Gaming</button>
+    <button type="button" class="cat-chip" data-category="smart">🏠 Smart Home</button>
+    <button type="button" class="cat-chip" data-category="accessories">🔌 Accessories</button>
+  </div>
+  <div class="product-grid" id="allProducts"></div>
+</section>
+
+<!-- Trust -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">✅</span><div><strong>100% Genuine</strong><span>Authorized dealer products</span></div></div>
+    <div class="trust-item"><span class="trust-icon">🚚</span><div><strong>Fast Delivery</strong><span>Nationwide 2–5 days</span></div></div>
+    <div class="trust-item"><span class="trust-icon">💳</span><div><strong>Easy Payment</strong><span>COD, bKash, Nagad, cards</span></div></div>
+    <div class="trust-item"><span class="trust-icon">🛡️</span><div><strong>Official Warranty</strong><span>Manufacturer backed</span></div></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know about shopping at ShopBD</p>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What payment methods do you accept?<span class="arrow">▼</span></button>
+      <div class="faq-a">We accept cash on delivery (COD), bKash, Nagad, Rocket, bank transfers, and major credit/debit cards through secure payment gateways.</div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q">What are your delivery times and charges?<span class="arrow">▼</span></button>
+      <div class="faq-a">Standard delivery takes 2–5 business days across Bangladesh. Delivery is FREE on orders over ৳5,000. Express delivery is available in major cities.</div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q">Do you offer warranty on products?<span class="arrow">▼</span></button>
+      <div class="faq-a">Yes. All products include manufacturer warranty. Warranty periods vary by brand and category and are listed on each product page.</div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q">What is your return policy?<span class="arrow">▼</span></button>
+      <div class="faq-a">Hassle-free returns within 7 days for unused items in original packaging. Refunds are processed within 5–7 business days after verification.</div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q">Do you deliver outside Dhaka?<span class="arrow">▼</span></button>
+      <div class="faq-a">Yes. We deliver nationwide to all districts of Bangladesh through trusted courier partners.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:12px">Shop<span style="color:#f87171">BD</span></div>
+        <p>Bangladesh's destination for electronics, gadgets, and green energy solutions. Genuine products, fast delivery, trusted service.</p>
+        <div class="payment-icons">
+          <span class="pay-badge">COD</span>
+          <span class="pay-badge">bKash</span>
+          <span class="pay-badge">Nagad</span>
+          <span class="pay-badge">Visa</span>
+          <span class="pay-badge">Mastercard</span>
+        </div>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <a href="#solar">Solar & Energy</a>
+        <a href="#mobile">Mobile & Gadgets</a>
+        <a href="#computing">Laptops & PCs</a>
+        <a href="#gaming">Gaming</a>
+        <a href="#audio">Audio</a>
+      </div>
+      <div>
+        <h4>Customer Service</h4>
+        <a href="#">Track Order</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Shipping Info</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>📞 09678-000-000</p>
+        <p>✉️ support@shopbd.demo</p>
+        <p>Dhaka, Bangladesh</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 ShopBD Demo Store. Built as a BDShop-style template — not affiliated with bdshop.com.</div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+<script src="js/products.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>
