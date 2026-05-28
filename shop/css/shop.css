@@ -221,6 +221,22 @@ button{font-family:inherit;cursor:pointer}
 .btn-buy:hover{background:var(--primary-dark)}
 
 /* Toast */
+.setup-warn{
+  background:#fef3c7;border-bottom:2px solid #f59e0b;
+  padding:14px 20px;font-size:13px;color:#92400e;line-height:1.6;
+  position:relative;z-index:999;
+}
+.setup-warn code{background:#fff;padding:2px 6px;border-radius:4px;font-size:12px}
+.setup-warn a{color:#b45309;font-weight:600}
+
+.ci-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;gap:16px;align-items:flex-start}
+.ci-icon{width:46px;height:46px;background:rgba(245,158,11,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ci-label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;margin-bottom:4px}
+.ci-value{font-size:15px;font-weight:600}
+.ci-value a{color:var(--primary)}
+.ci-sub{font-size:12px;color:var(--text3);margin-top:4px}
+.cf-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+
 #toast{
   position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
   background:#0f172a;color:#fff;padding:12px 24px;border-radius:999px;

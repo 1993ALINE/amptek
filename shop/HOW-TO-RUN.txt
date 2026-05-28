@@ -1,0 +1,27 @@
+AMPTEK SHOP — HOW TO RUN (Windows)
+==================================
+
+IMPORTANT: Open files from the SHOP folder, not the main amptek folder.
+
+1. Get latest code (PowerShell):
+   cd C:\Users\Administrator\desktop\amptek
+   git pull origin cursor/bdshop-style-store-c96e
+
+2. Go into the shop folder:
+   cd shop
+
+3. Double-click:  START-HERE.bat
+
+4. Your browser will open:  http://localhost:8080/index.html
+
+   (If Node.js is not installed, install from https://nodejs.org then run START-HERE.bat again)
+
+Pages:
+  index.html    — Home / products
+  cart.html     — Shopping cart
+  product.html?id=1  — Product detail (click any product)
+  contact.html  — Contact form & phone/email
+
+Do NOT rely on double-clicking index.html alone — use START-HERE.bat for full cart, search, and product pages.
+
+Contact: 01671-113616 | nahidalam85@gmail.com
