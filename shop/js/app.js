@@ -89,7 +89,8 @@ const SHOP_I18N = {
     trust3t: 'Fast Mobilisation', trust3d: '24–48 hours nationwide',
     trust4t: '24/7 Emergency', trust4d: 'Always available',
     badgePopular: 'Popular', badgeNew: 'New', badgeOffer: 'Offer',
-    backStore: '← Back to store',
+    backHome: '← Back to home',
+    backHomeLink: 'Back to home',
     submitQuote: 'Submit Quote Request',
     weWillCall: 'We will call you at',
     emptyCart: 'Your quote list is empty',
@@ -152,7 +153,8 @@ const SHOP_I18N = {
     trust3t: 'দ্রুত মোবিলাইজেশন', trust3d: '২৪–৪৮ ঘণ্টায় সারাদেশে',
     trust4t: '২৪/৭ জরুরি', trust4d: 'সবসময় উপলব্ধ',
     badgePopular: 'জনপ্রিয়', badgeNew: 'নতুন', badgeOffer: 'অফার',
-    backStore: '← স্টোরে ফিরে যান',
+    backHome: '← হোমে ফিরে যান',
+    backHomeLink: 'হোমে যান',
     submitQuote: 'কোটেশন অনুরোধ পাঠান',
     weWillCall: 'আমরা কল করব',
     emptyCart: 'আপনার তালিকা খালি',
@@ -493,7 +495,7 @@ function bootCheck() {
   if (typeof PRODUCTS !== 'undefined' && PRODUCTS.length) return true;
   const banner = document.createElement('div');
   banner.className = 'setup-warn';
-  banner.innerHTML = '<strong>⚠️ Store scripts did not load.</strong> Make sure you are inside the <code>shop</code> folder. Double-click <strong>START-HERE.bat</strong> (install <a href="https://nodejs.org">Node.js</a> if needed), then open <strong>http://localhost:8080</strong>';
+  banner.innerHTML = '<strong>⚠️ Page scripts did not load.</strong> Double-click <strong>START-HERE.bat</strong> in this folder (install <a href="https://nodejs.org">Node.js</a> if needed), then open <strong>http://localhost:8080</strong>';
   document.body.prepend(banner);
   return false;
 }
@@ -570,7 +572,7 @@ function renderProductDetail() {
   const p = getProduct(id);
   const el = document.getElementById('productDetail');
   if (!el || !p) {
-    if (el) el.innerHTML = '<p>Product not found. <a href="index.html">Back to shop</a></p>';
+    if (el) el.innerHTML = `<p>${typeof t === 'function' ? (getShopLang() === 'bn' ? 'সেবা পাওয়া যায়নি।' : 'Service not found.') : 'Service not found.'} <a href="index.html">${typeof t === 'function' ? t('backHomeLink') : 'Back to home'}</a></p>`;
     return;
   }
   const pct = discountPercent(p.price, p.oldPrice);

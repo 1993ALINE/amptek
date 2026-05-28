@@ -1,9 +1,9 @@
 @echo off
-title Amptek Shop - Local Server
+title Amptek Engineering - Local Server
 cd /d "%~dp0"
 echo.
 echo  ========================================
-echo   Amptek Shop - Starting local server
+echo   Amptek Engineering - Starting server
 echo  ========================================
 echo.
 
