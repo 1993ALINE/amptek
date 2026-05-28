@@ -24,13 +24,15 @@ function setLang(l) {
   lang = l;
   localStorage.setItem('amptek_lang', l);
   document.documentElement.setAttribute('data-lang', l);
-  document.getElementById('lbEn').classList.toggle('active', l==='en');
-  document.getElementById('lbBn').classList.toggle('active', l==='bn');
+  const lbEn = document.getElementById('lbEn');
+  const lbBn = document.getElementById('lbBn');
+  if (lbEn) lbEn.classList.toggle('active', l === 'en');
+  if (lbBn) lbBn.classList.toggle('active', l === 'bn');
   document.querySelectorAll('[data-en]').forEach(el => {
-    const val = el.getAttribute('data-'+l);
+    const val = el.getAttribute('data-' + l);
     if (val == null) return;
-    if (el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder = val;
-    else if (el.tagName==='OPTION') el.textContent = val;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = val;
+    else if (el.tagName === 'OPTION') el.textContent = val;
     else el.innerHTML = val;
   });
   if (document.getElementById('marqueeTrack')) buildMarquee(l);
@@ -38,35 +40,56 @@ function setLang(l) {
 
 function buildMarquee(l) {
   const items = TRANSLATIONS[l].marquee;
-  const doubled = [...items,...items];
+  const doubled = [...items, ...items];
   document.getElementById('marqueeTrack').innerHTML =
-    doubled.map(t=>`<div class="marquee-item">${t}<div class="marquee-dot"></div></div>`).join('');
+    doubled.map(t => `<div class="marquee-item">${t}<div class="marquee-dot"></div></div>`).join('');
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.remove('open');
+}
+
+function initNavScroll() {
+  const nav = document.querySelector('.nav-container');
+  if (!nav) return;
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+function initMobileMenu() {
+  document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
 }
 
 function initPage() {
   document.documentElement.setAttribute('data-lang', lang);
-  // Mark active nav
   const page = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(l => {
-    l.classList.toggle('active', l.getAttribute('href') === page || (page==='' && l.getAttribute('href')==='index.html'));
+    const href = l.getAttribute('href');
+    l.classList.toggle('active', href === page || (page === '' && href === 'index.html'));
   });
-  // Apply saved lang
   setLang(lang);
-  // Scroll reveal
+  initNavScroll();
+  initMobileMenu();
+
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, {threshold:0.08});
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 }
 
 let toastT;
-function showToast(msg, good=true) {
+function showToast(msg, good = true) {
   const t = document.getElementById('toast');
+  if (!t) return;
   t.textContent = msg;
-  t.style.background = good ? '#2E7D32' : '#B71C1C';
+  t.style.background = good ? '#22c55e' : '#dc2626';
   t.style.display = 'block';
   clearTimeout(toastT);
-  toastT = setTimeout(() => t.style.display='none', 3500);
+  toastT = setTimeout(() => { t.style.display = 'none'; }, 3500);
 }
 
 window.addEventListener('DOMContentLoaded', initPage);
