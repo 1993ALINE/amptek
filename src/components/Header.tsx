@@ -15,7 +15,8 @@ function isShopRoute(pathname: string): boolean {
     pathname.startsWith("/shop/") ||
     pathname.startsWith("/category/") ||
     pathname.startsWith("/product/") ||
-    pathname === "/cart"
+    pathname === "/cart" ||
+    pathname.startsWith("/checkout")
   );
 }
 

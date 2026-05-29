@@ -150,12 +150,12 @@ export default function CartPage() {
             <span>Total</span>
             <span>{formatPrice(subtotal)}</span>
           </div>
-          <button
-            type="button"
-            className="mt-6 w-full rounded-lg bg-brand-red py-3 font-semibold text-white transition-colors hover:bg-brand-red-dark"
+          <Link
+            href="/checkout"
+            className="mt-6 block w-full rounded-lg bg-brand-red py-3 text-center font-semibold text-white transition-colors hover:bg-brand-red-dark"
           >
             Proceed to Checkout
-          </button>
+          </Link>
           <Link
             href="/"
             className="mt-3 block text-center text-sm font-medium text-brand-blue hover:underline dark:text-brand-red"
