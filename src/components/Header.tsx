@@ -13,6 +13,7 @@ function isShopRoute(pathname: string): boolean {
     pathname === "/" ||
     pathname === "/shop" ||
     pathname.startsWith("/shop/") ||
+    pathname.startsWith("/category/") ||
     pathname.startsWith("/product/") ||
     pathname === "/cart"
   );

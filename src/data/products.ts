@@ -16,6 +16,8 @@ export type Product = {
 export type Category = {
   id: string;
   name: string;
+  /** URL slug for /category/[slug]. */
+  slug: string;
   image: string;
 };
 
@@ -74,14 +76,14 @@ export const banners: Banner[] = [
 ];
 
 export const categories: Category[] = [
-  { id: "c1", name: "Switchgear & Transformers", image: "/products/circuit-breaker.jpg" },
-  { id: "c2", name: "Cables & BBT", image: "/products/cables-bbt.jpeg" },
-  { id: "c3", name: "Fire Detection & Alarm", image: "/products/fire-alarm.jpg" },
-  { id: "c4", name: "Fire Suppression", image: "/products/fire-suppression.jpg" },
-  { id: "c5", name: "HVAC & Boiler Parts", image: "/products/hvac.jpeg" },
-  { id: "c6", name: "PLC & Automation", image: "/products/plc-module.jpg" },
-  { id: "c7", name: "Lightning Protection", image: "/products/lightning-rod.jpeg" },
-  { id: "c8", name: "Safety Equipment", image: "/products/safety-equipment.jpeg" },
+  { id: "c1", name: "Switchgear & Transformers", slug: "switchgear-transformers", image: "/products/circuit-breaker.jpg" },
+  { id: "c2", name: "Cables & BBT", slug: "cables-bbt", image: "/products/cables-bbt.jpeg" },
+  { id: "c3", name: "Fire Detection & Alarm", slug: "fire-detection-alarm", image: "/products/fire-alarm.jpg" },
+  { id: "c4", name: "Fire Suppression", slug: "fire-suppression", image: "/products/fire-suppression.jpg" },
+  { id: "c5", name: "HVAC & Boiler Parts", slug: "hvac-boiler-parts", image: "/products/hvac.jpeg" },
+  { id: "c6", name: "PLC & Automation", slug: "plc-automation", image: "/products/plc-module.jpg" },
+  { id: "c7", name: "Lightning Protection", slug: "lightning-protection", image: "/products/lightning-rod.jpeg" },
+  { id: "c8", name: "Safety Equipment", slug: "safety-equipment", image: "/products/safety-equipment.jpeg" },
 ];
 
 export const featuredProducts: Product[] = [
@@ -253,6 +255,16 @@ export function getProductById(id: string): Product | undefined {
   const product = allProducts.find((p) => p.id === id);
   if (!product) return undefined;
   return { ...product, description: productDescriptions[id] ?? product.description };
+}
+
+/** Look up a category by its URL slug. */
+export function getCategoryBySlug(slug: string): Category | undefined {
+  return categories.find((c) => c.slug === slug);
+}
+
+/** All products in a given category (matched by category name). */
+export function getProductsByCategory(categoryName: string): Product[] {
+  return allProducts.filter((p) => p.category === categoryName);
 }
 
 /** The price actually charged — the discount price if there is one, else list price. */
