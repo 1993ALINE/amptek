@@ -20,12 +20,12 @@ const promos = [
 // Two stacked promo tiles that sit beside the main banner carousel.
 export default function PromoTiles() {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:h-full sm:grid-cols-1 sm:grid-rows-2">
+    <div className="grid grid-cols-2 gap-3 lg:flex lg:h-full lg:flex-col">
       {promos.map((promo) => (
         <a
           key={promo.id}
           href="#"
-          className={`relative flex min-h-[110px] flex-col justify-between overflow-hidden rounded-lg bg-gradient-to-br p-4 text-white ${promo.gradient}`}
+          className={`relative flex min-h-[110px] flex-col justify-between overflow-hidden rounded-lg bg-gradient-to-br p-4 text-white lg:flex-1 ${promo.gradient}`}
         >
           <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-white/10" />
           <div className="relative">

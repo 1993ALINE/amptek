@@ -13,10 +13,13 @@ export default function StoreHome() {
     <div className="bg-zinc-50 dark:bg-zinc-950">
       <main className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 sm:px-6">
         {/* Top row: category sidebar + banner carousel + promo tiles.
-            items-start keeps the sidebar's top edge aligned with the banner. */}
-        <div className="grid items-start gap-4 lg:grid-cols-[240px_1fr]">
+            At lg the three columns stretch to equal height (sidebar, banner,
+            promo all align top and bottom); grid-rows-1 makes the banner/promo
+            cell fill that height so the banner covers it and the promo tiles
+            split it evenly. Below lg they stack. */}
+        <div className="grid gap-4 lg:grid-cols-[240px_1fr]">
           <CategorySidebar className="hidden lg:block" />
-          <div className="grid gap-4 sm:grid-cols-[1fr_240px]">
+          <div className="grid gap-4 lg:grid-cols-[1fr_240px] lg:grid-rows-1">
             <BannerCarousel />
             <PromoTiles />
           </div>
