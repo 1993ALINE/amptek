@@ -6,6 +6,7 @@ import { useState, type FormEvent } from "react";
 import { useCart } from "@/context/CartContext";
 import { effectivePrice, formatPrice } from "@/data/products";
 import { saveOrder, type Order } from "@/lib/order";
+import { supabase } from "@/lib/supabase";
 
 const PAYMENT_METHODS = [
   {
@@ -52,7 +53,7 @@ export default function CheckoutPage() {
     );
   }
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const get = (k: string) => String(fd.get(k) ?? "").trim();
@@ -80,6 +81,27 @@ export default function CheckoutPage() {
     };
 
     setPlacing(true);
+
+    // Persist the order to Supabase (anon insert is allowed by RLS). `status`
+    // defaults to 'pending' and `created_at` is set server-side. The success
+    // page still reads from sessionStorage, so a failed insert won't block the
+    // customer's confirmation — we just log it.
+    const { error } = await supabase.from("orders").insert({
+      order_number: order.orderNumber,
+      customer_name: order.customer.name,
+      customer_phone: order.customer.phone,
+      customer_email: order.customer.email,
+      shipping_address: order.customer.address,
+      shipping_city: order.customer.city,
+      items: order.items,
+      subtotal,
+      total: order.total,
+      payment_method: order.paymentMethod,
+    });
+    if (error) {
+      console.error("Failed to save order to Supabase:", error.message);
+    }
+
     saveOrder(order);
     clear();
     router.push("/checkout/success");

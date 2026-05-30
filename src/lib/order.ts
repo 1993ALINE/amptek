@@ -1,13 +1,10 @@
-// A placed-order snapshot, persisted to sessionStorage so the confirmation
-// page can show it after the cart has been cleared. No backend — mock flow only.
+// A placed-order snapshot, persisted to sessionStorage so the confirmation page
+// can show it after the cart has been cleared. The order is also saved to the
+// Supabase `orders` table at checkout; this snapshot just drives the success page.
 
-export type OrderItem = {
-  id: string;
-  name: string;
-  quantity: number;
-  unitPrice: number;
-  lineTotal: number;
-};
+import type { OrderItem } from "@/lib/order-types";
+
+export type { OrderItem } from "@/lib/order-types";
 
 export type Order = {
   orderNumber: string;
