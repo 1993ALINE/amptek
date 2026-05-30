@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import ContactCTA from "@/components/ContactCTA";
 import SectionHeading from "@/components/SectionHeading";
+import Backdrop from "@/components/Backdrop";
+import Reveal from "@/components/Reveal";
 import { CheckIcon } from "@/components/icons";
 import { company, stats, whyChooseUs } from "@/data/company";
 
@@ -12,17 +14,23 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-zinc-200/80 bg-gradient-to-b from-zinc-50 to-white dark:border-zinc-800 dark:from-zinc-900/40 dark:to-transparent">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900/40 dark:to-transparent">
+        <Backdrop />
+        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16">
           <SectionHeading
             eyebrow="About Us"
             title="Engineering Tomorrow Today"
             subtitle={company.blurb}
           />
         </div>
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent"
+        />
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+        <Reveal>
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
@@ -76,16 +84,24 @@ export default function AboutPage() {
             </ul>
           </div>
         </div>
+        </Reveal>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 gap-6 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-blue-dark p-8 text-center text-white shadow-elevated lg:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <div className="text-3xl font-extrabold sm:text-4xl">{stat.value}</div>
-              <div className="mt-1 text-sm text-zinc-200">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+        <Reveal className="mt-16" delay={100}>
+          <div className="sheen-top relative grid grid-cols-2 gap-6 overflow-hidden rounded-2xl bg-gradient-to-br from-brand-blue to-brand-blue-dark p-8 text-center text-white shadow-elevated ring-1 ring-inset ring-white/10 lg:grid-cols-4">
+            <div aria-hidden className="deco-grid-fine absolute inset-0 opacity-50" />
+            <div
+              aria-hidden
+              className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand-red/20 blur-3xl"
+            />
+            {stats.map((stat) => (
+              <div key={stat.label} className="relative">
+                <div className="text-3xl font-extrabold sm:text-4xl">{stat.value}</div>
+                <div className="mt-1 text-sm text-zinc-200">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
 
       <ContactCTA />

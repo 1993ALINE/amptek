@@ -19,7 +19,7 @@ export default function BannerCarousel() {
   }, [goTo, index]);
 
   return (
-    <section className="relative aspect-[16/7] w-full overflow-hidden rounded-2xl bg-zinc-200 dark:bg-zinc-800 lg:aspect-auto lg:h-full">
+    <section className="relative aspect-[16/7] w-full overflow-hidden rounded-2xl bg-zinc-200 shadow-card ring-1 ring-inset ring-black/5 dark:bg-zinc-800 dark:ring-white/10 lg:aspect-auto lg:h-full">
       {banners.map((banner, i) => (
         <div
           key={banner.id}

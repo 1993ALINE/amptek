@@ -4,10 +4,26 @@ import { GlobeIcon, LocationIcon, MailIcon, PhoneIcon } from "@/components/icons
 
 export default function Footer() {
   return (
-    <footer className="mt-20 bg-brand-blue-dark text-zinc-300">
+    <footer className="relative mt-20 overflow-hidden bg-brand-blue-dark text-zinc-300">
       {/* Brand accent strip */}
       <div className="h-1 w-full bg-gradient-to-r from-brand-red via-brand-red to-brand-blue" />
-      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+      {/* Faint grid + glow for depth */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
+          backgroundSize: "44px 44px",
+          maskImage: "radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 80%)",
+          WebkitMaskImage: "radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 80%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-32 top-0 h-72 w-72 rounded-full bg-brand-blue/30 blur-3xl"
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-x-8 gap-y-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
           <Link href="/" className="text-xl font-extrabold tracking-tight text-white">
@@ -95,7 +111,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10">
+      <div className="relative border-t border-white/10">
         <p className="mx-auto max-w-7xl px-4 py-5 text-center text-xs text-zinc-400 sm:px-6">
           © {company.founded}–2026 {company.name}. All rights reserved.
         </p>

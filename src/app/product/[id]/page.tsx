@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductActions from "@/components/ProductActions";
+import Reveal from "@/components/Reveal";
 import {
   allProducts,
   discountPercent,
@@ -55,7 +56,7 @@ export default async function ProductPage({
 
       <div className="grid gap-8 md:grid-cols-2">
         {/* Large image */}
-        <div className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-200/80 bg-zinc-100 shadow-soft dark:border-zinc-800 dark:bg-zinc-800">
+        <Reveal className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-200/80 bg-zinc-100 shadow-soft ring-1 ring-inset ring-black/5 dark:border-zinc-800 dark:bg-zinc-800 dark:ring-white/5">
           <Image
             src={image}
             alt={name}
@@ -65,14 +66,14 @@ export default async function ProductPage({
             className="object-cover"
           />
           {hasDiscount && (
-            <span className="absolute left-4 top-4 rounded-md bg-rose-600 px-3 py-1.5 text-sm font-bold text-white shadow">
+            <span className="absolute left-4 top-4 rounded-md bg-gradient-to-br from-brand-red to-brand-red-dark px-3 py-1.5 text-sm font-bold text-white shadow ring-1 ring-inset ring-white/15">
               -{percentOff}% OFF
             </span>
           )}
-        </div>
+        </Reveal>
 
         {/* Details */}
-        <div className="flex flex-col gap-5">
+        <Reveal delay={100} className="flex flex-col gap-5">
           <div>
             <span className="text-sm font-medium uppercase tracking-wide text-brand-blue dark:text-brand-red">
               {category}
@@ -105,7 +106,7 @@ export default async function ProductPage({
           <div className="mt-2 border-t border-zinc-200 pt-5 dark:border-zinc-800">
             <ProductActions product={product} />
           </div>
-        </div>
+        </Reveal>
       </div>
     </main>
   );

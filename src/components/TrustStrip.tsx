@@ -11,8 +11,8 @@ export default function TrustStrip() {
   return (
     <section className="grid grid-cols-2 gap-x-4 gap-y-5 rounded-xl border border-zinc-200/80 bg-white p-5 shadow-soft dark:border-zinc-800 dark:bg-zinc-900 sm:grid-cols-4">
       {items.map(({ id, Icon, title, subtitle }) => (
-        <div key={id} className="flex items-center gap-3">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue dark:bg-brand-blue/20 dark:text-white">
+        <div key={id} className="group flex items-center gap-3">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue ring-1 ring-inset ring-brand-blue/15 transition-all duration-300 group-hover:bg-brand-blue group-hover:text-white group-hover:ring-white/20 dark:bg-brand-blue/20 dark:text-white">
             <Icon className="h-6 w-6" />
           </span>
           <div>

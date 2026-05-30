@@ -24,7 +24,7 @@ export default function ProductCard({
 
   return (
     <article
-      className={`group relative flex h-full flex-col overflow-hidden border border-zinc-200/80 bg-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-card dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700 ${
+      className={`accent-line-top group relative flex h-full flex-col overflow-hidden border border-zinc-200/80 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/30 hover:shadow-lift dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-brand-blue/50 ${
         dense ? "rounded-xl" : "rounded-2xl"
       }`}
     >
@@ -44,7 +44,7 @@ export default function ProductCard({
             />
           </span>
           {hasDiscount && (
-            <span className="absolute left-1.5 top-1.5 rounded bg-brand-red px-1.5 py-0.5 text-[10px] font-bold text-white shadow-sm">
+            <span className="absolute left-1.5 top-1.5 rounded bg-gradient-to-br from-brand-red to-brand-red-dark px-1.5 py-0.5 text-[10px] font-bold text-white shadow-sm ring-1 ring-inset ring-white/15">
               -{percentOff}%
             </span>
           )}
@@ -60,7 +60,7 @@ export default function ProductCard({
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           {hasDiscount && (
-            <span className="absolute left-2 top-2 rounded-md bg-brand-red px-2 py-1 text-xs font-bold text-white shadow-sm">
+            <span className="absolute left-2 top-2 rounded-md bg-gradient-to-br from-brand-red to-brand-red-dark px-2 py-1 text-xs font-bold text-white shadow-sm ring-1 ring-inset ring-white/15">
               -{percentOff}%
             </span>
           )}
@@ -104,7 +104,7 @@ export default function ProductCard({
           <button
             type="button"
             onClick={() => addItem(product)}
-            className={`w-full rounded-lg bg-brand-blue font-semibold text-white shadow-sm transition-all hover:bg-brand-blue-dark hover:shadow-md active:scale-[0.99] ${
+            className={`w-full rounded-lg bg-gradient-to-b from-brand-blue to-brand-blue-dark font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 transition-all hover:shadow-md hover:brightness-110 active:scale-[0.99] ${
               dense ? "mt-1.5 py-1.5 text-xs" : "mt-2.5 py-2.5 text-sm"
             }`}
           >

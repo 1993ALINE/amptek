@@ -1,3 +1,5 @@
+import Reveal from "@/components/Reveal";
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -10,10 +12,24 @@ export default function SectionHeading({
   centered?: boolean;
 }) {
   return (
-    <div className={`max-w-2xl ${centered ? "mx-auto text-center" : ""}`}>
+    <Reveal className={`max-w-2xl ${centered ? "mx-auto text-center" : ""}`}>
       {eyebrow && (
-        <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-red">
+        <span
+          className={`inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-red ${
+            centered ? "justify-center" : ""
+          }`}
+        >
+          <span
+            aria-hidden
+            className="h-px w-7 bg-gradient-to-r from-brand-red/0 to-brand-red"
+          />
           {eyebrow}
+          {centered && (
+            <span
+              aria-hidden
+              className="h-px w-7 bg-gradient-to-l from-brand-red/0 to-brand-red"
+            />
+          )}
         </span>
       )}
       <h2 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
@@ -24,6 +40,6 @@ export default function SectionHeading({
           {subtitle}
         </p>
       )}
-    </div>
+    </Reveal>
   );
 }

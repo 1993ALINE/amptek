@@ -4,6 +4,11 @@
   --background: #ffffff;
   /* Softer-than-pure-black text reads as more premium while keeping strong contrast. */
   --foreground: #1b1b1f;
+
+  /* Hairline colour for faint decorative grids — brand-blue at a whisper of alpha. */
+  --grid-line: rgb(21 52 123 / 0.055);
+  /* Dot colour for faint decorative dot fields. */
+  --dot-color: rgb(21 52 123 / 0.07);
 }
 
 @theme inline {
@@ -18,10 +23,14 @@
   --color-brand-blue: #15347b;
   --color-brand-blue-dark: #0d2356;
 
-  /* Refined, soft elevation — subtle depth instead of flat boxes. */
+  /* Refined, soft elevation — layered depth instead of flat boxes. Each level
+     stacks a tight contact shadow with a wider ambient one so cards feel lifted
+     off the page rather than outlined. */
   --shadow-soft: 0 1px 2px 0 rgb(20 30 60 / 0.04), 0 1px 3px 0 rgb(20 30 60 / 0.05);
   --shadow-card: 0 1px 3px rgb(20 30 60 / 0.05), 0 8px 20px -6px rgb(20 30 60 / 0.10);
   --shadow-elevated: 0 14px 36px -10px rgb(20 30 60 / 0.16), 0 4px 12px -6px rgb(20 30 60 / 0.10);
+  /* Hover elevation for cards — a touch deeper, with a faint brand-tinted base. */
+  --shadow-lift: 0 2px 4px rgb(20 30 60 / 0.05), 0 18px 40px -12px rgb(20 30 60 / 0.20), 0 8px 16px -10px rgb(225 25 35 / 0.10);
 
   /* Smooth, professional default easing/timing for micro-interactions. */
   --default-transition-duration: 200ms;
@@ -32,6 +41,9 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    /* Lift the decorative lines to faint white so they read on dark surfaces. */
+    --grid-line: rgb(255 255 255 / 0.05);
+    --dot-color: rgb(255 255 255 / 0.06);
   }
 }
 
@@ -77,4 +89,149 @@
     outline-offset: 2px;
     border-radius: 4px;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   Decorative surfaces — extremely subtle, on-brand depth. Each is meant to sit
+   on an absolutely-positioned, pointer-events-none overlay behind real content;
+   the radial masks fade the pattern out so it never reads as a hard texture.
+   --------------------------------------------------------------------------- */
+
+/* Faint engineering-grid lines. Masked so they bloom from the top and dissolve. */
+.deco-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(125% 100% at 50% 0%, #000 35%, transparent 78%);
+  mask-image: radial-gradient(125% 100% at 50% 0%, #000 35%, transparent 78%);
+}
+
+/* Finer grid for tighter hero/header backdrops. */
+.deco-grid-fine {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Faint dot field — an alternative texture for lighter sections. */
+.deco-dots {
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1.4px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(120% 110% at 50% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(120% 110% at 50% 0%, #000 30%, transparent 75%);
+}
+
+/* Soft gradient mesh — layered radial glows for section backgrounds. Sets only
+   background-image so it composes over a Tailwind bg-* colour without clobbering it. */
+.surface-mesh {
+  background-image:
+    radial-gradient(38rem 26rem at 8% -12%, color-mix(in oklab, var(--color-brand-blue) 7%, transparent), transparent 70%),
+    radial-gradient(34rem 22rem at 100% 0%, color-mix(in oklab, var(--color-brand-red) 5%, transparent), transparent 72%);
+}
+
+/* ---------------------------------------------------------------------------
+   Scroll-reveal — elements gently rise + fade as they enter the viewport.
+   Quick, smooth, and fully disabled under prefers-reduced-motion.
+   --------------------------------------------------------------------------- */
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  animation: reveal-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Honour the OS-level reduced-motion preference everywhere: neutralise
+     animations (including decorative loops like the hero status dot) and make
+     transitions effectively instant, while leaving final states intact. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Premium micro-details
+   --------------------------------------------------------------------------- */
+
+/* Thin brand-coloured accent line that wipes in on hover. Apply to a card root
+   (which also carries Tailwind's `group`/rounded utilities); inherits the radius. */
+.accent-line-top {
+  position: relative;
+}
+.accent-line-top::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-brand-red), var(--color-brand-blue));
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+}
+.group:hover .accent-line-top::after,
+.accent-line-top:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Subtle decorative corner bracket for premium tiles. */
+.accent-corner::before {
+  content: "";
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-top: 1.5px solid color-mix(in oklab, var(--color-brand-red) 55%, transparent);
+  border-right: 1.5px solid color-mix(in oklab, var(--color-brand-red) 55%, transparent);
+  border-top-right-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.group:hover .accent-corner::before {
+  opacity: 1;
+}
+
+/* Faint top-edge highlight on solid brand surfaces (buttons, bars) for depth. */
+.sheen-top {
+  position: relative;
+}
+.sheen-top::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 45%;
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0.14), transparent);
+  pointer-events: none;
 }

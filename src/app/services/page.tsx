@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ContactCTA from "@/components/ContactCTA";
 import SectionHeading from "@/components/SectionHeading";
+import Backdrop from "@/components/Backdrop";
+import Reveal from "@/components/Reveal";
 import { serviceIcons, CheckIcon } from "@/components/icons";
 import { services } from "@/data/company";
 
@@ -15,14 +17,19 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page header */}
-      <section className="border-b border-zinc-200/80 bg-gradient-to-b from-zinc-50 to-white dark:border-zinc-800 dark:from-zinc-900/40 dark:to-transparent">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16">
+      <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900/40 dark:to-transparent">
+        <Backdrop />
+        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16">
           <SectionHeading
             eyebrow="Our Capabilities"
             title="Engineering Services"
             subtitle="Turnkey solutions across five integrated disciplines — engineered to standard, delivered with single-point accountability."
           />
         </div>
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-blue/30 to-transparent"
+        />
       </section>
 
       {/* Detailed service blocks */}
@@ -31,12 +38,12 @@ export default function ServicesPage() {
           {services.map((service, i) => {
             const Icon = serviceIcons[service.id];
             return (
+              <Reveal key={service.id} delay={i * 70}>
               <article
-                key={service.id}
                 id={service.id}
-                className="grid scroll-mt-24 gap-6 rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-soft transition-all duration-200 hover:shadow-card dark:border-zinc-800 dark:bg-zinc-900 sm:p-8 md:grid-cols-[auto_1fr]"
+                className="accent-corner group relative grid scroll-mt-24 gap-6 rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-blue/30 hover:shadow-lift dark:border-zinc-800 dark:bg-zinc-900 sm:p-8 md:grid-cols-[auto_1fr]"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-blue text-white">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white shadow-md shadow-brand-blue/25 ring-1 ring-inset ring-white/10 transition-transform duration-300 group-hover:scale-105">
                   {Icon && <Icon className="h-8 w-8" />}
                 </div>
                 <div>
@@ -64,6 +71,7 @@ export default function ServicesPage() {
                   </ul>
                 </div>
               </article>
+              </Reveal>
             );
           })}
         </div>

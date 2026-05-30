@@ -5,12 +5,13 @@ import FlashDeals from "@/components/FlashDeals";
 import ProductListing from "@/components/ProductListing";
 import PromoTiles from "@/components/PromoTiles";
 import TrustStrip from "@/components/TrustStrip";
+import Reveal from "@/components/Reveal";
 import { featuredProducts, newArrivals } from "@/data/products";
 
 // The bdshop-style storefront. Used as the site homepage (/).
 export default function StoreHome() {
   return (
-    <div className="bg-zinc-50 dark:bg-zinc-950">
+    <div className="surface-mesh relative bg-zinc-50 dark:bg-zinc-950">
       <main className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 sm:px-6">
         {/* Top row: category sidebar + banner carousel + promo tiles.
             At lg the three columns stretch to equal height (sidebar, banner,
@@ -25,11 +26,21 @@ export default function StoreHome() {
           </div>
         </div>
 
-        <CategoryTiles />
-        <FlashDeals />
-        <ProductListing title="Featured Products" products={featuredProducts} color="blue" />
-        <ProductListing title="New Arrivals" products={newArrivals} color="red" />
-        <TrustStrip />
+        <Reveal>
+          <CategoryTiles />
+        </Reveal>
+        <Reveal>
+          <FlashDeals />
+        </Reveal>
+        <Reveal>
+          <ProductListing title="Featured Products" products={featuredProducts} color="blue" />
+        </Reveal>
+        <Reveal>
+          <ProductListing title="New Arrivals" products={newArrivals} color="red" />
+        </Reveal>
+        <Reveal>
+          <TrustStrip />
+        </Reveal>
       </main>
     </div>
   );

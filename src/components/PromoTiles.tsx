@@ -25,9 +25,9 @@ export default function PromoTiles() {
         <a
           key={promo.id}
           href="#"
-          className={`group relative flex min-h-[110px] flex-col justify-between overflow-hidden rounded-xl bg-gradient-to-br p-4 text-white shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-elevated lg:flex-1 ${promo.gradient}`}
+          className={`sheen-top group relative flex min-h-[110px] flex-col justify-between overflow-hidden rounded-xl bg-gradient-to-br p-4 text-white shadow-card ring-1 ring-inset ring-white/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-elevated lg:flex-1 ${promo.gradient}`}
         >
-          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-white/10" />
+          <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-white/10 transition-transform duration-500 group-hover:scale-125" />
           <div className="relative">
             <h3 className="text-base font-bold leading-tight sm:text-lg">{promo.title}</h3>
             <p className="mt-1 text-xs text-white/90 sm:text-sm">{promo.subtitle}</p>

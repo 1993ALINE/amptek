@@ -25,7 +25,7 @@ export default async function SearchPage({
   const results = query ? searchProducts(query) : [];
 
   return (
-    <div className="bg-zinc-50 dark:bg-zinc-950">
+    <div className="surface-mesh relative bg-zinc-50 dark:bg-zinc-950">
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
         {/* Breadcrumb */}
         <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-sm text-zinc-500">

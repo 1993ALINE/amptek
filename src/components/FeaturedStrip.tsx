@@ -3,6 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import SectionHeading from "@/components/SectionHeading";
 import { ArrowRightIcon } from "@/components/icons";
 import { featuredProducts } from "@/data/products";
+import Reveal from "@/components/Reveal";
 
 export default function FeaturedStrip() {
   const products = featuredProducts.slice(0, 4);
@@ -24,12 +25,14 @@ export default function FeaturedStrip() {
         </Link>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {products.map((product) => (
-          // No Add-to-Cart here — cards link into the shop where the cart lives.
-          <ProductCard key={product.id} product={product} showAddToCart={false} />
-        ))}
-      </div>
+      <Reveal className="mt-10" delay={100}>
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {products.map((product) => (
+            // No Add-to-Cart here — cards link into the shop where the cart lives.
+            <ProductCard key={product.id} product={product} showAddToCart={false} />
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }

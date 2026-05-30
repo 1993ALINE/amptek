@@ -5,8 +5,8 @@ export default function ServiceCard({ service }: { service: Service }) {
   const Icon = serviceIcons[service.id];
 
   return (
-    <article className="group flex flex-col gap-4 rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-soft transition-all duration-200 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-card dark:border-zinc-800 dark:bg-zinc-900">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue transition-colors duration-200 group-hover:bg-brand-red group-hover:text-white dark:bg-brand-blue/20 dark:text-white">
+    <article className="accent-corner group relative flex flex-col gap-4 rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-lift dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue ring-1 ring-inset ring-brand-blue/10 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-brand-red group-hover:to-brand-red-dark group-hover:text-white group-hover:shadow-md group-hover:shadow-brand-red/25 group-hover:ring-white/20 dark:bg-brand-blue/20 dark:text-white">
         {Icon && <Icon className="h-6 w-6" />}
       </div>
 
@@ -23,7 +23,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         {service.items.map((item) => (
           <li
             key={item}
-            className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+            className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 ring-1 ring-inset ring-transparent transition-colors group-hover:bg-brand-blue/[0.06] group-hover:ring-brand-blue/15 dark:bg-zinc-800 dark:text-zinc-300"
           >
             {item}
           </li>
