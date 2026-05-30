@@ -267,6 +267,16 @@ export function getProductsByCategory(categoryName: string): Product[] {
   return allProducts.filter((p) => p.category === categoryName);
 }
 
+/** Find products whose name or category matches the query (case-insensitive). */
+export function searchProducts(query: string): Product[] {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+  return allProducts.filter(
+    (p) =>
+      p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)
+  );
+}
+
 /** The price actually charged — the discount price if there is one, else list price. */
 export function effectivePrice(product: Product): number {
   return product.discountPrice ?? product.price;

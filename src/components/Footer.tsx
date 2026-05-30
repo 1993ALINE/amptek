@@ -4,8 +4,10 @@ import { GlobeIcon, LocationIcon, MailIcon, PhoneIcon } from "@/components/icons
 
 export default function Footer() {
   return (
-    <footer className="mt-16 bg-brand-blue-dark text-zinc-300">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="mt-20 bg-brand-blue-dark text-zinc-300">
+      {/* Brand accent strip */}
+      <div className="h-1 w-full bg-gradient-to-r from-brand-red via-brand-red to-brand-blue" />
+      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>
           <Link href="/" className="text-xl font-extrabold tracking-tight text-white">
@@ -20,13 +22,16 @@ export default function Footer() {
 
         {/* Quick links */}
         <div>
-          <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-white">
+          <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-white">
             Company
           </h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2.5 text-sm">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="transition-colors hover:text-white">
+                <Link
+                  href={link.href}
+                  className="inline-block text-zinc-400 transition-all hover:translate-x-0.5 hover:text-white"
+                >
                   {link.label}
                 </Link>
               </li>
@@ -36,13 +41,16 @@ export default function Footer() {
 
         {/* Services */}
         <div>
-          <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-white">
+          <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-white">
             Services
           </h3>
-          <ul className="space-y-2 text-sm">
+          <ul className="space-y-2.5 text-sm">
             {services.map((s) => (
               <li key={s.id}>
-                <Link href="/services" className="transition-colors hover:text-white">
+                <Link
+                  href="/services"
+                  className="inline-block text-zinc-400 transition-all hover:translate-x-0.5 hover:text-white"
+                >
                   {s.title}
                 </Link>
               </li>
@@ -52,7 +60,7 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="mb-3 text-sm font-bold uppercase tracking-wide text-white">
+          <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.12em] text-white">
             Contact
           </h3>
           <ul className="space-y-3 text-sm">

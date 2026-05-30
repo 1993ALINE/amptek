@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40">
+      <section className="border-b border-zinc-200/80 bg-gradient-to-b from-zinc-50 to-white dark:border-zinc-800 dark:from-zinc-900/40 dark:to-transparent">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16">
           <SectionHeading
             eyebrow="Our Work"
@@ -28,7 +28,7 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <article
               key={project.id}
-              className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-shadow hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+              className="group overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card dark:border-zinc-800 dark:bg-zinc-900"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                 <Image

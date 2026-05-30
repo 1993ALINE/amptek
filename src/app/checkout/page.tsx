@@ -44,7 +44,7 @@ export default function CheckoutPage() {
         <p className="mt-2 text-zinc-500">Add some products before checking out.</p>
         <Link
           href="/"
-          className="mt-6 inline-block rounded-lg bg-brand-red px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-red-dark"
+          className="mt-6 inline-block rounded-lg bg-brand-red px-6 py-3 font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-red-dark hover:shadow-md"
         >
           Continue Shopping
         </Link>
@@ -86,7 +86,7 @@ export default function CheckoutPage() {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm outline-none transition-colors focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 dark:border-zinc-700 dark:bg-zinc-900";
+    "w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition placeholder:text-zinc-400 hover:border-zinc-400 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:border-zinc-600";
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-8">
@@ -160,7 +160,7 @@ export default function CheckoutPage() {
         </div>
 
         {/* Right: order summary */}
-        <aside className="h-fit rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+        <aside className="h-fit rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-soft dark:border-zinc-800 dark:bg-zinc-900">
           <h2 className="mb-4 text-lg font-bold text-zinc-900 dark:text-white">
             Order Summary
           </h2>
@@ -194,7 +194,7 @@ export default function CheckoutPage() {
 
           <button
             type="submit"
-            className="mt-6 w-full rounded-lg bg-brand-red py-3 font-semibold text-white transition-colors hover:bg-brand-red-dark"
+            className="mt-6 w-full rounded-lg bg-brand-red py-3 font-semibold text-white shadow-sm transition-all hover:bg-brand-red-dark hover:shadow-md active:scale-[0.99]"
           >
             Place Order
           </button>
@@ -232,7 +232,7 @@ function Field({
         type={type}
         autoComplete={autoComplete}
         required
-        className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm outline-none transition-colors focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 dark:border-zinc-700 dark:bg-zinc-900"
+        className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition placeholder:text-zinc-400 hover:border-zinc-400 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:border-zinc-600"
       />
     </div>
   );

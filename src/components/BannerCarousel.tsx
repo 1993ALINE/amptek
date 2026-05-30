@@ -63,7 +63,7 @@ export default function BannerCarousel() {
         type="button"
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white transition-colors hover:bg-black/60"
+        className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-white/35"
       >
         <ChevronLeft />
       </button>
@@ -71,7 +71,7 @@ export default function BannerCarousel() {
         type="button"
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white transition-colors hover:bg-black/60"
+        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-2 text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-white/35"
       >
         <ChevronRight />
       </button>

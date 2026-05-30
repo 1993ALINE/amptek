@@ -26,7 +26,7 @@ export default function CartPage() {
         </p>
         <Link
           href="/"
-          className="mt-6 inline-block rounded-lg bg-brand-red px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-red-dark"
+          className="mt-6 inline-block rounded-lg bg-brand-red px-6 py-3 font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-red-dark hover:shadow-md"
         >
           Continue Shopping
         </Link>
@@ -134,7 +134,7 @@ export default function CartPage() {
         </ul>
 
         {/* Summary */}
-        <aside className="h-fit rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+        <aside className="h-fit rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-soft dark:border-zinc-800 dark:bg-zinc-900">
           <h2 className="mb-4 text-lg font-bold text-zinc-900 dark:text-white">
             Order Summary
           </h2>
@@ -152,7 +152,7 @@ export default function CartPage() {
           </div>
           <Link
             href="/checkout"
-            className="mt-6 block w-full rounded-lg bg-brand-red py-3 text-center font-semibold text-white transition-colors hover:bg-brand-red-dark"
+            className="mt-6 block w-full rounded-lg bg-brand-red py-3 text-center font-semibold text-white shadow-sm transition-all hover:bg-brand-red-dark hover:shadow-md active:scale-[0.99]"
           >
             Proceed to Checkout
           </Link>

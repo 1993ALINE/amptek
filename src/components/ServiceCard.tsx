@@ -5,8 +5,8 @@ export default function ServiceCard({ service }: { service: Service }) {
   const Icon = serviceIcons[service.id];
 
   return (
-    <article className="group flex flex-col gap-4 rounded-2xl border border-zinc-200 bg-white p-6 transition-all hover:-translate-y-1 hover:border-brand-red/40 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue transition-colors group-hover:bg-brand-red group-hover:text-white dark:bg-brand-blue/20 dark:text-white">
+    <article className="group flex flex-col gap-4 rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-soft transition-all duration-200 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-card dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue transition-colors duration-200 group-hover:bg-brand-red group-hover:text-white dark:bg-brand-blue/20 dark:text-white">
         {Icon && <Icon className="h-6 w-6" />}
       </div>
 

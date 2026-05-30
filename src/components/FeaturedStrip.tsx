@@ -8,7 +8,7 @@ export default function FeaturedStrip() {
   const products = featuredProducts.slice(0, 4);
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <SectionHeading
           eyebrow="From Our Shop"
@@ -17,10 +17,10 @@ export default function FeaturedStrip() {
         />
         <Link
           href="/"
-          className="inline-flex items-center gap-2 rounded-lg border border-brand-blue px-5 py-2.5 text-sm font-semibold text-brand-blue transition-colors hover:bg-brand-blue hover:text-white dark:border-zinc-600 dark:text-white"
+          className="group inline-flex items-center gap-2 rounded-lg border border-brand-blue px-5 py-2.5 text-sm font-semibold text-brand-blue transition-all hover:bg-brand-blue hover:text-white hover:shadow-md dark:border-zinc-600 dark:text-white"
         >
           Browse the Shop
-          <ArrowRightIcon className="h-4 w-4" />
+          <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
       </div>
 

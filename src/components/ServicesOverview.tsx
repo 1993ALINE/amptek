@@ -6,7 +6,7 @@ import { services } from "@/data/company";
 
 export default function ServicesOverview() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24">
       <SectionHeading
         eyebrow="What We Do"
         title="Engineering Services"
@@ -22,14 +22,15 @@ export default function ServicesOverview() {
         {/* Call-to-action tile filling the grid */}
         <Link
           href="/services"
-          className="flex flex-col justify-center gap-3 rounded-2xl bg-brand-blue p-6 text-white transition-colors hover:bg-brand-blue-dark"
+          className="group flex flex-col justify-center gap-3 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-blue-dark p-6 text-white shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-elevated"
         >
           <span className="text-lg font-bold">Explore all services</span>
           <span className="text-sm text-zinc-200">
             See full capabilities, standards, and scope across every discipline.
           </span>
           <span className="mt-2 inline-flex items-center gap-2 text-sm font-semibold">
-            View Services <ArrowRightIcon className="h-4 w-4" />
+            View Services
+            <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </span>
         </Link>
       </div>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40">
+      <section className="border-b border-zinc-200/80 bg-gradient-to-b from-zinc-50 to-white dark:border-zinc-800 dark:from-zinc-900/40 dark:to-transparent">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16">
           <SectionHeading
             eyebrow="About Us"
@@ -78,7 +78,7 @@ export default function AboutPage() {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 gap-6 rounded-2xl bg-brand-blue p-8 text-center text-white lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-6 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-blue-dark p-8 text-center text-white shadow-elevated lg:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label}>
               <div className="text-3xl font-extrabold sm:text-4xl">{stat.value}</div>

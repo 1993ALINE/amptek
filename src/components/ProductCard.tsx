@@ -24,8 +24,8 @@ export default function ProductCard({
 
   return (
     <article
-      className={`group relative flex h-full flex-col overflow-hidden border border-zinc-200 bg-white transition-shadow hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 ${
-        dense ? "rounded-lg" : "rounded-xl"
+      className={`group relative flex h-full flex-col overflow-hidden border border-zinc-200/80 bg-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-card dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700 ${
+        dense ? "rounded-xl" : "rounded-2xl"
       }`}
     >
       {dense ? (
@@ -104,8 +104,8 @@ export default function ProductCard({
           <button
             type="button"
             onClick={() => addItem(product)}
-            className={`w-full rounded-lg bg-brand-blue font-semibold text-white transition-colors hover:bg-brand-blue-dark active:bg-brand-blue-dark ${
-              dense ? "mt-1.5 py-1.5 text-xs" : "mt-2 py-2 text-sm"
+            className={`w-full rounded-lg bg-brand-blue font-semibold text-white shadow-sm transition-all hover:bg-brand-blue-dark hover:shadow-md active:scale-[0.99] ${
+              dense ? "mt-1.5 py-1.5 text-xs" : "mt-2.5 py-2.5 text-sm"
             }`}
           >
             Add to Cart

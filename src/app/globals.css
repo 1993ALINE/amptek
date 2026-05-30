@@ -2,7 +2,8 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  /* Softer-than-pure-black text reads as more premium while keeping strong contrast. */
+  --foreground: #1b1b1f;
 }
 
 @theme inline {
@@ -16,6 +17,15 @@
   --color-brand-red-dark: #b3121a;
   --color-brand-blue: #15347b;
   --color-brand-blue-dark: #0d2356;
+
+  /* Refined, soft elevation — subtle depth instead of flat boxes. */
+  --shadow-soft: 0 1px 2px 0 rgb(20 30 60 / 0.04), 0 1px 3px 0 rgb(20 30 60 / 0.05);
+  --shadow-card: 0 1px 3px rgb(20 30 60 / 0.05), 0 8px 20px -6px rgb(20 30 60 / 0.10);
+  --shadow-elevated: 0 14px 36px -10px rgb(20 30 60 / 0.16), 0 4px 12px -6px rgb(20 30 60 / 0.10);
+
+  /* Smooth, professional default easing/timing for micro-interactions. */
+  --default-transition-duration: 200ms;
+  --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,8 +35,46 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+  }
+
+  /* Tighter tracking + balanced wrapping gives headings a refined, intentional feel. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-brand-blue) 16%, transparent);
+  }
+
+  /* Accessible, on-brand focus ring for interactive elements.
+     Form controls keep their own focus styling, so they're excluded here. */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }

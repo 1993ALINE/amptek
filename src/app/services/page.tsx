@@ -15,7 +15,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page header */}
-      <section className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/40">
+      <section className="border-b border-zinc-200/80 bg-gradient-to-b from-zinc-50 to-white dark:border-zinc-800 dark:from-zinc-900/40 dark:to-transparent">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16">
           <SectionHeading
             eyebrow="Our Capabilities"
@@ -34,7 +34,7 @@ export default function ServicesPage() {
               <article
                 key={service.id}
                 id={service.id}
-                className="grid scroll-mt-24 gap-6 rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900 sm:p-8 md:grid-cols-[auto_1fr]"
+                className="grid scroll-mt-24 gap-6 rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-soft transition-all duration-200 hover:shadow-card dark:border-zinc-800 dark:bg-zinc-900 sm:p-8 md:grid-cols-[auto_1fr]"
               >
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-blue text-white">
                   {Icon && <Icon className="h-8 w-8" />}

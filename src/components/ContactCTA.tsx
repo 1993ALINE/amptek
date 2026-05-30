@@ -26,10 +26,10 @@ export default function ContactCTA() {
 
         <Link
           href="/contact"
-          className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-base font-bold text-brand-red transition-colors hover:bg-zinc-100"
+          className="group inline-flex shrink-0 items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-base font-bold text-brand-red shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-xl"
         >
           Get a Quote
-          <ArrowRightIcon className="h-4 w-4" />
+          <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
       </div>
     </section>

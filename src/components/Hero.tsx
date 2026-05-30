@@ -31,17 +31,17 @@ export default function Hero() {
           {company.blurb}
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="mt-9 flex flex-wrap gap-4">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 rounded-lg bg-brand-red px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-red-dark"
+            className="group inline-flex items-center gap-2 rounded-lg bg-brand-red px-6 py-3 text-base font-semibold text-white shadow-lg shadow-brand-red/20 transition-all hover:bg-brand-red-dark hover:shadow-xl hover:shadow-brand-red/25"
           >
             Explore Services
-            <ArrowRightIcon className="h-4 w-4" />
+            <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/5 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/25 bg-white/5 px-6 py-3 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:border-white/40 hover:bg-white/10"
           >
             Get a Quote
           </Link>

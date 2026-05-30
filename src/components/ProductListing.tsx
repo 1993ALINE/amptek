@@ -50,7 +50,7 @@ export default function ProductListing({
   }, [products, sort, onSaleOnly]);
 
   return (
-    <section className="overflow-hidden rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+    <section className="overflow-hidden rounded-xl border border-zinc-200/80 bg-white shadow-soft dark:border-zinc-800 dark:bg-zinc-900">
       <ShopSectionBar title={title} color={color} />
 
       {/* Sort / filter bar */}
@@ -73,7 +73,7 @@ export default function ProductListing({
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as SortKey)}
-              className="rounded-md border border-zinc-300 bg-white px-2 py-1.5 text-sm outline-none focus:border-brand-blue dark:border-zinc-700 dark:bg-zinc-800"
+              className="rounded-lg border border-zinc-300 bg-white px-2.5 py-1.5 text-sm shadow-sm outline-none transition hover:border-zinc-400 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 dark:border-zinc-700 dark:bg-zinc-800"
             >
               {SORT_OPTIONS.map((opt) => (
                 <option key={opt.value} value={opt.value}>

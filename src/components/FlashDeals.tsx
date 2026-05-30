@@ -44,7 +44,7 @@ export default function FlashDeals() {
   );
 
   return (
-    <section className="overflow-hidden rounded-lg border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+    <section className="overflow-hidden rounded-xl border border-zinc-200/80 bg-white shadow-soft dark:border-zinc-800 dark:bg-zinc-900">
       <ShopSectionBar
         title="Flash Deals"
         icon={<span aria-hidden>⚡</span>}

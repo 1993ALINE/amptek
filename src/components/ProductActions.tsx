@@ -52,13 +52,13 @@ export default function ProductActions({ product }: { product: Product }) {
         <button
           type="button"
           onClick={handleAdd}
-          className="flex-1 rounded-lg bg-brand-blue px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-blue-dark active:bg-brand-blue-dark sm:flex-none"
+          className="flex-1 rounded-lg bg-brand-blue px-6 py-3 text-base font-semibold text-white shadow-sm transition-all hover:bg-brand-blue-dark hover:shadow-md active:scale-[0.99] sm:flex-none"
         >
           {added ? "✓ Added to Cart" : "Add to Cart"}
         </button>
         <Link
           href="/cart"
-          className="flex-1 rounded-lg border border-zinc-300 px-6 py-3 text-center text-base font-semibold text-zinc-800 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 sm:flex-none"
+          className="flex-1 rounded-lg border border-zinc-300 px-6 py-3 text-center text-base font-semibold text-zinc-800 transition-all hover:border-zinc-400 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800 sm:flex-none"
         >
           View Cart
         </Link>

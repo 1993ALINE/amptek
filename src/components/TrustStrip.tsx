@@ -9,7 +9,7 @@ const items = [
 
 export default function TrustStrip() {
   return (
-    <section className="grid grid-cols-2 gap-3 rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900 sm:grid-cols-4">
+    <section className="grid grid-cols-2 gap-x-4 gap-y-5 rounded-xl border border-zinc-200/80 bg-white p-5 shadow-soft dark:border-zinc-800 dark:bg-zinc-900 sm:grid-cols-4">
       {items.map(({ id, Icon, title, subtitle }) => (
         <div key={id} className="flex items-center gap-3">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue dark:bg-brand-blue/20 dark:text-white">

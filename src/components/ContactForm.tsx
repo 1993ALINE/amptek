@@ -31,7 +31,7 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm outline-none transition-colors focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 dark:border-zinc-700 dark:bg-zinc-900";
+    "w-full rounded-lg border border-zinc-300 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition placeholder:text-zinc-400 hover:border-zinc-400 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:border-zinc-600";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -66,7 +66,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full rounded-lg bg-brand-red py-3 font-semibold text-white transition-colors hover:bg-brand-red-dark sm:w-auto sm:px-8"
+        className="w-full rounded-lg bg-brand-red py-3 font-semibold text-white shadow-sm transition-all hover:bg-brand-red-dark hover:shadow-md active:scale-[0.99] sm:w-auto sm:px-8"
       >
         Send Message
       </button>

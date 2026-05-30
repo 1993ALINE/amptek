@@ -55,7 +55,7 @@ export default async function ProductPage({
 
       <div className="grid gap-8 md:grid-cols-2">
         {/* Large image */}
-        <div className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-800">
+        <div className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-200/80 bg-zinc-100 shadow-soft dark:border-zinc-800 dark:bg-zinc-800">
           <Image
             src={image}
             alt={name}

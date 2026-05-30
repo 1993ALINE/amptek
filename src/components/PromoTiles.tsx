@@ -25,7 +25,7 @@ export default function PromoTiles() {
         <a
           key={promo.id}
           href="#"
-          className={`relative flex min-h-[110px] flex-col justify-between overflow-hidden rounded-lg bg-gradient-to-br p-4 text-white lg:flex-1 ${promo.gradient}`}
+          className={`group relative flex min-h-[110px] flex-col justify-between overflow-hidden rounded-xl bg-gradient-to-br p-4 text-white shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-elevated lg:flex-1 ${promo.gradient}`}
         >
           <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-white/10" />
           <div className="relative">
@@ -34,7 +34,7 @@ export default function PromoTiles() {
           </div>
           <span className="relative mt-2 inline-flex items-center gap-1 text-xs font-semibold">
             {promo.cta}
-            <ArrowRightIcon className="h-3.5 w-3.5" />
+            <ArrowRightIcon className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
       ))}

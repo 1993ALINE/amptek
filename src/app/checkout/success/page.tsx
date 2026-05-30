@@ -36,7 +36,7 @@ export default function CheckoutSuccessPage() {
         </p>
         <Link
           href="/"
-          className="mt-6 inline-block rounded-lg bg-brand-red px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-red-dark"
+          className="mt-6 inline-block rounded-lg bg-brand-red px-6 py-3 font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-red-dark hover:shadow-md"
         >
           Continue Shopping
         </Link>
@@ -67,7 +67,7 @@ export default function CheckoutSuccessPage() {
         </p>
       </div>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="mt-8 overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-card dark:border-zinc-800 dark:bg-zinc-900">
         {/* Items */}
         <div className="p-6">
           <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-zinc-500">
@@ -124,7 +124,7 @@ export default function CheckoutSuccessPage() {
       <div className="mt-8 text-center">
         <Link
           href="/"
-          className="inline-block rounded-lg bg-brand-red px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-red-dark"
+          className="inline-block rounded-lg bg-brand-red px-8 py-3 font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-red-dark hover:shadow-md"
         >
           Continue Shopping
         </Link>
