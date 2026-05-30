@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description: company.blurb,
 };
 
+// FeaturedStrip reads featured products live from Supabase.
+export const dynamic = "force-dynamic";
+
 // The corporate landing page (formerly the homepage).
 export default function CompanyPage() {
   return (

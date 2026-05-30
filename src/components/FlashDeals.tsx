@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import ShopSectionBar from "@/components/ShopSectionBar";
-import { flashDeals } from "@/data/products";
+import type { Product } from "@/data/products";
 
 // Countdown to the next midnight — gives the strip a live "deal ends in" timer.
 function useCountdown() {
@@ -31,8 +31,11 @@ function useCountdown() {
   return remaining;
 }
 
-export default function FlashDeals() {
+export default function FlashDeals({ products }: { products: Product[] }) {
   const remaining = useCountdown();
+
+  // No active flash deals — hide the strip entirely rather than show an empty box.
+  if (products.length === 0) return null;
 
   const countdown = (
     <span className="flex items-center gap-2 text-sm font-medium">
@@ -54,7 +57,7 @@ export default function FlashDeals() {
 
       {/* Horizontal scroll strip */}
       <div className="flex gap-3 overflow-x-auto p-3 [scrollbar-width:thin]">
-        {flashDeals.map((product) => (
+        {products.map((product) => (
           <div key={product.id} className="w-36 shrink-0 sm:w-40">
             <ProductCard product={product} dense />
           </div>

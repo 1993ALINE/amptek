@@ -6,10 +6,17 @@ import ProductListing from "@/components/ProductListing";
 import PromoTiles from "@/components/PromoTiles";
 import TrustStrip from "@/components/TrustStrip";
 import Reveal from "@/components/Reveal";
-import { featuredProducts, newArrivals } from "@/data/products";
+import { getFeaturedProducts, getFlashDeals, getNewArrivals } from "@/lib/catalog";
 
 // The bdshop-style storefront. Used as the site homepage (/).
-export default function StoreHome() {
+// Reads its product grids live from Supabase so admin edits show up immediately.
+export default async function StoreHome() {
+  const [featuredProducts, newArrivals, flashDeals] = await Promise.all([
+    getFeaturedProducts(),
+    getNewArrivals(),
+    getFlashDeals(),
+  ]);
+
   return (
     <div className="surface-mesh relative bg-zinc-50 dark:bg-zinc-950">
       <main className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 sm:px-6">
@@ -30,7 +37,7 @@ export default function StoreHome() {
           <CategoryTiles />
         </Reveal>
         <Reveal>
-          <FlashDeals />
+          <FlashDeals products={flashDeals} />
         </Reveal>
         <Reveal>
           <ProductListing title="Featured Products" products={featuredProducts} color="blue" />

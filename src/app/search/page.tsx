@@ -3,7 +3,7 @@ import Link from "next/link";
 import CategorySidebar from "@/components/CategorySidebar";
 import ProductCard from "@/components/ProductCard";
 import ShopSectionBar from "@/components/ShopSectionBar";
-import { searchProducts } from "@/data/products";
+import { searchProducts } from "@/lib/catalog";
 
 export async function generateMetadata({
   searchParams,
@@ -22,7 +22,7 @@ export default async function SearchPage({
 }) {
   const { q } = await searchParams;
   const query = (q ?? "").trim();
-  const results = query ? searchProducts(query) : [];
+  const results = query ? await searchProducts(query) : [];
 
   return (
     <div className="surface-mesh relative bg-zinc-50 dark:bg-zinc-950">

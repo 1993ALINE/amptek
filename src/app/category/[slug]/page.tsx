@@ -4,16 +4,11 @@ import { notFound } from "next/navigation";
 import CategorySidebar from "@/components/CategorySidebar";
 import ProductCard from "@/components/ProductCard";
 import ShopSectionBar from "@/components/ShopSectionBar";
-import {
-  categories,
-  getCategoryBySlug,
-  getProductsByCategory,
-} from "@/data/products";
+import { getCategoryBySlug } from "@/data/products";
+import { getProductsByCategory } from "@/lib/catalog";
 
-// Pre-render a page for every category.
-export function generateStaticParams() {
-  return categories.map((c) => ({ slug: c.slug }));
-}
+// Products come from Supabase, so render per-request.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -39,7 +34,7 @@ export default async function CategoryPage({
   const category = getCategoryBySlug(slug);
   if (!category) notFound();
 
-  const products = getProductsByCategory(category.name);
+  const products = await getProductsByCategory(category.name);
 
   return (
     <div className="surface-mesh relative bg-zinc-50 dark:bg-zinc-950">

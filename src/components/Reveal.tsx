@@ -29,10 +29,11 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    // No IntersectionObserver (very old browsers) → show immediately.
+    // No IntersectionObserver (very old browsers) → reveal on the next frame
+    // (async, so we never setState synchronously inside the effect body).
     if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
+      const raf = requestAnimationFrame(() => setVisible(true));
+      return () => cancelAnimationFrame(raf);
     }
 
     const observer = new IntersectionObserver(

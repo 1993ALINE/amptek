@@ -2,11 +2,12 @@ import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import SectionHeading from "@/components/SectionHeading";
 import { ArrowRightIcon } from "@/components/icons";
-import { featuredProducts } from "@/data/products";
+import { getFeaturedProducts } from "@/lib/catalog";
 import Reveal from "@/components/Reveal";
 
-export default function FeaturedStrip() {
-  const products = featuredProducts.slice(0, 4);
+export default async function FeaturedStrip() {
+  const featured = await getFeaturedProducts();
+  const products = featured.slice(0, 4);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24">

@@ -3,17 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductActions from "@/components/ProductActions";
 import Reveal from "@/components/Reveal";
-import {
-  allProducts,
-  discountPercent,
-  formatPrice,
-  getProductById,
-} from "@/data/products";
+import { discountPercent, formatPrice } from "@/data/products";
+import { getProductById } from "@/lib/catalog";
 
-// Pre-render every product page at build time.
-export function generateStaticParams() {
-  return allProducts.map((p) => ({ id: p.id }));
-}
+// Products come from Supabase, so render per-request.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -21,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const product = getProductById(id);
+  const product = await getProductById(id);
   return {
     title: product ? `${product.name} — Amptek` : "Product — Amptek",
     description: product?.description,
@@ -34,7 +28,7 @@ export default async function ProductPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const product = getProductById(id);
+  const product = await getProductById(id);
   if (!product) notFound();
 
   const { name, price, discountPrice, image, category, description } = product;

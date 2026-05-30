@@ -230,8 +230,9 @@ export const flashDeals: Product[] = [
 export const allProducts: Product[] = [...featuredProducts, ...newArrivals];
 
 // Detail-page copy, keyed by product id. Kept separate from the grid data so
-// the cards stay lightweight; merged in by getProductById.
-const productDescriptions: Record<string, string> = {
+// the cards stay lightweight; merged in by getProductById. Exported so the
+// one-time Supabase migration (scripts/migrate-products.ts) can fold it in.
+export const productDescriptions: Record<string, string> = {
   p1: "Indoor 11kV vacuum circuit breaker for HT switchgear panels. Maintenance-free vacuum interrupters deliver reliable short-circuit protection and long electrical life, with motorized spring-charged operating mechanism and trip-free operation.",
   p2: "Oil-immersed 500kVA distribution transformer stepping 11kV down to 0.4kV for industrial and commercial distribution. Copper windings, ONAN cooling, and off-circuit tap changer — built to IEC standards for dependable, efficient service.",
   p3: "40-litre FM-200 (HFC-227ea) clean-agent suppression cylinder for total-flooding protection of server rooms, control panels, and critical assets. Discharges in under 10 seconds, leaving no residue and safe for occupied spaces.",
