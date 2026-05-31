@@ -52,6 +52,14 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/track"
+                className="inline-block text-zinc-400 transition-all hover:translate-x-0.5 hover:text-white"
+              >
+                Track Order
+              </Link>
+            </li>
           </ul>
         </div>
 

@@ -4,20 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { formatPrice } from "@/data/products";
 import { ORDER_STATUSES, type OrderRow, type OrderStatus } from "@/lib/order-types";
-
-// Tailwind classes per status, used for the colored status pill / select.
-const STATUS_STYLES: Record<OrderStatus, string> = {
-  pending:
-    "border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-300",
-  confirmed:
-    "border-blue-300 bg-blue-50 text-blue-700 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-300",
-  shipped:
-    "border-indigo-300 bg-indigo-50 text-indigo-700 dark:border-indigo-900 dark:bg-indigo-950/40 dark:text-indigo-300",
-  delivered:
-    "border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300",
-  cancelled:
-    "border-rose-300 bg-rose-50 text-rose-700 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-300",
-};
+import { STATUS_STYLES } from "@/lib/order-status";
 
 function formatDate(iso: string): string {
   const d = new Date(iso);
@@ -61,16 +48,38 @@ export default function AdminOrders() {
   }, [fetchOrders]);
 
   async function changeStatus(id: string, status: OrderStatus) {
+    // Cancelling requires a reason; capture it before writing. For any other
+    // status we clear the reason so it can't linger from a previous cancel.
+    let cancellationReason: string | null = null;
+    if (status === "cancelled") {
+      const reason = window.prompt("Reason for cancelling this order?");
+      // Prompt dismissed, or left blank → abort (the controlled <select> resets).
+      if (reason === null) return;
+      const trimmed = reason.trim();
+      if (!trimmed) {
+        setUpdateError("A cancellation reason is required to cancel an order.");
+        return;
+      }
+      cancellationReason = trimmed;
+    }
+
     setUpdatingId(id);
     setUpdateError(null);
-    const { error } = await supabase.from("orders").update({ status }).eq("id", id);
+    const { error } = await supabase
+      .from("orders")
+      .update({ status, cancellation_reason: cancellationReason })
+      .eq("id", id);
     setUpdatingId(null);
     if (error) {
       setUpdateError(`Could not update order: ${error.message}`);
       return;
     }
     // Reflect the change locally without refetching (keeps row order + expansion).
-    setOrders((prev) => prev.map((o) => (o.id === id ? { ...o, status } : o)));
+    setOrders((prev) =>
+      prev.map((o) =>
+        o.id === id ? { ...o, status, cancellation_reason: cancellationReason } : o
+      )
+    );
   }
 
   function toggleExpand(id: string) {
@@ -214,6 +223,12 @@ function FragmentRow({
         <tr className="bg-zinc-50/70 dark:bg-zinc-900/40">
           <td />
           <td colSpan={6} className="px-4 pb-5 pt-1">
+            {order.status === "cancelled" && order.cancellation_reason && (
+              <div className="mb-4 rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-700 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-300">
+                <span className="font-semibold">Cancellation reason:</span>{" "}
+                {order.cancellation_reason}
+              </div>
+            )}
             <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
               {/* Items */}
               <div>

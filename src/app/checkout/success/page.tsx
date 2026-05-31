@@ -65,6 +65,16 @@ export default function CheckoutSuccessPage() {
             {order.orderNumber}
           </span>
         </p>
+        <p className="mt-2 text-sm text-zinc-500">
+          Save this number — you can{" "}
+          <Link
+            href={`/track?order=${encodeURIComponent(order.orderNumber)}`}
+            className="font-medium text-brand-blue hover:underline dark:text-brand-red"
+          >
+            track your order
+          </Link>{" "}
+          anytime to check its status.
+        </p>
       </div>
 
       <div className="mt-8 overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-card dark:border-zinc-800 dark:bg-zinc-900">
@@ -121,12 +131,18 @@ export default function CheckoutSuccessPage() {
         </div>
       </div>
 
-      <div className="mt-8 text-center">
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
         <Link
           href="/"
           className="inline-block rounded-lg bg-brand-red px-8 py-3 font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-brand-red-dark hover:shadow-md"
         >
           Continue Shopping
+        </Link>
+        <Link
+          href={`/track?order=${encodeURIComponent(order.orderNumber)}`}
+          className="inline-block rounded-lg border border-zinc-300 px-8 py-3 font-semibold text-zinc-800 transition-all hover:-translate-y-0.5 hover:border-zinc-400 hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
+        >
+          Track Order
         </Link>
       </div>
     </main>
