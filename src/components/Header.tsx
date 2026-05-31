@@ -6,7 +6,7 @@ import { useState } from "react";
 import { navLinks } from "@/data/company";
 import { useCart } from "@/context/CartContext";
 import HeaderSearch from "@/components/HeaderSearch";
-import { SearchIcon } from "@/components/icons";
+import { SearchIcon, TruckIcon } from "@/components/icons";
 
 // The cart only makes sense within the store. The storefront is now the
 // homepage, so the icon shows on / plus the product and cart routes.
@@ -90,6 +90,21 @@ export default function Header() {
             <SearchIcon className="h-5 w-5" />
           </button>
 
+          {/* Track Order — always visible, sits beside the cart. Icon-only on
+              mobile, icon + label from sm up. */}
+          <Link
+            href="/track"
+            aria-label="Track your order"
+            className={`inline-flex items-center gap-1.5 rounded-lg p-2 text-sm font-semibold ring-1 ring-inset transition-colors sm:px-3 ${
+              isActive("/track")
+                ? "bg-brand-blue/15 text-brand-blue ring-brand-blue/30 dark:bg-brand-blue/30 dark:text-white dark:ring-brand-blue/40"
+                : "bg-brand-blue/10 text-brand-blue ring-brand-blue/15 hover:bg-brand-blue/15 hover:ring-brand-blue/30 dark:bg-brand-blue/20 dark:text-white dark:ring-brand-blue/30 dark:hover:bg-brand-blue/30"
+            }`}
+          >
+            <TruckIcon className="h-5 w-5" />
+            <span className="hidden sm:inline">Track Order</span>
+          </Link>
+
           {showCart && <CartButton totalItems={totalItems} />}
 
           {/* Mobile menu toggle */}
@@ -149,7 +164,7 @@ function CartButton({ totalItems }: { totalItems: number }) {
     <Link
       href="/cart"
       aria-label={`Cart with ${totalItems} item${totalItems === 1 ? "" : "s"}`}
-      className="relative flex items-center p-2 text-zinc-700 hover:text-brand-blue dark:text-zinc-200 dark:hover:text-white"
+      className="relative inline-flex items-center rounded-lg bg-brand-red/10 p-2 text-brand-red ring-1 ring-inset ring-brand-red/15 transition-colors hover:bg-brand-red/15 hover:ring-brand-red/30 dark:bg-brand-red/20 dark:text-white dark:ring-brand-red/30 dark:hover:bg-brand-red/30"
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="8" cy="21" r="1" />
@@ -157,7 +172,7 @@ function CartButton({ totalItems }: { totalItems: number }) {
         <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
       </svg>
       {totalItems > 0 && (
-        <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-red px-1 text-[10px] font-bold text-white">
+        <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-red px-1 text-[10px] font-bold text-white ring-2 ring-white dark:ring-zinc-950">
           {totalItems}
         </span>
       )}
