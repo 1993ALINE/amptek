@@ -213,7 +213,76 @@ export default function AdminProducts() {
         ) : rows.length === 0 ? (
           <p className="p-8 text-center text-sm text-zinc-500">No products yet. Add one to get started.</p>
         ) : (
-          <div className="overflow-x-auto">
+          <>
+            {/* Mobile / tablet: one card per product */}
+            <ul className="divide-y divide-zinc-100 dark:divide-zinc-800 lg:hidden">
+              {rows.map((row) => (
+                <li key={row.id} className="p-4">
+                  <div className="flex gap-3">
+                    <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800">
+                      {row.image && (
+                        <Image
+                          src={row.image}
+                          alt=""
+                          fill
+                          sizes="56px"
+                          unoptimized
+                          className="object-cover"
+                        />
+                      )}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="truncate font-medium text-zinc-900 dark:text-white">
+                          {row.name}
+                        </div>
+                        <div className="shrink-0 font-bold text-zinc-900 dark:text-white">
+                          {formatPrice(Number(row.price))}
+                        </div>
+                      </div>
+                      <div className="truncate text-xs text-zinc-400">
+                        {row.id} · {row.category}
+                      </div>
+                      <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs">
+                        <span className="rounded-full bg-zinc-100 px-2 py-0.5 font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
+                          {row.collection === "featured" ? "Featured" : "New arrival"}
+                        </span>
+                        {row.discount_price != null && (
+                          <span className="rounded-full bg-brand-red/10 px-2 py-0.5 font-medium text-brand-red">
+                            {formatPrice(Number(row.discount_price))}
+                          </span>
+                        )}
+                        {row.is_flash_deal && (
+                          <span className="rounded-full bg-amber-100 px-2 py-0.5 font-medium text-amber-700 dark:bg-amber-950/40 dark:text-amber-300">
+                            ⚡ Flash
+                          </span>
+                        )}
+                        <span className="text-zinc-400">Order {row.sort_order}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-3 flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => openEdit(row)}
+                      className="flex-1 rounded-lg border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleDelete(row)}
+                      className="flex-1 rounded-lg border border-rose-300 px-3 py-2 text-sm font-medium text-rose-600 transition-colors hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/40"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            {/* Desktop: table (unchanged) */}
+            <div className="hidden overflow-x-auto lg:block">
             <table className="w-full min-w-[820px] text-left text-sm">
               <thead className="border-b border-zinc-200 bg-zinc-50 text-xs uppercase tracking-wide text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900/60">
                 <tr>
@@ -288,7 +357,8 @@ export default function AdminProducts() {
                 ))}
               </tbody>
             </table>
-          </div>
+            </div>
+          </>
         )}
       </div>
     </div>
@@ -430,18 +500,18 @@ function ProductForm({
         </p>
       )}
 
-      <div className="mt-5 flex gap-3">
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <button
           type="submit"
           disabled={saving}
-          className="rounded-lg bg-gradient-to-b from-brand-blue to-brand-blue-dark px-5 py-2.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 transition-all hover:brightness-110 active:scale-[0.99] disabled:opacity-60"
+          className="w-full rounded-lg bg-gradient-to-b from-brand-blue to-brand-blue-dark px-5 py-2.5 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 transition-all hover:brightness-110 active:scale-[0.99] disabled:opacity-60 sm:w-auto"
         >
           {saving ? "Saving…" : mode === "add" ? "Create product" : "Save changes"}
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-lg border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800"
+          className="w-full rounded-lg border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800 sm:w-auto"
         >
           Cancel
         </button>
