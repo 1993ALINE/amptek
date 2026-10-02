@@ -1,6 +1,6 @@
 # Amptek
 
-A full-stack business web application built with **Next.js, React, TypeScript, Tailwind CSS, and Supabase**.
+A full-stack corporate and e-commerce web application built with **Next.js, React, TypeScript, Tailwind CSS, and Supabase**.
 
 Amptek was developed as a production-oriented website for an electrical engineering business, with business information, product management, an administrative interface, and backend data integration.
 
