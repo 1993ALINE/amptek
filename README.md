@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amptek
 
-## Getting Started
+A full-stack business web application built with **Next.js, React, TypeScript, Tailwind CSS, and Supabase**.
 
-First, run the development server:
+Amptek was developed as a production-oriented website for an electrical engineering business, with business information, product management, an administrative interface, and backend data integration.
+
+## 🚀 Technology Stack
+
+### Frontend
+
+* Next.js 16
+* React 19
+* TypeScript
+* Tailwind CSS 4
+
+### Backend & Data
+
+* Supabase
+* Supabase JavaScript Client
+* Supabase SSR
+* Database-backed application functionality
+
+### Development & Deployment
+
+* Node.js
+* npm
+* ESLint
+* Vercel
+
+## ✨ Features
+
+* Business website and company information
+* Product presentation and management
+* Administrative panel
+* Supabase backend integration
+* Customer order tracking
+* Order cancellation handling
+* Responsive user interface
+* Mobile-responsive admin panel
+* Production deployment
+
+## 🏗️ Project Structure
+
+```text
+amptek/
+├── public/
+├── scripts/
+├── src/
+├── next.config.ts
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+## 🔧 Development
+
+### Prerequisites
+
+* Node.js
+* npm
+* Supabase project
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Configure environment variables
+
+Create a local environment file with the required Supabase configuration.
+
+Do not commit credentials or environment-specific secrets to the repository.
+
+### Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the local development server in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### Start the production build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Run linting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+## ☁️ Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application has been deployed to Vercel for production hosting.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📌 Project Highlights
+
+This project demonstrates practical experience with:
+
+* Next.js application development
+* React component development
+* TypeScript
+* Responsive UI development
+* Tailwind CSS
+* Supabase integration
+* Database-backed application workflows
+* Administrative interfaces
+* Product management
+* Customer order workflows
+* Production deployment
+
+## 🌐 Live Website
+
+**Amptek:** https://amptek.vercel.app/
+
+## 👨‍💻 Author
+
+**Atiqur Rahman**
+
+Software Developer specializing in Java, Spring Boot, REST APIs, backend development, databases, and full-stack web applications.
